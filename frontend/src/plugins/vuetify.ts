@@ -26,4 +26,11 @@ export default createVuetify({
       },
     },
   },
+  defaults: {
+    global: {
+      font: {
+        family: "Sora", // specify your font family here
+      },
+    },
+  },
 });

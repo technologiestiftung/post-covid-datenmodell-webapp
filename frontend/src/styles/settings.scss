@@ -1,10 +1,7 @@
-/**
- * src/styles/settings.scss
- *
- * Configures SASS variables and Vuetify overwrites
- */
+$body-font-family: "Sora";
 
-// https://vuetifyjs.com/features/sass-variables/`
-// @use 'vuetify/settings' with (
-//   $color-pack: false
-// );
+@use "vuetify" with (
+    $body-font-family: $body-font-family,
+    $heading-font-family: $body-font-family
+
+);
