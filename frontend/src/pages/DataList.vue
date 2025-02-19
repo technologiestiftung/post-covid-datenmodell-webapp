@@ -35,6 +35,7 @@
           }}
           {{ ": " + filterStore.filterCategory }}
         </p>
+        <AppFavoriteBar />
         <div v-for="item in filteredData" :key="item.id">
           <MetaDataCard :data-entry="item" />
         </div>
@@ -51,6 +52,7 @@ import MetaDataCard from "../components/MetaDataCard.vue";
 import FilterCategories from "../components/FilterCategories.vue";
 import AttributeCategories from "../components/AttributeCategories.vue";
 import AppInformation from "../components/AppInformation.vue";
+import AppFavoriteBar from "../components/AppFavoriteBar.vue";
 
 const filteredData = computed(() => {
   if (filterStore.filterCategory) {
