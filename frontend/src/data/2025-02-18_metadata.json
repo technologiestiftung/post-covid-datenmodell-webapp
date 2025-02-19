@@ -1,0 +1,45 @@
+[
+    {
+        "id": "dataset-1",
+        "title": "Stündliche Wetterdaten - Bright Sky API (DWD)",
+        "description": "Eine API zur Abfrage stündlicher Wetterdaten basierend auf den offenen Daten des DWD.",
+        "source": "https://api.brightsky.dev/weather",
+        "license": "https://opendata.dwd.de/terms/",
+        "category": "Umwelt",
+        "data_formats": [
+            "JSON"
+        ],
+        "last_updated": "2021-02-18",
+        "availability_temporal": {
+            "start_date": "2010-01-01",
+            "end_date": "2025-02-18",
+            "resolution": "hourly"
+        },
+        "availability_spatial": {
+            "country": "Germany",
+            "bbox": "5.866,47.27,15.041,55.058"
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "temperature",
+            "humidity",
+            "wind_speed"
+        ],
+        "filter_attributes": [
+            "Ort",
+            "Zeitspanne"
+        ],
+        "keywords": [
+            "weather",
+            "API",
+            "DWD"
+        ],
+        "contact": {
+            "name": "Bright Sky",
+            "address": "Muster Strasse 9 <br/> Musterstadt",
+            "email": "info@brightsky.dev",
+            "phone_number": "+4912345678"
+        }
+    }
+]

@@ -1,7 +1,9 @@
 <template>
   <v-app>
     <AppHeader></AppHeader>
-    <v-main> <router-view /></v-main>
+    <v-main style="background-color: #eaeaf6">
+      <router-view />
+    </v-main>
 
     <AppFooter></AppFooter>
   </v-app>
