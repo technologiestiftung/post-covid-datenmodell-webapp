@@ -1,5 +1,5 @@
 <template>
-  <v-card flat rounded="xl" class="pa-4">
+  <v-card flat rounded="xl" class="pa-4 mb-4">
     <v-card-title>
       <v-row>
         <v-col cols="12" md="7" sm="12">
@@ -21,7 +21,7 @@
             @click="isSelected = !isSelected"
           >
             <v-icon>
-              {{ isSelected ? "mdi-star-outline" : "mdi-star" }}
+              {{ isSelected ? "mdi-star" : "mdi-star-outline" }}
             </v-icon>
           </v-btn>
           <v-btn
@@ -46,7 +46,10 @@
       <div class="d-flex align-center">
         <b class="pr-4">Schlüsselattribute </b>
         <v-chip-group column>
-          <v-chip v-for="chip in dataEntry.filter_attributes" color="primary"
+          <v-chip
+            v-for="chip in dataEntry.filter_attributes"
+            color="primary"
+            variant="tonal"
             >{{ chip }}
           </v-chip>
         </v-chip-group>
@@ -106,7 +109,7 @@
       <v-card-text>
         Konfigurieren Sie den Datensatz nach den für Sie relevanten Attribute
         vor dem Export, indem Sie per Klick an- oder abwählen.
-        <v-chip-group>
+        <v-chip-group column>
           <v-chip v-for="chip in dataEntry.attributes">{{ chip }} </v-chip>
         </v-chip-group>
       </v-card-text>
@@ -114,7 +117,7 @@
       <v-card-text>
         Wählen Sie ein passendes Dateigormat vor dem Download aus per Klick
         an-oder abwählen.
-        <v-chip-group>
+        <v-chip-group column>
           <v-chip v-for="chip in dataEntry.data_formats">{{ chip }} </v-chip>
         </v-chip-group>
       </v-card-text>
@@ -163,15 +166,6 @@ const props = defineProps<{
 
 // todo: add to store?
 const isSelected = ref(false);
-
 const isExtended = ref(false);
-
 const showSource = ref(false);
 </script>
-
-<style scoped>
-.no-left-padding {
-  padding-left: 0 !important; /* Remove left padding */
-  margin-left: 0 !important; /* Remove left margin */
-}
-</style>

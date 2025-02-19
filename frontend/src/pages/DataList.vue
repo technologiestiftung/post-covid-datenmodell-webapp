@@ -33,7 +33,7 @@
               ? "Datensatz gefunden"
               : "Datensätze gefunden"
           }}
-          {{ ": " + filterStore.filterCategory }}
+          {{ filterStore.filterCategory ? filterStore.filterCategory : "" }}
         </p>
         <AppFavoriteBar />
         <div v-for="item in filteredData" :key="item.id">

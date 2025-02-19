@@ -6,18 +6,16 @@
       variant="outlined"
       density="compact"
       color="primary"
-      @click="isSelected = !isSelected"
+      style="background-color: #fbfbfd"
     >
-      <v-icon size="16">
-        {{ isSelected ? "mdi-star-outline" : "mdi-star" }}
-      </v-icon>
+      <v-icon size="16"> mdi-star </v-icon>
     </v-btn>
   </div>
 </template>
 
 <style scoped>
 .favoriten-bar {
-  position: absolute;
+  position: fixed;
   right: 0%; /* Adjust as needed */
   /* top: 0px%; */
   transform: translateY(-50%);
