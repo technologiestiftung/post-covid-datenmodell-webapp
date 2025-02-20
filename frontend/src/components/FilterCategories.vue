@@ -14,7 +14,7 @@
         :key="category"
         :value="category"
         :variant="filterStore.filterCategory === category ? 'flat' : 'outlined'"
-        color="tbsDarkBlue"
+        color="primary"
       >
         {{ category }}
       </v-chip>

@@ -2,7 +2,7 @@
   <span>
     <v-tooltip location="bottom" max-width="300px">
       <template #activator="{ props }">
-        <v-icon color="tbsDarkBlue" class="ml-1" v-bind="props">
+        <v-icon color="secondary" class="ml-1" v-bind="props">
           mdi-information
         </v-icon>
       </template>

@@ -5,8 +5,6 @@
 
     <v-card-actions>
       <v-btn variant="flat" color="primary">Hello</v-btn>
-      <v-btn color="tbsDarkBlue">Hello</v-btn>
-      <v-btn color="tbsLightBlue"> Hello</v-btn>
     </v-card-actions>
   </v-card>
 </template>

@@ -1,29 +1,29 @@
 <template>
   <div>
-    <v-row class="justify-center pt-4" style="background-color: #fbfbfd">
+    <v-row class="justify-center pt-4">
       <v-col cols="11" md="10" xl="6">
         <div class="d-flex">
-          <h1>Metadatenkatalog</h1>
+          <h1 class="text-secondary">Metadatenkatalog</h1>
           <AppInformation metric="metadatenkatalog" />
         </div>
       </v-col>
     </v-row>
     <!-- Kategorien -->
-    <v-row class="justify-center" style="background-color: #fbfbfd">
+    <v-row class="justify-center">
       <v-col cols="11" md="10" xl="6">
         <b>Kategorie</b>
         <FilterCategories />
       </v-col>
     </v-row>
     <!-- Schlüsselattribute -->
-    <v-row class="justify-center" style="background-color: #fbfbfd">
+    <v-row class="justify-center">
       <v-col cols="11" md="10" xl="6">
         <b>MII-Schlüsselattribute</b>
         <AttributeCategories />
       </v-col>
     </v-row>
     <!-- Data Cards -->
-    <v-row class="justify-center">
+    <v-row class="justify-center" style="background-color: #eaeaf6">
       <v-col cols="11" md="10" xl="6">
         <!-- todo: add Schlagworte here? -->
         <p class="py-4">

@@ -1,7 +1,7 @@
 <template>
   <v-app>
     <AppHeader></AppHeader>
-    <v-main style="background-color: #eaeaf6">
+    <v-main>
       <router-view />
     </v-main>
 
