@@ -7,12 +7,7 @@
             {{ dataEntry.title }}
           </p>
         </v-col>
-        <v-col
-          v-if="mdAndUp"
-          cols="12"
-          md="5"
-          class="d-flex align-top justify-end"
-        >
+        <v-col cols="12" md="5" class="d-flex align-top justify-end">
           <v-btn
             icon
             variant="outlined"
@@ -135,7 +130,36 @@
         </v-chip-group>
       </v-card-text>
     </div>
-    <v-card-actions v-if="smAndDown">
+    <!-- Datenvorschau + Export -->
+
+    <v-row justify="end">
+      <v-col cols="12" sm="auto">
+        <v-btn
+          prepend-icon="mdi-folder-eye"
+          rounded="xl"
+          color="primary"
+          variant="outlined"
+          block
+        >
+          Datenvorschau
+        </v-btn>
+      </v-col>
+
+      <v-col cols="12" sm="auto">
+        <v-btn
+          rounded="xl"
+          color="primary"
+          variant="flat"
+          append-icon="mdi-arrow-right"
+          block
+        >
+          Zum Export hinzufügen
+        </v-btn>
+      </v-col>
+    </v-row>
+
+    <!-- todo: option for better distribution of buttons when small screen -->
+    <!-- <v-card-actions v-if="smAndDown">
       <v-row>
         <v-col cols="12" md="5" class="d-flex align-top justify-end">
           <v-btn
@@ -161,17 +185,14 @@
           </v-btn>
         </v-col>
       </v-row>
-    </v-card-actions>
+    </v-card-actions> -->
   </v-card>
 </template>
 
 <script setup lang="ts">
-import { ref, computed } from "vue";
+import { ref } from "vue";
 import { useDisplay } from "vuetify";
 import { type MetaDataEntry } from "../types/metadata";
-import { mdiStarOutline, mdiStar } from "@mdi/js";
-
-const { smAndDown, mdAndUp } = useDisplay();
 
 const props = defineProps<{
   dataEntry: MetaDataEntry;
