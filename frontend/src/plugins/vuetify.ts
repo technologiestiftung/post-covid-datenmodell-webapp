@@ -9,21 +9,25 @@ import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 
 // Composables
-import { createVuetify } from "vuetify";
+import { createVuetify, type ThemeDefinition } from "vuetify";
+
+const customLightTheme: ThemeDefinition = {
+  dark: false,
+  colors: {
+    background: "#fbfbfd", // purple-white
+    "background-dark": "#eaeaf6", // light-purple
+    surface: "#ffffff", // pure white
+    primary: "#1e3791", // light-blue
+    secondary: "#0e1a45", // dark-blue
+  },
+};
 
 // https://vuetifyjs.com/en/introduction/why-vuetify/#feature-guides
 export default createVuetify({
   theme: {
-    defaultTheme: "light",
+    defaultTheme: "customLightTheme",
     themes: {
-      light: {
-        dark: false,
-        colors: {
-          primary: "#1e3791",
-          tbsDarkBlue: "#0e1a44",
-          tbsLightBlue: "#eaeaf6",
-        },
-      },
+      customLightTheme,
     },
   },
   defaults: {
