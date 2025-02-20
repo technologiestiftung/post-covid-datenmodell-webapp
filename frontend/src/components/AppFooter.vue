@@ -4,8 +4,8 @@
       <v-col 
         cols="12" 
         lg="12" 
-        xl="9" 
-        xxl="6"
+        xl="12" 
+        xxl="12"
       >        
         <div class="d-flex flex-column">
           <span class="text-h5">Sie möchten Datensätze für unseren</span>
@@ -83,8 +83,8 @@
       <v-col 
         cols="12" 
         lg="12" 
-        xl="9" 
-        xxl="6"
+        xl="12" 
+        xxl="12"
       >
         <div class="d-flex align-center justify-space-between">
           <div>
