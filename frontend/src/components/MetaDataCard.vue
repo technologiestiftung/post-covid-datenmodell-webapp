@@ -48,6 +48,7 @@
         <v-chip-group column>
           <v-chip
             v-for="chip in dataEntry.filter_attributes"
+            :key="chip"
             color="primary"
             variant="tonal"
             >{{ chip }}
@@ -60,14 +61,14 @@
       <v-row>
         <v-col cols="12" sm="6" v-if="dataEntry.availability_temporal">
           <b class="mr-4">Zeitspanne </b>
-          <v-chip>
+          <v-chip variant="tonal" color="primary">
             {{ dataEntry.availability_temporal.start_date }} -
             {{ dataEntry.availability_temporal.end_date }}
           </v-chip>
         </v-col>
         <v-col cols="12" sm="6" v-if="dataEntry.availability_spatial">
           <b class="mr-4">Ort </b>
-          <v-chip>
+          <v-chip variant="tonal" color="primary">
             {{ dataEntry.availability_spatial.country }}
           </v-chip>
         </v-col>
@@ -110,7 +111,13 @@
         Konfigurieren Sie den Datensatz nach den für Sie relevanten Attribute
         vor dem Export, indem Sie per Klick an- oder abwählen.
         <v-chip-group column>
-          <v-chip v-for="chip in dataEntry.attributes">{{ chip }} </v-chip>
+          <v-chip
+            v-for="chip in dataEntry.attributes"
+            :key="chip"
+            color="#70acc0"
+            variant="tonal"
+            >{{ chip }}
+          </v-chip>
         </v-chip-group>
       </v-card-text>
       <v-card-title>Dateiformate</v-card-title>
@@ -118,7 +125,13 @@
         Wählen Sie ein passendes Dateigormat vor dem Download aus per Klick
         an-oder abwählen.
         <v-chip-group column>
-          <v-chip v-for="chip in dataEntry.data_formats">{{ chip }} </v-chip>
+          <v-chip
+            v-for="chip in dataEntry.data_formats"
+            :key="chip"
+            color="#70acc0"
+            variant="tonal"
+            >{{ chip }}
+          </v-chip>
         </v-chip-group>
       </v-card-text>
     </div>

@@ -2,6 +2,7 @@
   <div>
     <v-chip-group
       column
+      v-model="filterStore.filterCategory"
       @update:model-value="(value) => (filterStore.filterCategory = value as Category)"
     >
       <v-chip
