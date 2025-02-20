@@ -182,7 +182,7 @@
           xxl="6"
         >
           <HomeDataWorld
-            icon="mdi-account-circle"
+            icon="mdi-selection-ellipse"
             title="Demografie"
             subtitle="Jede Altersgruppe zählt: Gesundheit nach Maß"
             description="Erforschen Sie Muster in den medizinischen Daten anhand demografischer Einflussfaktoren wie Alter und Geschlecht. Welche Schlüsse lassen sich in Bezug auf Prävention sowie bedarfsorientierte Behandlung und Genesung von Post-Covid-Patienten ableiten? Identifizieren Sie Risikogruppen."
