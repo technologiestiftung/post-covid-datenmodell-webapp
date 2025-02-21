@@ -1,15 +1,19 @@
 <template>  
-  <div class="d-flex flex-column">
-    <v-container class="remove-top-margin pa-3">
+  <div class="d-flex flex-column remove-top-margin">
+    <v-container>
       <v-row 
         justify="center" 
-        class="remove-left-right-margin"
+        :class="{
+          'remove-left-right-margin-lg': $vuetify.display.lg,
+          'remove-left-right-margin': $vuetify.display.xxl,
+        }"
       >
         <v-col 
-          cols="12" 
+          cols="12"
+          md="11" 
           lg="12" 
-          xl="12" 
-          xxl="12"
+          xl="10" 
+          xxl="8"
         >          
           <div class="banner-section d-flex flex-column pa-15">            
             <h1 class="banner-title mt-15 text-h4">
@@ -25,13 +29,14 @@
       </v-row>    
       <v-row 
         justify="center" 
-        class="bg-home-surface mt-0"
+        class="mt-0"
       >
         <v-col 
           cols="12" 
-          lg="10" 
-          xl="9" 
-          xxl="6"
+          lg="12" 
+          xl="8" 
+          xxl="8"
+          class="bg-home-surface"
         >          
           <div class="d-flex flex-column align-center pt-5">
             <v-text-field              
@@ -46,9 +51,9 @@
               append-inner-icon="mdi-arrow-right-circle"                
             />
 
-            <div class="d-flex mt-2">
+            <div class="d-flex mt-2 flex-wrap justify-center">
               <v-btn
-                class="mr-1 text-capitalize text-primary text-body-2"
+                class="ma-1 text-capitalize text-primary text-body-2"
                 variant="outlined"
                 rounded="xl"
                 density="compact"
@@ -57,7 +62,7 @@
               </v-btn>
   
               <v-btn
-                class="mr-1 text-capitalize text-primary text-body-2"
+                class="ma-1 text-capitalize text-primary text-body-2"
                 variant="outlined"
                 rounded="xl"
                 density="compact"
@@ -66,7 +71,7 @@
               </v-btn>
   
               <v-btn
-                class="mr-1 text-capitalize text-primary text-body-2"
+                class="ma-1 text-capitalize text-primary text-body-2"
                 variant="outlined"
                 rounded="xl"
                 density="compact"
@@ -75,7 +80,7 @@
               </v-btn>
   
               <v-btn
-                class="mr-1 text-capitalize text-primary text-body-2"
+                class="ma-1 text-capitalize text-primary text-body-2"
                 variant="outlined"
                 rounded="xl"
                 density="compact"
@@ -84,7 +89,7 @@
               </v-btn>
   
               <v-btn
-                class="mr-1 text-capitalize text-primary text-body-2"
+                class="ma-1 text-capitalize text-primary text-body-2"
                 variant="outlined"
                 rounded="xl"
                 density="compact"
@@ -94,48 +99,32 @@
             </div>
           </div>
         </v-col>
-      </v-row>
+      </v-row>       
       <v-row 
-        justify="center" 
-        class="bg-home-surface"
+        justify="center"         
       >
         <v-col 
           cols="12" 
-          lg="10" 
+          lg="12" 
           xl="9" 
-          xxl="6"
-        >
+          xxl="8"
+          class="bg-home-surface"
+        >           
           <b class="pl-10 ml-10 text-h4">Daten sortieren und für MII-Daten anpassen</b>   
           <p class="pl-10 ml-10 text-body-1 mt-5">
             Mit unserer Webanwendung können Sie sofort passende offene Datensätze finden, die sich mit dem Kerndatensatz der Medizinformatikinitative verschneiden lassen, zum Beispiel über räumlichen oder zeitlichen Bezug oder über Altersgruppe und Geschlecht. Die Anwendung erlaubt ebenfalls eine Filterung nach Thema und bereitet die offenen Daten automatisch in einem kompatiblen Format vor – bereit für eine nahtlose Integration mit Ihren MII-Daten.
-          </p>    
-        </v-col>
-      </v-row>  
-      <v-row 
-        justify="center" 
-        class="bg-home-surface"
-      >
-        <v-col 
-          cols="12" 
-          lg="10" 
-          xl="9" 
-          xxl="6"
-        > 
-          <p class="pl-10 ml-10 font-weight-bold">Filtern nach MII-Schlüsselattribute</p>
+          </p> 
+          <p class="pl-10 ml-10 mt-12 font-weight-bold">Filtern nach MII-Schlüsselattribute</p>
           <AttributeCategories class="pl-10 ml-10" />
         </v-col>
-      </v-row>          
-    </v-container>
-
-    <v-container
-      class="bg-home-white"
-    >
+      </v-row> 
       <v-row justify="center">
         <v-col 
           cols="12" 
-          lg="10" 
+          lg="12" 
           xl="9" 
-          xxl="6"
+          xxl="8"
+          class="bg-home-white"
         > 
           <p class="pl-10 ml-10 text-h4 mt-10">Vier Datenwelten für umfassende Analysen</p>
           <p class="pl-10 ml-10 text-body-1 mt-5 mb-10">
@@ -143,12 +132,13 @@
           </p>        
         </v-col>
       </v-row> 
-      <v-row class="mt-0 mr-10 ml-10">        
+      <v-row justify="center" class="mt-0">        
         <v-col 
           cols="12" 
           lg="6" 
           xl="6" 
-          xxl="6"
+          xxl="4"
+          class="bg-home-white"
         > 
           <HomeDataWorld
             icon="umwelt"
@@ -162,7 +152,8 @@
           cols="12" 
           lg="6" 
           xl="6" 
-          xxl="6"
+          xxl="4"
+          class="bg-home-white"
         > 
           <HomeDataWorld
             icon="gesundheit"
@@ -173,12 +164,13 @@
         </v-col>
       </v-row>
     
-      <v-row class="mt-0 mr-10 ml-10">
+      <v-row justify="center" class="mt-0">
         <v-col 
           cols="12" 
           lg="6" 
           xl="6" 
-          xxl="6"
+          xxl="4"
+          class="bg-home-white"
         > 
           <HomeDataWorld
             icon="gesellschaft"
@@ -192,7 +184,8 @@
           cols="12" 
           lg="6" 
           xl="6" 
-          xxl="6"
+          xxl="4"
+          class="bg-home-white"
         > 
           <HomeDataWorld
             icon="demografie"
@@ -242,7 +235,12 @@ import AttributeCategories from "../components/AttributeCategories.vue";
   margin-top: -64px !important;
 }
 .remove-left-right-margin {
-  margin-left: -24px !important;
-  margin-right: -24px !important;
+  margin-left: -29px !important;
+  margin-right: -29px !important;
+}
+
+.remove-left-right-margin-lg {
+  margin-left: -25px !important;
+  margin-right: -25px !important;
 }
 </style>

@@ -4,11 +4,11 @@
       <v-row justify="center">
         <v-col 
           cols="12" 
-          lg="12" 
-          xl="12" 
-          xxl="12"
+          lg="10" 
+          xl="9" 
+          xxl="6"
         >          
-          <div class="d-flex align-center justify-space-between">
+          <div class="d-flex align-center justify-space-between pt-2">
             <div class="ml-10">
               <img
                 src="../assets/header-logo.svg"
@@ -16,7 +16,7 @@
                 width="60px"
               > 
             </div>
-            <div class="mr-10">
+            <div class="ml-5 d-flex flex-wrap justify-center align-center">
               <v-btn 
                 variant="flat" 
                 size="small" 
