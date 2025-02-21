@@ -12,6 +12,10 @@ const routes = [
     path: "/",
     component: () => import("@/pages/Home.vue"),
   },
+  {
+    path: "/data",
+    component: () => import("@/pages/DataList.vue"),
+  },
 ];
 
 const router = createRouter({
