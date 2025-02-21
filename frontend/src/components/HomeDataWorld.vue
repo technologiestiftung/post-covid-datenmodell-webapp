@@ -4,10 +4,13 @@
       <v-card-text>
         <v-row>
           <v-col cols="3">
-            <v-icon 
-              size="50" 
-              :icon="icon" 
-            />
+            <div class="ma-2 pa-2">
+              <img
+                width="100%"
+                style="max-width: 60px"
+                :src="iconStr"
+              >
+            </div>
           </v-col>
           <v-col cols="9">
             <h3 class="text-h5 font-weight-bold">
@@ -39,12 +42,30 @@
 </template>
 
 <script setup lang="ts">
-defineProps<{
+import { computed } from 'vue';
+
+// Import icons directly
+import umweltIcon from '../assets/umwelt.png';
+import gesundheitIcon from '../assets/gesundheit.png';
+import gesellschaftIcon from '../assets/gesellschaft.png';
+import demografieIcon from '../assets/demografie.png';
+
+const props = defineProps<{
   icon: string;
   title: string;
   subtitle: string;
   description: string;
 }>();
+
+const iconStr = computed(() => {
+  const icons: { [key: string]: string } = {
+    'umwelt': umweltIcon,
+    'gesundheit': gesundheitIcon,
+    'gesellschaft': gesellschaftIcon,
+    'demografie': demografieIcon,
+  };
+  return icons[props.icon] || '';
+});
 
 </script>
 
