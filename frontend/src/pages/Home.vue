@@ -111,7 +111,7 @@
           xxl="8"
           class="bg-home-surface"
         >           
-          <b class="pl-10 ml-10 text-h4">Daten sortieren und für MII-Daten anpassen</b>   
+          <p class="pl-10 ml-10 text-h4 mt-10">Daten sortieren und für MII-Daten anpassen</p>   
           <p class="pl-10 ml-10 text-body-1 mt-5">
             Mit unserer Webanwendung können Sie sofort passende offene Datensätze finden, die sich mit dem Kerndatensatz der Medizinformatikinitative verschneiden lassen, zum Beispiel über räumlichen oder zeitlichen Bezug oder über Altersgruppe und Geschlecht. Die Anwendung erlaubt ebenfalls eine Filterung nach Thema und bereitet die offenen Daten automatisch in einem kompatiblen Format vor – bereit für eine nahtlose Integration mit Ihren MII-Daten.
           </p> 

@@ -27,6 +27,7 @@
               class="text-capitalize bg-secondary mt-10" 
               rounded="xl"
               variant="flat"
+              :class="{ 'text-button': $vuetify.display.smAndUp, 'text-caption': $vuetify.display.xs }"
             >
               passende Datensätze finden
               <v-icon 
