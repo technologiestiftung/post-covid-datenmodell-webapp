@@ -5,7 +5,7 @@
         cols="12" 
         lg="12" 
         xl="12" 
-        xxl="12"
+        xxl="6"
       >        
         <div class="d-flex flex-column">
           <span class="text-h5">Sie möchten Datensätze für unseren</span>
@@ -32,9 +32,11 @@
       </v-col>
     </v-row>
     <v-divider class="mt-5 mb-5" />
-    <v-row>
+    <v-row class="d-flex flex-row flex-wrap">
+      <!-- Project Links -->
       <v-col 
-        cols="4" 
+        cols="12"
+        sm="6" 
         lg="3" 
         xl="4" 
         xxl="2"
@@ -55,11 +57,14 @@
           </v-list>
         </div>
       </v-col>
+    
+      <!-- Contact Links -->
       <v-col 
-        cols="2" 
-        lg="2" 
-        xl="2" 
-        xxl="1"
+        cols="12"
+        sm="6" 
+        lg="3" 
+        xl="4" 
+        xxl="2"
       >
         <div>
           <v-list 
@@ -76,7 +81,7 @@
             </v-list-item>
           </v-list>
         </div>
-      </v-col>             
+      </v-col>
     </v-row>
     <v-divider class="mt-5 mb-5" />
     <v-row>

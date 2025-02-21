@@ -4,6 +4,7 @@
       <v-row 
         justify="center" 
         :class="{
+          'remove-left-right-margin-xs': $vuetify.display.xs,
           'remove-left-right-margin-lg': $vuetify.display.lg,
           'remove-left-right-margin': $vuetify.display.xxl,
         }"
@@ -237,6 +238,11 @@ import AttributeCategories from "../components/AttributeCategories.vue";
 .remove-left-right-margin {
   margin-left: -29px !important;
   margin-right: -29px !important;
+}
+
+.remove-left-right-margin-xs {
+  margin-left: -23px !important;
+  margin-right: -23px !important;
 }
 
 .remove-left-right-margin-lg {

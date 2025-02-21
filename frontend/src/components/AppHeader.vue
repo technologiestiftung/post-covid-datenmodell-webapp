@@ -6,28 +6,28 @@
           cols="12" 
           lg="10" 
           xl="9" 
-          xxl="6"
+          xxl="7"
         >          
-          <div class="d-flex align-center justify-space-between pt-2">
-            <div class="ml-10">
+          <div class="d-flex align-center justify-space-between pt-3 pb-2">
+            <div class="ml-2">
               <img
                 src="../assets/header-logo.svg"
                 height="60px"
                 width="60px"
               > 
             </div>
-            <div class="ml-5 d-flex flex-wrap justify-center align-center">
+            <div class="d-flex flex-wrap gap-2 align-center">
               <v-btn 
                 variant="flat" 
                 size="small" 
-                class="mr-1 text-primary text-capitalize"                    
+                class="text-primary text-capitalize"                    
               >
                 Metadatenbank
               </v-btn>
               <v-btn 
                 variant="flat" 
                 size="small" 
-                class="mr-1 text-primary text-capitalize"
+                class="text-primary text-capitalize"
               >
                 Daten vorschlagen
               </v-btn>
@@ -35,7 +35,7 @@
                 variant="outlined"
                 rounded="xl" 
                 size="small" 
-                class="mr-1 text-primary text-capitalize"                    
+                class="text-primary text-capitalize"                    
               >
                 Datensatz-Export
               </v-btn>                  
