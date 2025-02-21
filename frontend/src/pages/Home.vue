@@ -104,14 +104,27 @@
           lg="10" 
           xl="9" 
           xxl="6"
-        >          
-          <HomeDataSummary
-            title="Daten sortieren und für MII-Daten anpassen"
-            subtitle="Filtern nach MII-Schlüsselattribute"
-            description="Mit unserer Webanwendung können Sie sofort passende offene Datensätze finden, die sich mit dem Kerndatensatz der Medizinformatikinitative verschneiden lassen, zum Beispiel über räumlichen oder zeitlichen Bezug oder über Altersgruppe und Geschlecht. Die Anwendung erlaubt ebenfalls eine Filterung nach Thema und bereitet die offenen Daten automatisch in einem kompatiblen Format vor – bereit für eine nahtlose Integration mit Ihren MII-Daten."
-          />
+        >
+          <b class="pl-10 ml-10 text-h4">Daten sortieren und für MII-Daten anpassen</b>   
+          <p class="pl-10 ml-10 text-body-1 mt-5">
+            Mit unserer Webanwendung können Sie sofort passende offene Datensätze finden, die sich mit dem Kerndatensatz der Medizinformatikinitative verschneiden lassen, zum Beispiel über räumlichen oder zeitlichen Bezug oder über Altersgruppe und Geschlecht. Die Anwendung erlaubt ebenfalls eine Filterung nach Thema und bereitet die offenen Daten automatisch in einem kompatiblen Format vor – bereit für eine nahtlose Integration mit Ihren MII-Daten.
+          </p>    
         </v-col>
-      </v-row>            
+      </v-row>  
+      <v-row 
+        justify="center" 
+        class="bg-home-surface"
+      >
+        <v-col 
+          cols="12" 
+          lg="10" 
+          xl="9" 
+          xxl="6"
+        > 
+          <p class="pl-10 ml-10 font-weight-bold">Filtern nach MII-Schlüsselattribute</p>
+          <AttributeCategories class="pl-10 ml-10" />
+        </v-col>
+      </v-row>          
     </v-container>
 
     <v-container
@@ -123,11 +136,11 @@
           lg="10" 
           xl="9" 
           xxl="6"
-        >          
-          <HomeDataSummary
-            title="Vier Datenwelten für umfassende Analysen"
-            description="Erkunden Sie, wie Umweltbedingungen, lokale Gesundheitsressourcen, sozioökonomische Faktoren und demografische Merkmale das Leben und die Erholung von Long-COVID-Betroffenen beeinflussen. Filtern und sortieren Sie relevante Datensätze, um tiefere Einblicke zu gewinnen und fundierte Antworten auf Ihre Forschungsfragen zu finden."
-          />
+        > 
+          <p class="pl-10 ml-10 text-h4 mt-10">Vier Datenwelten für umfassende Analysen</p>
+          <p class="pl-10 ml-10 text-body-1 mt-5 mb-10">
+            Erkunden Sie, wie Umweltbedingungen, lokale Gesundheitsressourcen, sozioökonomische Faktoren und demografische Merkmale das Leben und die Erholung von Long-COVID-Betroffenen beeinflussen. Filtern und sortieren Sie relevante Datensätze, um tiefere Einblicke zu gewinnen und fundierte Antworten auf Ihre Forschungsfragen zu finden.
+          </p>        
         </v-col>
       </v-row> 
       <v-row class="mt-0 mr-10 ml-10">        
@@ -195,7 +208,7 @@
 
 <script setup lang="ts">
 import HomeDataWorld from '../components/HomeDataWorld.vue';
-import HomeDataSummary from '../components/HomeDataSummary.vue';
+import AttributeCategories from "../components/AttributeCategories.vue";
 </script>
 
 <style scoped>
