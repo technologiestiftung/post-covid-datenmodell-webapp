@@ -11,11 +11,11 @@
           xl="12" 
           xxl="12"
         >          
-          <div class="banner-section d-flex flex-column pa-10">            
-            <h1 class="banner-title   mt-15 text-h4">
+          <div class="banner-section d-flex flex-column pa-15">            
+            <h1 class="banner-title mt-15 text-h4">
               Finden Sie genau die Datensätze, die Ihre Forschung mit MII-Daten voranbringen.
             </h1>
-            <p class="banner-subtitle  mt-5">
+            <p class="banner-subtitle mt-10">
               Dieser Metadatentkatalog hilft Ihnen, offene Datensätze zu finden, die perfekt mit
               MII-Daten kompatibel sind. Mit flexiblen Filtern und Downloads im richtigen Format sparen Sie
               wertvolle Zeit bei der Datenvorbereitung.
