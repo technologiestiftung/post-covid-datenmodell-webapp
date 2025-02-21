@@ -145,11 +145,11 @@
       </v-row> 
       <v-row class="mt-0 mr-10 ml-10">        
         <v-col 
-          cols="6" 
+          cols="12" 
           lg="6" 
           xl="6" 
           xxl="6"
-        >
+        > 
           <HomeDataWorld
             icon="umwelt"
             title="Umwelt"
@@ -159,11 +159,11 @@
         </v-col>
         
         <v-col 
-          cols="6" 
+          cols="12" 
           lg="6" 
           xl="6" 
           xxl="6"
-        >
+        > 
           <HomeDataWorld
             icon="gesundheit"
             title="Gesundheit"
@@ -175,11 +175,11 @@
     
       <v-row class="mt-0 mr-10 ml-10">
         <v-col 
-          cols="6" 
+          cols="12" 
           lg="6" 
           xl="6" 
           xxl="6"
-        >
+        > 
           <HomeDataWorld
             icon="gesellschaft"
             title="Gesellschaft"
@@ -189,11 +189,11 @@
         </v-col>
         
         <v-col 
-          cols="6" 
+          cols="12" 
           lg="6" 
           xl="6" 
           xxl="6"
-        >
+        > 
           <HomeDataWorld
             icon="demografie"
             title="Demografie"
