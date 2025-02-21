@@ -15,7 +15,7 @@
         :key="category"
         :value="category"
         :variant="filterStore.filterCategory === category ? 'flat' : 'outlined'"
-        color="primary"
+        color="secondary"
       >
         {{ category }}
       </v-chip>

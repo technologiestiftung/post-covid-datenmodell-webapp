@@ -10,21 +10,21 @@
     </v-row>
     <!-- Kategorien -->
     <v-row class="justify-center flex-grow-0">
-      <v-col cols="11" md="10" xl="6">
+      <v-col cols="11" md="8" xl="6">
         <b>Kategorie</b>
         <FilterCategories />
       </v-col>
     </v-row>
     <!-- Schlüsselattribute -->
     <v-row class="justify-center flex-grow-0">
-      <v-col cols="11" md="10" xl="6">
+      <v-col cols="11" md="8" xl="6">
         <b>MII-Schlüsselattribute</b>
         <AttributeCategories />
       </v-col>
     </v-row>
     <!-- Data Cards -->
     <v-row class="justify-center flex-grow-1" style="background-color: #eaeaf6">
-      <v-col cols="11" md="10" xl="6">
+      <v-col cols="11" md="8" xl="6">
         <!-- todo: add Schlagworte here? -->
         <p class="py-4">
           <b> {{ filteredData.length }}</b>
