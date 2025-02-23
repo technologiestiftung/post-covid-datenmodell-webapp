@@ -99,8 +99,8 @@
     </p>
     <AttributeCategories class="pl-10 ml-10" />
   </v-container>
-  <v-row justify="center">
-    <v-col cols="12" lg="12" xl="9" xxl="8" class="bg-home-white">
+  <div class="bg-home-white">
+    <v-container>
       <p class="pl-10 ml-10 text-h4 mt-10">
         Vier Datenwelten für umfassende Analysen
       </p>
@@ -111,47 +111,59 @@
         Sie relevante Datensätze, um tiefere Einblicke zu gewinnen und fundierte
         Antworten auf Ihre Forschungsfragen zu finden.
       </p>
-    </v-col>
-  </v-row>
-  <v-row justify="center" class="mt-0">
-    <v-col cols="12" lg="6" xl="6" xxl="4" class="bg-home-white">
-      <HomeDataWorld
-        icon="umwelt"
-        title="Umwelt"
-        subtitle="Wenn Luftqualität zur Gesundheitsfrage wird"
-        description="Untersuche den Einfluss von Umweltfaktoren wie z.B. die Luftqualität auf Post-Covid-Verläufe. Gibt es zeitliche oder regionale Unterschiede? Sind bestimmte Personen- oder Altersgruppen stärker durch Umweltbelastungen gefährdet? Identifizieren Sie potenzielle Risikofaktoren."
-      />
-    </v-col>
+    </v-container>
+  </div>
+  <div class="bg-home-white">
+    <v-container>
+      <v-row justify="center" class="mt-0">
+        <v-col cols="12" md="6" lg="6" xl="6" xxl="4" height="100%">
+          <HomeDataWorld
+            icon="umwelt"
+            title="Umwelt"
+            subtitle="Wenn Luftqualität zur Gesundheitsfrage wird"
+            description="Untersuche den Einfluss von Umweltfaktoren wie z.B. die Luftqualität auf Post-Covid-Verläufe. Gibt es zeitliche oder regionale Unterschiede? Sind bestimmte Personen- oder Altersgruppen stärker durch Umweltbelastungen gefährdet? Identifizieren Sie potenzielle Risikofaktoren."
+          />
+        </v-col>
 
-    <v-col cols="12" lg="6" xl="6" xxl="4" class="bg-home-white">
-      <HomeDataWorld
-        icon="gesundheit"
-        title="Gesundheit"
-        subtitle="Reha-Angebote für ein starkes Comeback"
-        description="Erkunden Sie die medizinische Versorgung in Deutschland. Welche und wie viele Reha- und Pflegeangebote stehen Post-Covid-Patienten in Ihrer Region zur Verfügung? Wie steht es um die Zugänglichkeit dieser Angebote für betroffene Patienten? Werfen Sie einen Blick auf die Gesundheits-Infrastruktur."
-      />
-    </v-col>
-  </v-row>
+        <v-col
+          cols="12"
+          md="6"
+          lg="6"
+          xl="6"
+          xxl="4"
+          class="bg-home-white"
+          height="100%"
+        >
+          <HomeDataWorld
+            icon="gesundheit"
+            title="Gesundheit"
+            subtitle="Reha-Angebote für ein starkes Comeback"
+            description="Erkunden Sie die medizinische Versorgung in Deutschland. Welche und wie viele Reha- und Pflegeangebote stehen Post-Covid-Patienten in Ihrer Region zur Verfügung? Wie steht es um die Zugänglichkeit dieser Angebote für betroffene Patienten? Werfen Sie einen Blick auf die Gesundheits-Infrastruktur."
+          />
+        </v-col>
+      </v-row>
 
-  <v-row justify="center" class="mt-0">
-    <v-col cols="12" lg="6" xl="6" xxl="4" class="bg-home-white">
-      <HomeDataWorld
-        icon="gesellschaft"
-        title="Gesellschaft"
-        subtitle="Sozioökonomische Hürden im Blick"
-        description="Analysieren Sie den Zusammenhang zwischen sozioökonomischen Faktoren wie z. B. Bildungsniveau oder durchschnittliches Einkommen und Post-Covid. Wie wirken sich unterschiedliche Lebenssituationen auf das Risiko einer Post-Covid-Erkrankung und die Chancen auf eine erfolgreiche Genesung aus? Stellen Sie Hypothesen auf."
-      />
-    </v-col>
+      <v-row justify="center" class="mt-0">
+        <v-col cols="12" md="6" lg="6" xl="6" xxl="4" height="100%">
+          <HomeDataWorld
+            icon="gesellschaft"
+            title="Gesellschaft"
+            subtitle="Sozioökonomische Hürden im Blick"
+            description="Analysieren Sie den Zusammenhang zwischen sozioökonomischen Faktoren wie z. B. Bildungsniveau oder durchschnittliches Einkommen und Post-Covid. Wie wirken sich unterschiedliche Lebenssituationen auf das Risiko einer Post-Covid-Erkrankung und die Chancen auf eine erfolgreiche Genesung aus? Stellen Sie Hypothesen auf."
+          />
+        </v-col>
 
-    <v-col cols="12" lg="6" xl="6" xxl="4" class="bg-home-white">
-      <HomeDataWorld
-        icon="demografie"
-        title="Demografie"
-        subtitle="Jede Altersgruppe zählt: Gesundheit nach Maß"
-        description="Erforschen Sie Muster in den medizinischen Daten anhand demografischer Einflussfaktoren wie Alter und Geschlecht. Welche Schlüsse lassen sich in Bezug auf Prävention sowie bedarfsorientierte Behandlung und Genesung von Post-Covid-Patienten ableiten? Identifizieren Sie Risikogruppen."
-      />
-    </v-col>
-  </v-row>
+        <v-col cols="12" md="6" lg="6" xl="6" xxl="4" height="100%">
+          <HomeDataWorld
+            icon="demografie"
+            title="Demografie"
+            subtitle="Jede Altersgruppe zählt: Gesundheit nach Maß"
+            description="Erforschen Sie Muster in den medizinischen Daten anhand demografischer Einflussfaktoren wie Alter und Geschlecht. Welche Schlüsse lassen sich in Bezug auf Prävention sowie bedarfsorientierte Behandlung und Genesung von Post-Covid-Patienten ableiten? Identifizieren Sie Risikogruppen."
+          />
+        </v-col>
+      </v-row>
+    </v-container>
+  </div>
 </template>
 
 <script setup lang="ts">
