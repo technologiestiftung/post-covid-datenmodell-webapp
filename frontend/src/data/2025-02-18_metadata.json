@@ -1,0 +1,292 @@
+[
+    {
+        "id": "dataset-1",
+        "title": "Stündliche Wetterdaten - Bright Sky API (basierend auf DWD)",
+        "description": "Eine kostenlose API, bereitgestellt von Bright Sky, zur Abfrage stündlicher Wetterdaten basierend auf den offenen Daten des Deutschen Wetterdienstes (DWD). Die API liefert Beobachtungen und Vorhersagen für Deutschland und weltweit, mit einem besonderen Fokus auf Deutschland.",
+        "source": "https://api.brightsky.dev/weather",
+        "license": "Öffentlich zugänglich",
+        "category": "Umwelt",
+        "data_formats": [
+            "todo"
+        ],
+        "last_updated": "todo",
+        "availability_temporal": {
+            "start_date": "2010-01-01",
+            "end_date": "todo",
+            "resolution": "hourly"
+        },
+        "availability_spatial": {
+            "country": "DE",
+            "bbox": "5.866,47.27,15.041,55.058"
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "timestamp",
+            "source_id",
+            "precipitation",
+            "pressure_msl",
+            "sunshine",
+            "temperature",
+            "wind_direction",
+            "wind_speed",
+            "cloud_cover",
+            "dew_point",
+            "relative_humidity",
+            "visibility",
+            "wind_gust_direction",
+            "wind_gust_speed",
+            "condition",
+            "precipitation_probability",
+            "precipitation_probability_6h",
+            "solar",
+            "icon"
+        ],
+        "filter_attributes": [
+            "Ort",
+            "Zeitspanne"
+        ],
+        "keywords": [
+            "Wetter",
+            "Stundenwetter",
+            "DWD",
+            "Deutschland",
+            "Bright Sky",
+            "API"
+        ],
+        "contact": {
+            "name": "todo",
+            "address": "Muster Strasse 9 <br/> Musterstadt",
+            "email": "info@brightsky.dev",
+            "phone_number": "todo"
+        }
+    },
+    {
+        "id": "dataset-2",
+        "title": "POST-COVID Rehaeinrichtungen in Deutschland",
+        "description": "Ein Verzeichnis von Rehaeinrichtungen in Deutschland, die sich auf die Diagnostik und Behandlung von Post-COVID spezialisiert haben. Die Daten wurden von der Webseite der Bundesarbeitsgemeinschaft für Rehabilitation (BAR) extrahiert.",
+        "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_reha.json",
+        "license": "Daten öffentlich zugänglich",
+        "category": "Gesundheit",
+        "data_formats": [
+            "JSON"
+        ],
+        "last_updated": "2024-12-02",
+        "availability_temporal": {
+            "start_date": "2024-12",
+            "end_date": "todo",
+            "resolution": "todo"
+        },
+        "availability_spatial": {
+            "country": "DE",
+            "bbox": "5.866,47.27,15.041,55."
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "uuid",
+            "nameKurz",
+            "nameLang",
+            "latitude",
+            "longitude",
+            "isPositionAddedManually"
+        ],
+        "filter_attributes": [
+            "Ort"
+        ],
+        "keywords": [
+            "Rehabilitat",
+            "Rehaeinrichtungen",
+            "Gesundheit",
+            "COVID-19",
+            "Post-COVID"
+        ],
+        "contact": {
+            "name": "todo",
+            "address": "Muster Strasse 9 <br/> Musterstadt",
+            "email": "einrichtungsverzeichnis@bar-frankfurt.",
+            "phone_number": "todo"
+        }
+    },
+    {
+        "id": "dataset-3",
+        "title": "POST-COVID Ambulanzen und Kliniken in Deutschland",
+        "description": "Eine Liste von Kliniken und Ambulanzen in Deutschland, die sich auf die Diagnostik und Behandlung von Long COVID spezialisiert haben. Die Daten wurden von der Webseite des Bundesministeriums für Gesundheit (BMG) extrahiert und stehen als JSON-Datei zur Verfügung.",
+        "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_ambulanzen_kliniken.json",
+        "license": "Daten öffentlich zugänglich",
+        "category": "Gesundheit",
+        "data_formats": [
+            "JSON"
+        ],
+        "last_updated": "2024-12-02",
+        "availability_temporal": {
+            "start_date": "2024-12-02",
+            "end_date": "todo",
+            "resolution": "todo"
+        },
+        "availability_spatial": {
+            "country": "DE",
+            "bbox": "5.866,47.27,15.041,55.058"
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "id",
+            "status",
+            "state",
+            "place",
+            "zip",
+            "name",
+            "link",
+            "type",
+            "focusarea1",
+            "focusarea2"
+        ],
+        "filter_attributes": [
+            "Ort"
+        ],
+        "keywords": [
+            "Post-COVID",
+            "Rehabilitation",
+            "Ambulanzen",
+            "Kliniken",
+            "Gesundheit",
+            "COVID-19"
+        ],
+        "contact": {
+            "name": "todo",
+            "address": "Referat L 8 <br/> „Öffentlichkeitsarbeit, Publikatione",
+            "email": "longcovid@bmg.bund.d",
+            "phone_number": "todo"
+        }
+    },
+    {
+        "id": "dataset-4",
+        "title": "Luftqualitätsdaten API v3 - Umweltbundesamt",
+        "description": "API zur Abfrage von Luftqualitätsdaten des Umweltbundesamts (UBA), Version 3. Die API stellt Daten zu verschiedenen Luftschadstoffen (z.B. PM10, CO, NO2, PM2.5) zur Verfügung, die an Messstationen in Deutschland erhoben werden. Abfragen sind für spezifische Schadstoffe, Zeiträume und Auswertungen möglich.",
+        "source": "https://www.umweltbundesamt.de/daten/luft/luftdaten",
+        "license": "CC-BY 4.0",
+        "category": "Umwelt",
+        "data_formats": [
+            "JSON",
+            "CSV"
+        ],
+        "last_updated": "todo",
+        "availability_temporal": {
+            "start_date": "2016-01-01",
+            "end_date": "todo",
+            "resolution": "daily"
+        },
+        "availability_spatial": {
+            "country": "DE",
+            "bbox": "5.866,47.27,15.041,55.058"
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "todo"
+        ],
+        "filter_attributes": [
+            "Ort",
+            "Zeitspanne"
+        ],
+        "keywords": [],
+        "contact": {
+            "name": "Umweltbundesamt",
+            "address": "todo",
+            "email": "immission@uba.de",
+            "phone_number": "todo"
+        }
+    },
+    {
+        "id": "dataset-5",
+        "title": "SARS-CoV-2 Infektionen in Deutschland",
+        "description": "Der Datensatz enthält Informationen zu SARS-CoV-2-Infektionen in Deutschland, einschließlich Fallzahlen, Todesfällen und Genesungen, die täglich aktualisiert werden. Die Daten stammen aus dem Meldesystem nach dem Infektionsschutzgesetz (IfSG) und werden vom Robert Koch-Institut (RKI) bereitgestellt.",
+        "source": "https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland",
+        "license": "CC-BY 4.0",
+        "category": "Gesundheit",
+        "data_formats": [
+            "todo"
+        ],
+        "last_updated": "todo",
+        "availability_temporal": {
+            "start_date": "2020-01-01",
+            "end_date": "todo",
+            "resolution": "daily"
+        },
+        "availability_spatial": {
+            "country": "DE",
+            "bbox": "5.866,47.27,15.041,55.058"
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "todo"
+        ],
+        "filter_attributes": [
+            "Ort",
+            "Zeitspanne"
+        ],
+        "keywords": [
+            "COVID-19",
+            "SARS-CoV-2",
+            "Infektionen",
+            "Fallzahlen",
+            "RKI"
+        ],
+        "contact": {
+            "name": "Robert Koch-Institut, Open Data Team, Fachgebiet MF4",
+            "address": "Nordufer 20 <br/> 13353 Berlin",
+            "email": "OpenData@rki.de",
+            "phone_number": "todo"
+        }
+    },
+    {
+        "id": "dataset-6",
+        "title": "Abwassersurveillance AMELAG",
+        "description": "Das Projekt 'Abwassermonitoring für die epidemiologische Lagebewertung' (AMELAG) zielt darauf ab, SARS-CoV-2-Nachweise aus dem Abwasser als zusätzlichen Indikator zur epidemiologischen Lagebewertung in Deutschland zu etablieren. Durch Zusammenarbeit zwischen Behörden, Kläranlagen und Laboren soll ein bundesweites Netzwerk für die Abwassersurveillance aufgebaut und Strukturen für ein fortlaufendes Monitoring entwickelt werden.",
+        "source": "https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG",
+        "license": "CC-BY 4.0",
+        "category": "Umwelt",
+        "data_formats": [
+            "todo"
+        ],
+        "last_updated": "todo",
+        "availability_temporal": {
+            "start_date": "22.11.2022",
+            "end_date": "31.12.2025",
+            "resolution": "daily"
+        },
+        "availability_spatial": {
+            "country": "DE",
+            "bbox": "5.866,47.27,15.041,55.058"
+        },
+        "availability_age": false,
+        "availability_gender": false,
+        "attributes": [
+            "todo"
+        ],
+        "filter_attributes": [
+            "Ort",
+            "Zeitspanne"
+        ],
+        "keywords": [
+            "COVID-19",
+            "SARS-CoV-2",
+            "Abwasserbasierte epidemiologische Überwachung",
+            "Wastewater-Based Epidemiological Monitoring",
+            "Epidemiologie",
+            "Gesundheitsberichterstattung",
+            "Public health surveillance",
+            "Epidemiology",
+            "Open Data",
+            "Offene Daten"
+        ],
+        "contact": {
+            "name": "Robert Koch-Institut | Open Data Pr",
+            "address": "Nordufer 20 <br/> 13353 Berlin",
+            "email": "opendata@rki.de",
+            "phone_number": "todo"
+        }
+    }
+]
