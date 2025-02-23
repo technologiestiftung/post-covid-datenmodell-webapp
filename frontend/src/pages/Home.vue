@@ -113,7 +113,7 @@
       </p>
     </v-container>
   </div>
-  <div class="bg-home-white">
+  <div class="bg-home-white mb-10">
     <v-container>
       <v-row justify="center" class="mt-0">
         <v-col cols="12" md="6" lg="6" xl="6" xxl="4" height="100%">
