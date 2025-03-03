@@ -13,8 +13,14 @@ const routes = [
     component: () => import("@/pages/Home.vue"),
   },
   {
+    name: "DataList",
     path: "/data",
     component: () => import("@/pages/DataList.vue"),
+  },
+  {
+    name: "DataExport",
+    path: "/export",
+    component: () => import("@/pages/DataExport.vue"),
   },
 ];
 

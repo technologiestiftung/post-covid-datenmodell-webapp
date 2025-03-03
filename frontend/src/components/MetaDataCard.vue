@@ -105,10 +105,21 @@
       <v-card-text>
         Konfigurieren Sie den Datensatz nach den für Sie relevanten Attribute
         vor dem Export, indem Sie per Klick an- oder abwählen.
-        <v-chip-group column>
+        <v-chip-group
+          v-model="selectedAttributeFields"
+          column
+          multiple
+          @update:model-value="
+            exportStore.updateAttributeExportFields(
+              dataEntry.id,
+              selectedAttributeFields
+            )
+          "
+        >
           <v-chip
             v-for="chip in dataEntry.attributes"
             :key="chip"
+            :value="chip"
             color="#70acc0"
             variant="tonal"
             >{{ chip }}
@@ -119,22 +130,34 @@
       <v-card-text>
         Wählen Sie ein passendes Dateigormat vor dem Download aus per Klick
         an-oder abwählen.
-        <v-chip-group column>
+        <v-chip-group
+          v-model="selectedDataFormat"
+          column
+          @update:model-value="
+            exportStore.updateDataFormatExportField(
+              dataEntry.id,
+              selectedDataFormat
+            )
+          "
+        >
           <v-chip
             v-for="chip in dataEntry.data_formats"
             :key="chip"
+            :value="chip"
             color="#70acc0"
             variant="tonal"
-            >{{ chip }}
+          >
+            {{ chip }}
           </v-chip>
         </v-chip-group>
       </v-card-text>
     </div>
     <!-- Datenvorschau + Export -->
-
     <v-row justify="end">
       <v-col cols="12" sm="auto">
+        <!--
         <v-btn
+          v-if="isInExportList"
           prepend-icon="mdi-folder-eye"
           rounded="xl"
           color="primary"
@@ -143,15 +166,34 @@
         >
           Datenvorschau
         </v-btn>
+        -->
+        <data-preview-dialog
+          v-if="isInExportList"
+          :dataEntry="dataEntry"
+        ></data-preview-dialog>
       </v-col>
 
       <v-col cols="12" sm="auto">
+        <!-- two buttons to make the destinction clearer -->
         <v-btn
+          v-if="isInExportList"
+          rounded="xl"
+          color="primary"
+          variant="flat"
+          append-icon="mdi-minus"
+          block
+          @click="exportStore.removeFromExport(dataEntry.id)"
+        >
+          Vom Export entfernen
+        </v-btn>
+        <v-btn
+          v-else
           rounded="xl"
           color="primary"
           variant="flat"
           append-icon="mdi-arrow-right"
           block
+          @click="exportStore.addToExport(dataEntry.id)"
         >
           Zum Export hinzufügen
         </v-btn>
@@ -190,16 +232,29 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from "vue";
-import { useDisplay } from "vuetify";
+import { ref, computed } from "vue";
 import { type MetaDataEntry } from "../types/metadata";
+import { useExportStore } from "@/stores/export";
+import { DataFormat } from "@/types/metadata";
+import DataPreviewDialog from "./DataPreviewDialog.vue";
 
 const props = defineProps<{
   dataEntry: MetaDataEntry;
+  exportView: boolean | undefined;
 }>();
+
+const selectedAttributeFields = ref<string[]>([]);
+const selectedDataFormat = ref<DataFormat>();
+
+const exportStore = useExportStore();
+const isInExportList = computed(() => {
+  return exportStore.exportDatasets.some(
+    (dataset) => dataset.id === props.dataEntry.id
+  );
+});
 
 // todo: add to store?
 const isSelected = ref(false);
-const isExtended = ref(false);
+const isExtended = ref(props.exportView ? true : false);
 const showSource = ref(false);
 </script>

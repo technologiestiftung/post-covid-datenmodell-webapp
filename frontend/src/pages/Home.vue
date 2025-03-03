@@ -29,7 +29,7 @@
         prepend-inner-icon="mdi-magnify"
       >
         <template #append-inner>
-          <v-btn icon variant="text" @click="() => console.log('search')">
+          <v-btn icon variant="text">
             <v-icon size="large" color="#ACACDA">mdi-arrow-right-circle</v-icon>
           </v-btn>
         </template>
@@ -169,6 +169,9 @@
 <script setup lang="ts">
 import HomeDataWorld from "../components/HomeDataWorld.vue";
 import AttributeCategories from "../components/AttributeCategories.vue";
+import { useExportStore } from "../stores/export";
+
+const exportStore = useExportStore();
 </script>
 
 <style scoped>

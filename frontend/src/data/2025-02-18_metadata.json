@@ -1,13 +1,14 @@
 [
     {
-        "id": "dataset-1",
+        "id": "weather",
         "title": "Stündliche Wetterdaten - Bright Sky API (basierend auf DWD)",
         "description": "Eine kostenlose API, bereitgestellt von Bright Sky, zur Abfrage stündlicher Wetterdaten basierend auf den offenen Daten des Deutschen Wetterdienstes (DWD). Die API liefert Beobachtungen und Vorhersagen für Deutschland und weltweit, mit einem besonderen Fokus auf Deutschland.",
         "source": "https://api.brightsky.dev/weather",
         "license": "Öffentlich zugänglich",
         "category": "Umwelt",
         "data_formats": [
-            "todo"
+            "json",
+            "csv"
         ],
         "last_updated": "todo",
         "availability_temporal": {
@@ -62,14 +63,15 @@
         }
     },
     {
-        "id": "dataset-2",
+        "id": "covid-rehabilitation",
         "title": "POST-COVID Rehaeinrichtungen in Deutschland",
         "description": "Ein Verzeichnis von Rehaeinrichtungen in Deutschland, die sich auf die Diagnostik und Behandlung von Post-COVID spezialisiert haben. Die Daten wurden von der Webseite der Bundesarbeitsgemeinschaft für Rehabilitation (BAR) extrahiert.",
         "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_reha.json",
         "license": "Daten öffentlich zugänglich",
         "category": "Gesundheit",
         "data_formats": [
-            "JSON"
+            "json",
+            "csv"
         ],
         "last_updated": "2024-12-02",
         "availability_temporal": {
@@ -109,14 +111,15 @@
         }
     },
     {
-        "id": "dataset-3",
+        "id": "covid-hospitals",
         "title": "POST-COVID Ambulanzen und Kliniken in Deutschland",
-        "description": "Eine Liste von Kliniken und Ambulanzen in Deutschland, die sich auf die Diagnostik und Behandlung von Long COVID spezialisiert haben. Die Daten wurden von der Webseite des Bundesministeriums für Gesundheit (BMG) extrahiert und stehen als JSON-Datei zur Verfügung.",
+        "description": "Eine Liste von Kliniken und Ambulanzen in Deutschland, die sich auf die Diagnostik und Behandlung von Long COVID spezialisiert haben. Die Daten wurden von der Webseite des Bundesministeriums für Gesundheit (BMG) extrahiert und stehen als json-Datei zur Verfügung.",
         "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_ambulanzen_kliniken.json",
         "license": "Daten öffentlich zugänglich",
         "category": "Gesundheit",
         "data_formats": [
-            "JSON"
+            "json",
+            "csv"
         ],
         "last_updated": "2024-12-02",
         "availability_temporal": {
@@ -161,15 +164,15 @@
         }
     },
     {
-        "id": "dataset-4",
+        "id": "air-quality",
         "title": "Luftqualitätsdaten API v3 - Umweltbundesamt",
         "description": "API zur Abfrage von Luftqualitätsdaten des Umweltbundesamts (UBA), Version 3. Die API stellt Daten zu verschiedenen Luftschadstoffen (z.B. PM10, CO, NO2, PM2.5) zur Verfügung, die an Messstationen in Deutschland erhoben werden. Abfragen sind für spezifische Schadstoffe, Zeiträume und Auswertungen möglich.",
         "source": "https://www.umweltbundesamt.de/daten/luft/luftdaten",
         "license": "CC-BY 4.0",
         "category": "Umwelt",
         "data_formats": [
-            "JSON",
-            "CSV"
+            "json",
+            "csv"
         ],
         "last_updated": "todo",
         "availability_temporal": {
@@ -199,14 +202,15 @@
         }
     },
     {
-        "id": "dataset-5",
+        "id": "covid-cases",
         "title": "SARS-CoV-2 Infektionen in Deutschland",
         "description": "Der Datensatz enthält Informationen zu SARS-CoV-2-Infektionen in Deutschland, einschließlich Fallzahlen, Todesfällen und Genesungen, die täglich aktualisiert werden. Die Daten stammen aus dem Meldesystem nach dem Infektionsschutzgesetz (IfSG) und werden vom Robert Koch-Institut (RKI) bereitgestellt.",
         "source": "https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland",
         "license": "CC-BY 4.0",
         "category": "Gesundheit",
         "data_formats": [
-            "todo"
+            "json",
+            "csv"
         ],
         "last_updated": "todo",
         "availability_temporal": {
@@ -225,7 +229,9 @@
         ],
         "filter_attributes": [
             "Ort",
-            "Zeitspanne"
+            "Zeitspanne",
+            "Geschlecht",
+            "Alter"
         ],
         "keywords": [
             "COVID-19",
@@ -242,14 +248,15 @@
         }
     },
     {
-        "id": "dataset-6",
+        "id": "sewage-water",
         "title": "Abwassersurveillance AMELAG",
         "description": "Das Projekt 'Abwassermonitoring für die epidemiologische Lagebewertung' (AMELAG) zielt darauf ab, SARS-CoV-2-Nachweise aus dem Abwasser als zusätzlichen Indikator zur epidemiologischen Lagebewertung in Deutschland zu etablieren. Durch Zusammenarbeit zwischen Behörden, Kläranlagen und Laboren soll ein bundesweites Netzwerk für die Abwassersurveillance aufgebaut und Strukturen für ein fortlaufendes Monitoring entwickelt werden.",
         "source": "https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG",
         "license": "CC-BY 4.0",
         "category": "Umwelt",
         "data_formats": [
-            "todo"
+            "json",
+            "csv"
         ],
         "last_updated": "todo",
         "availability_temporal": {
