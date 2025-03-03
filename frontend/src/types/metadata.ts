@@ -12,6 +12,19 @@ export enum Attribute {
   "Geschlecht" = "Geschlecht",
 } // MII-Schlüsselattribute";
 
+export type filterParams = {
+  start_date: string;
+  end_date: string; // todo: Date format?
+  location_plz: string; // string[];
+  gender: string;
+  age: string; // todo: possibly enum for categories?
+};
+
+// export enum filterMapping = {
+//   "Ort" = "location_plz";
+//   "Zeitspanne" =
+// }
+
 export type Contact = {
   name: string;
   address: string;
@@ -31,8 +44,8 @@ export type TemporalAvailability = {
 };
 
 export enum DataFormat {
-  "CSV" = "CSV",
-  "JSON" = "JSON",
+  "csv" = "csv",
+  "json" = "json",
 }
 
 export type MetaDataEntry = {

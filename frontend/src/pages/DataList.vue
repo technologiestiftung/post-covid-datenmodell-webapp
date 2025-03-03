@@ -66,18 +66,14 @@ import FilterCategories from "../components/FilterCategories.vue";
 import AttributeCategories from "../components/AttributeCategories.vue";
 import AppInformation from "../components/AppInformation.vue";
 import AppFavoriteBar from "../components/AppFavoriteBar.vue";
+import { useExportStore } from "../stores/export";
 
-const filteredData = computed(() => {
-  if (filterStore.filterCategory) {
-    return dataStore.metaData.filter(
-      (item) => item.category === filterStore.filterCategory
-    );
-  }
-  return dataStore.metaData;
-});
+const exportedData = computed(() => exportStore.exportDatasets);
 
+const exportStore = useExportStore();
 const dataStore = useDataStore();
 const filterStore = useFilterStore();
+const filteredData = computed(() => filterStore.filteredData);
 
 // PAGINATION
 // need to save this as variable so I can watch it

@@ -1,10 +1,5 @@
 <template>
-  <v-card
-    variant="default"
-    color="secondary"
-    rounded="xl"
-    class="custom-card fill-height"
-  >
+  <v-card color="secondary" rounded="xl" class="custom-card fill-height">
     <v-card-text class="d-flex flex-column fill-height">
       <v-row class="fill-height">
         <v-col cols="3">
