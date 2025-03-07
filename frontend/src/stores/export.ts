@@ -4,6 +4,7 @@ import { type exportListItem } from "../types/export";
 
 // services
 import { WeatherService } from "@/services/weatherDataService";
+import { CovidRehabilitationService } from "@/services/covidRehabilitationService";
 import { CovidAmbulanceClinicService } from "@/services/covidAmbulanceClinicService";
 import { BaseService } from "@/services/baseService";
 import { CovidDataService } from "@/services/covidDataService";
@@ -12,6 +13,7 @@ import { CovidDataService } from "@/services/covidDataService";
 // service registry -> we use Map here for type safety instead of an Object
 const serviceRegistry = new Map<string, BaseService>([
   ["weather", new WeatherService()],
+  ["covid-rehabilitation", new CovidRehabilitationService()],
   ["covid-hospitals", new CovidAmbulanceClinicService()],
   ["covid-cases", new CovidDataService()],
   // to add more services -> you can find the id's in data/2025...
