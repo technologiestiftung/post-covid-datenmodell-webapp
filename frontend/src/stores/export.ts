@@ -8,6 +8,7 @@ import { CovidRehabilitationService } from "@/services/covidRehabilitationServic
 import { CovidAmbulanceClinicService } from "@/services/covidAmbulanceClinicService";
 import { BaseService } from "@/services/baseService";
 import { CovidDataService } from "@/services/covidDataService";
+import { WasteWaterDataService } from "@/services/wasteWaterDataService";
 
 // mapping from id to services
 // service registry -> we use Map here for type safety instead of an Object
@@ -16,6 +17,7 @@ const serviceRegistry = new Map<string, BaseService>([
   ["covid-rehabilitation", new CovidRehabilitationService()],
   ["covid-hospitals", new CovidAmbulanceClinicService()],
   ["covid-cases", new CovidDataService()],
+  ['sewage-water', new WasteWaterDataService()]
   // to add more services -> you can find the id's in data/2025...
 ]);
 
