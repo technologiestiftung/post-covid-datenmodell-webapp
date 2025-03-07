@@ -197,7 +197,16 @@
     },
     "availability_age": false,
     "availability_gender": false,
-    "attributes": ["todo"],
+    "attributes": [
+      "Meldedatum",
+      "Bundesland_id",
+      "Altersgruppe",
+      "Bevoelkerung",
+      "Faelle_gesamt",
+      "Faelle_neu",
+      "Faelle_7-Tage",
+      "Inzidenz_7-Tage"
+    ],
     "filter_attributes": ["Ort", "Zeitspanne", "Geschlecht", "Alter"],
     "keywords": ["COVID-19", "SARS-CoV-2", "Infektionen", "Fallzahlen", "RKI"],
     "contact": {
