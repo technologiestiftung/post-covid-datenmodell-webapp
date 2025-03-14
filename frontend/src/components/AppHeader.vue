@@ -12,14 +12,17 @@
             }"
             variant="flat"
             size="small"
-            class="text-primary text-capitalize"
+            class="text-primary text-capitalize mr-1"
           >
             Metadatenbank
           </v-btn>
           <v-btn
             variant="flat"
             size="small"
-            class="text-primary text-capitalize"
+            class="text-primary text-capitalize mr-1"
+            :to="{
+              name: 'DataSuggestion',
+            }"
           >
             Daten vorschlagen
           </v-btn>

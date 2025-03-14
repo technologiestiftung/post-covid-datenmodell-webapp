@@ -22,6 +22,17 @@ const routes = [
     path: "/export",
     component: () => import("@/pages/DataExport.vue"),
   },
+  {
+    name: "DataSuggestion",
+    path: "/suggest",
+    component: () => import("@/pages/DataSuggestion.vue"),
+  },
+  {
+    name: "DataSuggestionSuccess",
+    path: "/suggest-success",
+    component: () => import("@/pages/DataSuggestionSuccess.vue"),
+  },
+
 ];
 
 const router = createRouter({

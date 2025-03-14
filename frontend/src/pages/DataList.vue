@@ -37,7 +37,7 @@
         </p>
         <AppFavoriteBar />
         <div v-for="item in paginatedItems" :key="item.id">
-          <MetaDataCard :data-entry="item" />
+          <MetaDataCard :data-entry="item" :export-view="false" />
         </div>
       </v-col>
     </v-row>
