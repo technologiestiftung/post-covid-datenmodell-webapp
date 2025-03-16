@@ -5,6 +5,7 @@ import ViteFonts from "unplugin-fonts/vite";
 
 // Utilities
 import { defineConfig } from "vite";
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import { fileURLToPath, URL } from "node:url";
 
 // https://vitejs.dev/config/
@@ -12,6 +13,15 @@ export default defineConfig({
   plugins: [
     Vue({
       template: { transformAssetUrls },
+    }),
+    // vite static copy to parse csv files
+    viteStaticCopy({
+      targets: [
+        {
+          src: 'src/data/2024-12-03_postleitzahlen_kreis_id.csv',
+          dest: ''
+        }
+      ]
     }),
     // https://github.com/vuetifyjs/vuetify-loader/tree/master/packages/vite-plugin#readme
     Vuetify({

@@ -1,6 +1,7 @@
 <template>
-  <div>
+  <div class="mt-2">
     <!-- todo: write selection to filter store (multi-select) -->
+    <!--
     <v-chip-group column v-model="filterStore.filterParams" multiple>
       <v-chip
         prepend-icon="mdi-calendar-blank-outline"
@@ -32,10 +33,19 @@
       </v-chip>
     </v-chip-group>
   </div>
+  -->
+    <FilterDateSpan></FilterDateSpan>
+    <FilterLocation></FilterLocation>
+    <FilterAgeGroup></FilterAgeGroup>
+  </div>
 </template>
 <script setup lang="ts">
 import { ref, computed } from "vue";
 import { useFilterStore } from "../stores/filters";
+
+import FilterLocation from "./FilterLocation.vue";
+import FilterDateSpan from "./FilterDateSpan.vue";
+import FilterAgeGroup from "./FilterAgeGroup.vue";
 
 const filterStore = useFilterStore();
 </script>
