@@ -91,9 +91,55 @@ export const useExportStore = defineStore(
       }
     };
 
-    // todo: implement download data + filter data beforehand
     const downloadData = () => {
-      console.log("download data");
+      const timestamp = new Date().toISOString().split('T')[0];
+
+      for (const dataset of exportDatasets.value) {
+        if(dataset.format === "csv") {        
+          const data = dataset.data;
+          const headers = dataset.export_fields.length > 0 ? dataset.export_fields : Object.keys(data.rows[0]);          
+
+          let csvContent = "data:text/csv;charset=utf-8,";
+          csvContent += headers.join(",") + "\n";
+          data.rows.forEach((row) => {
+            csvContent += headers.map((header) => row[header]).join(",") + "\n";
+          });
+
+          const url = encodeURI(csvContent);
+          
+          const link = document.createElement("a");
+          link.href = url;     
+          link.download = `${timestamp}-${dataset.id}-export.csv`; 
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);
+          window.URL.revokeObjectURL(url);
+
+        }else if(dataset.format === "json") {
+          const data = dataset.data;
+          const headers = dataset.export_fields.length > 0 ? dataset.export_fields : Object.keys(data.rows[0]);    
+          console.log(headers);
+          const filteredData = data.rows.map(row => {
+            const filteredRow: Record<string, any> = {};
+            headers.forEach(header => {
+                filteredRow[header] = row[header];
+            });
+            return filteredRow;
+          });
+          
+          const jsonString = JSON.stringify(filteredData, null, 2);           
+          
+          const blob = new Blob([jsonString], { type: 'application/json' });            
+          const url = window.URL.createObjectURL(blob); 
+          const link = document.createElement('a');
+          link.href = url;                   
+          link.download = `${timestamp}-${dataset.id}-export.json`;          
+          document.body.appendChild(link);
+          link.click();
+          document.body.removeChild(link);            
+          window.URL.revokeObjectURL(url);
+        }
+      }
     };
 
     return {
