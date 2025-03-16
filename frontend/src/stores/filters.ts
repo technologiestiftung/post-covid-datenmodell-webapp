@@ -1,7 +1,8 @@
 // Utilities
 import { defineStore } from "pinia";
-import { ref, computed } from "vue";
-import { Attribute, Category } from "../types/metadata";
+import { ref, computed, reactive } from "vue";
+import { Attribute, Category, LocationLevel } from "../types/metadata";
+import { type FilterParams } from "../types/metadata";
 import { useDataStore } from "../stores/data";
 
 export const useFilterStore = defineStore(
@@ -12,7 +13,6 @@ export const useFilterStore = defineStore(
 
     const filterCategory = ref<Category | undefined>(undefined);
     const attributes = ref<Attribute[]>();
-    const filterParams = ref<string[]>([]);
 
     // Replace ref with computed
     const filteredData = computed(() => {
@@ -25,16 +25,16 @@ export const useFilterStore = defineStore(
         );
       }
 
-      // Apply additional filters from filterParams if they exist
-      if (filterParams.value && filterParams.value.length > 0) {
-        result = result.filter((item) =>
-          filterParams.value.every((param) =>
-            item.filter_attributes.includes(param)
-          )
-        );
-      }
-
       return result;
+    });
+
+    // FilterParams
+    const filterParams = ref<FilterParams>({
+      start_date: "",
+      end_date: "",
+      locationStates: [],
+      locationDistricts: [],
+      age: ["00+"],
     });
 
     return { filterCategory, attributes, filterParams, filteredData };

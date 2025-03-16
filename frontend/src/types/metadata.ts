@@ -12,12 +12,18 @@ export enum Attribute {
   "Geschlecht" = "Geschlecht",
 } // MII-Schlüsselattribute";
 
-export type filterParams = {
+export enum LocationLevel {
+  "states" = "states",
+  "districts" = "districts",
+  "germany" = "germany",
+}
+
+export type FilterParams = {
   start_date: string;
   end_date: string; // todo: Date format?
-  location_plz: string; // string[];
-  gender: string;
-  age: string; // todo: possibly enum for categories?
+  locationStates: string[];
+  locationDistricts: string[];
+  age: string[];
 };
 
 // export enum filterMapping = {
