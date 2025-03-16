@@ -111,8 +111,6 @@ const filteredHeaders = computed(() => {
   }
 });
 
-console.log(data.value);
-
 // todo: add to store?
 const isSelected = ref(false);
 const isExtended = ref(false);
