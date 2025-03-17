@@ -123,9 +123,9 @@ const filterStore = useFilterStore();
 const dataStore = useDataStore();
 
 const level = ref<LocationLevel>(
-  filterStore.filterParams.locationStates.length > 0
+  filterStore.filterParams.locationStates?.length > 0
     ? LocationLevel.states
-    : filterStore.filterParams.locationDistricts.length > 0
+    : filterStore.filterParams.locationDistricts?.length > 0
     ? LocationLevel.districts
     : LocationLevel.germany
 );
@@ -165,11 +165,6 @@ const districts = computed(() => {
     )
   );
 });
-
-console.log(districts);
-//
-// ✅ Watchers to sync selection with the store
-//
 
 // Watch the level selection
 watch(level, (newLevel) => {
