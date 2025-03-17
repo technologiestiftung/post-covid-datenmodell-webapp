@@ -2,9 +2,8 @@ import axios from "axios";
 import { type fetchedDataset } from "@/types/export";
 import { type filterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
-import { he } from "vuetify/locale";
 
-type transformedFilterParams = {
+type CovidFilterParams = {
   bundesland: string;
   age_group: string | null;
   start_time: string;
@@ -12,7 +11,7 @@ type transformedFilterParams = {
 };
 
 class CovidDataService extends BaseService {
-  transformFilterParams(filterParams: filterParams) {
+  transformFilterParams(filterParams: filterParams): CovidFilterParams {
     const bundesland = "01";
 
     const transformedFilterParams = {
@@ -24,7 +23,7 @@ class CovidDataService extends BaseService {
     return transformedFilterParams;
   }
 
-  fetchData = async (filterParams: transformedFilterParams) => {
+  protected async performFetch(filterParams: CovidFilterParams): Promise<any> {
     // get data from GitHub url
     try {
       const response = await axios.get(
@@ -59,19 +58,9 @@ class CovidDataService extends BaseService {
       return filteredData;
     } catch (error) {
       console.error("API error:", error);
-    }
-  };
-
-  // function to transform in the desired fetchedDataset format
-  transformData = (jsonData: any): fetchedDataset => {
-    if (jsonData.length == 0) {
-      return { headers: [], rows: [] };
-    } else {
-      const headers = Object.keys(jsonData[0]);
-      const rows = jsonData
-      return { headers: headers, rows: rows };
-    }
-  };
+    }  
+  }
+ 
 }
 
 export { CovidDataService };

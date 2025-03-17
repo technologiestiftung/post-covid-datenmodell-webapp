@@ -197,8 +197,26 @@
         >
           Zum Export hinzufügen
         </v-btn>
+      </v-col>                  
+    </v-row>  
+    <v-row justify="center">
+      <v-col 
+        cols="12" 
+        sm="auto"
+      >
+        <v-overlay
+          :model-value="loading"
+          class="align-center justify-center"
+          persistent
+        >
+          <v-progress-circular
+            color="primary"
+            indeterminate
+            size="100"
+          />
+        </v-overlay>
       </v-col>
-    </v-row>
+    </v-row> 
 
     <!-- todo: option for better distribution of buttons when small screen -->
     <!-- <v-card-actions v-if="smAndDown">
@@ -257,4 +275,7 @@ const isInExportList = computed(() => {
 const isSelected = ref(false);
 const isExtended = ref(props.exportView ? true : false);
 const showSource = ref(false);
+
+const loading = computed(() => exportStore.isLoading);
+
 </script>

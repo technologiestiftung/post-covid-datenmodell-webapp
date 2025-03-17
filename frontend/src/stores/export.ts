@@ -1,4 +1,4 @@
-import { ref } from "vue";
+import { ref, computed } from "vue";
 import { defineStore } from "pinia";
 import { type exportListItem } from "../types/export";
 
@@ -17,7 +17,7 @@ const serviceRegistry = new Map<string, BaseService>([
   ["covid-rehabilitation", new CovidRehabilitationService()],
   ["covid-hospitals", new CovidAmbulanceClinicService()],
   ["covid-cases", new CovidDataService()],
-  ['sewage-water', new WasteWaterDataService()]
+  ["sewage-water", new WasteWaterDataService()],
   // to add more services -> you can find the id's in data/2025...
 ]);
 
@@ -25,36 +25,50 @@ export const useExportStore = defineStore(
   "export",
   () => {
     const exportDatasets = ref<exportListItem[]>([]);
+    const isDataLoading = ref(false);
+    const isLoading = ref(false);
 
     // function to find the right service in serviceRegistry
     const getService = (id: string): BaseService | undefined => {
       const service = serviceRegistry.get(id);
       if (service) {
-        return service;
+        service.onStateChange = (loading) => {
+          isLoading.value = loading;
+        };
       }
       return service;
     };
 
     const addToExport = async (id: string) => {
-      const service = getService(id); // getting the right service
-      // todo: get the filter params from frontend / filter store
-      const transformedFilterParams = service?.transformFilterParams({
-        start_date: "2022-01-01",
-        end_date: "2022-02-01",
-        location_plz: "10115",
-        gender: "",
-        age: "",
-      });
-      const fetchedData = await service?.fetchData(transformedFilterParams);
-      // todo: filter data
-      const transformedData = service?.transformData(fetchedData);
+      try {
+        isDataLoading.value = true;
+        const service = getService(id);
 
-      exportDatasets.value.push({
-        id: id,
-        data: transformedData!,
-        export_fields: [], // initialize empty
-        format: "csv", // default format
-      });
+        if (!service) {
+          throw new Error(`Service not found for id: ${id}`);
+        }
+
+        const transformedFilterParams = service.transformFilterParams({
+          start_date: "2022-01-01",
+          end_date: "2022-02-01",
+          location_plz: "10115",
+          gender: "",
+          age: "",
+        });
+        const fetchedData = await service.fetchData(transformedFilterParams);
+        const transformedData = service.getTransformedData(fetchedData);
+
+        exportDatasets.value.push({
+          id: id,
+          data: transformedData!,
+          export_fields: [],
+          format: "csv",
+        });
+      } catch (error) {
+        console.error("Error adding to export:", error);
+      } finally {
+        isDataLoading.value = false;
+      }
     };
 
     const removeFromExport = (id: string) => {
@@ -149,6 +163,7 @@ export const useExportStore = defineStore(
       updateAttributeExportFields,
       updateDataFormatExportField,
       downloadData,
+      isLoading,
     };
   },
   {
