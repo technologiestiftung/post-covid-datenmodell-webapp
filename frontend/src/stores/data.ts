@@ -33,10 +33,35 @@ async function loadKreisData(): Promise<KreisData[]> {
 
     const [latStr, lngStr] = geoPointStr.split(',').map((val) => val.trim());
 
+    // derive bundesland and bundesland code from kreis code
+    const mapper: Record<string, string> = {
+      '01': 'Schleswig-Holstein',
+      '02': 'Hamburg',
+      '03': 'Niedersachsen',
+      '04': 'Bremen',
+      '05': 'Nordrhein-Westfalen',
+      '06': 'Hessen',
+      '07': 'Rheinland-Pfalz',
+      '08': 'Baden-Württemberg',
+      '09': 'Bayern',
+      '10': 'Saarland',
+      '11': 'Berlin',
+      '12': 'Brandenburg',
+      '13': 'Mecklenburg-Vorpommern',
+      '14': 'Sachsen',
+      '15': 'Sachsen-Anhalt',
+      '16': 'Thüringen',
+    };
+
+    // if kreisCode is 4 digits use the first digit as bundesland code and add 0 to the start; else use the first 2 digits
+    const bundeslandCode = kreisCode.length === 4 ? `0${kreisCode[0]}` : kreisCode.slice(0, 2);
+
     return {
       name: kreisName.trim(),
       zipCode: postleitzahl.trim(),
       districtCode: kreisCode.trim(),
+      bundesland: mapper[bundeslandCode],
+      bundeslandCode: bundeslandCode,
       geoPoint: {
         lat: parseFloat(latStr),
         lng: parseFloat(lngStr),
