@@ -1,19 +1,88 @@
 import { type filterParams } from "@/types/metadata";
 import { type fetchedDataset } from "@/types/export";
 
-// place for base service + type of it
+type ServiceError = {
+  message: string;
+  code?: string;
+  status?: number;
+};
+
 interface BaseServiceType {
-  // we take the defined filterParams and adjust them to the specific service
   transformFilterParams(filterParams: filterParams): any;
-  // we use the adjusted filterParams to fetch the data -> the retun data is not yet defineable
-  fetchData(transformedFilterParams: any): any;
-  transformData(data: any): fetchedDataset;
+  fetchData(transformedFilterParams: any): Promise<fetchedDataset>;
+  onStateChange?: (loading: boolean) => void;
 }
 
 abstract class BaseService implements BaseServiceType {
+  private loading = false;
+  private error: ServiceError | null = null;
+  onStateChange?: (loading: boolean) => void;
+
+  private setLoading(value: boolean) {
+    this.loading = value;
+    this.onStateChange?.(value);
+  }
+
+  isLoading(): boolean {
+    return this.loading;
+  }
+
+  getError(): ServiceError | null {
+    return this.error;
+  }
+
   abstract transformFilterParams(filterParams: filterParams): any;
-  abstract fetchData(transformedFilterParams: any): any;
-  abstract transformData(data: any): fetchedDataset;
+
+  async fetchData(transformedFilterParams: any): Promise<any> {
+    this.setLoading(true);
+    this.error = null;
+
+    try {
+      return await this.performFetch(transformedFilterParams);
+    } catch (error) {
+      const serviceError = this.handleError(error);
+      this.error = serviceError;
+      throw serviceError;
+    } finally {
+      this.setLoading(false);
+    }
+  }
+
+  protected abstract performFetch(transformedFilterParams: any): Promise<any>;
+
+  protected handleError(error: any): ServiceError {
+    const serviceError: ServiceError = {
+      message: error.message || "An unexpected error occurred",
+      status: error.response?.status,
+    };
+    return serviceError;
+  }
+
+  protected transformData(jsonData: any[]): fetchedDataset {
+    if (!jsonData || !Array.isArray(jsonData) || jsonData.length === 0) {
+      return { headers: [], rows: [] };
+    }
+
+    try {
+      const firstRow = jsonData[0];
+      if (!firstRow || typeof firstRow !== "object") {
+        throw new Error("Invalid data format");
+      }
+
+      const headers = Object.keys(firstRow);
+      return {
+        headers: headers,
+        rows: jsonData.filter((row) => row !== null && typeof row === "object"),
+      };
+    } catch (error) {
+      return { headers: [], rows: [] };
+    }
+  }
+
+  // set default for transforming the data -> allows custom overwriting in the services
+  public getTransformedData(jsonData: any[]): fetchedDataset {
+    return this.transformData(jsonData);
+  }
 }
 
-export { BaseService };
+export { BaseService, type ServiceError };

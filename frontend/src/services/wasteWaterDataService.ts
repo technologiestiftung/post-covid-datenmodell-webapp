@@ -1,9 +1,8 @@
 import axios from "axios";
-import { type fetchedDataset } from "@/types/export";
 import { type filterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 
-type transformedFilterParams = {
+type WasteWaterFilterParams = {
   standort: string;
   type: string;
   start_time: string;
@@ -11,7 +10,7 @@ type transformedFilterParams = {
 };
 
 class WasteWaterDataService extends BaseService {
-  transformFilterParams(filterParams: filterParams) {
+  transformFilterParams(filterParams: filterParams): WasteWaterFilterParams {
     // TODO: Implement the transformation of the filterParams
     const standort = 'Aachen';
     const type = 'SARS-CoV-2';
@@ -25,7 +24,7 @@ class WasteWaterDataService extends BaseService {
     return transformedFilterParams;
   }
 
-  fetchData = async (filterParams: transformedFilterParams) => {
+  protected async performFetch(filterParams: WasteWaterFilterParams): Promise<any> {
     // fetch data from URL from GitHub
     try {
       const response = await axios.get(
@@ -60,19 +59,9 @@ class WasteWaterDataService extends BaseService {
       return filteredData;
     } catch (error) {
       console.error("API error:", error);
-    }
-  };
+    }   
+  }
 
-  // function to transform in the desired fetchedDataset format
-  transformData = (jsonData: any): fetchedDataset => {
-    if (jsonData.length == 0) {
-      return { headers: [], rows: [] };
-    } else {
-      const headers = Object.keys(jsonData[0]);
-      const rows = jsonData
-      return { headers: headers, rows: rows };
-    }
-  };
 }
 
 export { WasteWaterDataService };
