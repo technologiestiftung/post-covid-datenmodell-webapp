@@ -51,9 +51,9 @@ export const useExportStore = defineStore(
         const transformedFilterParams = service.transformFilterParams({
           start_date: "2022-01-01",
           end_date: "2022-02-01",
-          location_plz: "10115",
-          gender: "",
-          age: "",
+          locationDistricts: [],
+          locationStates: [],
+          age: [],
         });
         const fetchedData = await service.fetchData(transformedFilterParams);
         const transformedData = service.getTransformedData(fetchedData);

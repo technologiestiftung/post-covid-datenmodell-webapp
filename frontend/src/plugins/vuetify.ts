@@ -8,8 +8,8 @@
 import "@mdi/font/css/materialdesignicons.css";
 import "vuetify/styles";
 import DateFnsAdapter from '@date-io/date-fns'
-import de from 'date-fns/locale/de'
-import enUS from 'date-fns/locale/en-US'
+import { de } from 'date-fns/locale/de'
+import { enUS } from 'date-fns/locale/en-US'
 
 // Composables
 import { createVuetify, type ThemeDefinition } from "vuetify";

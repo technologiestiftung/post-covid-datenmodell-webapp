@@ -1,4 +1,4 @@
-import { type filterParams } from "@/types/metadata";
+import { type FilterParams } from "@/types/metadata";
 import { type fetchedDataset } from "@/types/export";
 
 type ServiceError = {
@@ -8,7 +8,7 @@ type ServiceError = {
 };
 
 interface BaseServiceType {
-  transformFilterParams(filterParams: filterParams): any;
+  transformFilterParams(filterParams: FilterParams): any;
   fetchData(transformedFilterParams: any): Promise<fetchedDataset>;
   onStateChange?: (loading: boolean) => void;
 }
@@ -31,7 +31,7 @@ abstract class BaseService implements BaseServiceType {
     return this.error;
   }
 
-  abstract transformFilterParams(filterParams: filterParams): any;
+  abstract transformFilterParams(filterParams: FilterParams): any;
 
   async fetchData(transformedFilterParams: any): Promise<any> {
     this.setLoading(true);

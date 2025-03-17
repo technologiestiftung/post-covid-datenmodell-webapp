@@ -1,5 +1,5 @@
 import axios from "axios";
-import { type filterParams } from "@/types/metadata";
+import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 
 type WasteWaterFilterParams = {
@@ -10,7 +10,7 @@ type WasteWaterFilterParams = {
 };
 
 class WasteWaterDataService extends BaseService {
-  transformFilterParams(filterParams: filterParams): WasteWaterFilterParams {
+  transformFilterParams(filterParams: FilterParams): WasteWaterFilterParams {
     // TODO: Implement the transformation of the filterParams
     const standort = 'Aachen';
     const type = 'SARS-CoV-2';

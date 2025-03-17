@@ -1,5 +1,5 @@
 import axios from "axios";
-import { type filterParams } from "@/types/metadata";
+import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 
 type WeatherFilterParams = {
@@ -10,7 +10,7 @@ type WeatherFilterParams = {
 }
 
 class WeatherService extends BaseService {
-  transformFilterParams(filterParams: filterParams): WeatherFilterParams {
+  transformFilterParams(filterParams: FilterParams): WeatherFilterParams {
     const start_time_timed = filterParams.start_date + "T00:00:00";
     const end_time_timed = filterParams.end_date + "T23:00:00";
 

@@ -1,5 +1,5 @@
 import ambulanceClinicData from "../data/2024-12-02_post_covid_ambulanzen_kliniken.json";
-import { type filterParams } from "@/types/metadata";
+import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 
 type ClinicFilterParams = {
@@ -10,7 +10,7 @@ type ClinicFilterParams = {
 };
 
 class CovidAmbulanceClinicService extends BaseService {
-  transformFilterParams(filterParams: filterParams): ClinicFilterParams {
+  transformFilterParams(filterParams: FilterParams): ClinicFilterParams {
     const transformedFilterParams = {
       start_time: filterParams.start_date,
       end_time: filterParams.end_date,

@@ -1,6 +1,6 @@
 import axios from "axios";
 import { type fetchedDataset } from "@/types/export";
-import { type filterParams } from "@/types/metadata";
+import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 
 type CovidFilterParams = {
@@ -11,7 +11,7 @@ type CovidFilterParams = {
 };
 
 class CovidDataService extends BaseService {
-  transformFilterParams(filterParams: filterParams): CovidFilterParams {
+  transformFilterParams(filterParams: FilterParams): CovidFilterParams {
     const bundesland = "01";
 
     const transformedFilterParams = {

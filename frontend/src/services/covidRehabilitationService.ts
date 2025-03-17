@@ -1,5 +1,5 @@
 import rehabilitationData from "../data/2024-12-02_post_covid_reha.json";
-import { type filterParams } from "@/types/metadata";
+import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 
 type RehabFilterParams = {
@@ -10,7 +10,7 @@ type RehabFilterParams = {
 };
 
 class CovidRehabilitationService extends BaseService {
-  transformFilterParams(filterParams: filterParams): RehabFilterParams {
+  transformFilterParams(filterParams: FilterParams): RehabFilterParams {
     const transformedFilterParams = {
       start_time: filterParams.start_date,
       end_time: filterParams.end_date,
