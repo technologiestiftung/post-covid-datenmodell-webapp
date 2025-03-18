@@ -1,0 +1,69 @@
+stages:
+  - Build
+  - Deploy Development
+
+image: docker:20
+
+variables:
+  TF_ROOT: ${CI_PROJECT_DIR}/terraform
+
+before_script:
+  - docker login -u $CI_REGISTRY_USER -p $CI_REGISTRY_PASSWORD $CI_REGISTRY || echo "No Docker available"
+
+build_website:
+  stage: Build
+  when: manual
+  services:
+    - docker:dind
+  script:
+    - docker pull $CI_REGISTRY_IMAGE/website:latest || true
+    - docker pull $CI_REGISTRY_IMAGE/website:cache || true
+    - >
+      docker build
+      --target base
+      --cache-from $CI_REGISTRY_IMAGE/website:cache
+      --tag $CI_REGISTRY_IMAGE/website:cache
+      ./frontend
+    - >
+      docker build
+      --target deploy
+      --cache-from $CI_REGISTRY_IMAGE/website:latest
+      --tag $CI_REGISTRY_IMAGE/website:$CI_COMMIT_SHORT_SHA
+      --tag $CI_REGISTRY_IMAGE/website:latest
+      --label "org.opencontainers.image.title=$CI_PROJECT_TITLE"
+      --label "org.opencontainers.image.url=$CI_PROJECT_URL"
+      --label "org.opencontainers.image.created=$CI_JOB_STARTED_AT"
+      --label "org.opencontainers.image.revision=$CI_COMMIT_SHA"
+      --label "org.opencontainers.image.version=$CI_COMMIT_REF_NAME"
+      ./frontend
+    - docker push --all-tags $CI_REGISTRY_IMAGE/website
+
+
+.terraform-setup:
+  image: registry.gitlab.com/gitlab-org/terraform-images/stable:latest
+  before_script:
+    - eval $(ssh-agent -s)
+    - echo "$TF_VAR_ssh_key" | ssh-add - > /dev/null
+    - export TF_VAR_ci_registry=$CI_REGISTRY
+    - export TF_VAR_ci_deploy_user=$CI_DEPLOY_USER
+    - export TF_VAR_ci_deploy_password=$CI_DEPLOY_PASSWORD
+    - export TF_VAR_ci_environment_name=$CI_ENVIRONMENT_NAME
+    - export TF_VAR_docker_image=$CI_REGISTRY_IMAGE/website:$CI_COMMIT_SHORT_SHA
+    - export TF_STATE_NAME=${CI_ENVIRONMENT_SLUG}
+    - cd ${TF_ROOT}
+
+.terraform-apply:
+  extends: .terraform-setup
+  when: manual
+  script:
+    - gitlab-terraform plan
+    - gitlab-terraform apply -auto-approve
+
+deploy_development:
+  extends: .terraform-apply
+  needs: ["build_website"]
+  stage: Deploy Development
+  resource_group: development
+  environment:
+    name: development
+    url: dev-tsb-metadaten.social-data-company.de
