@@ -7,26 +7,11 @@
         color="secondary"
         class="pr-1 mr-2 my-1"
         v-bind="activatorProps"
-        >Ort
+      >
+        Ort
         <v-chip density="compact" color="primary" class="ml-2 mr-0">
-          {{
-            level === LocationLevel.states
-              ? "BL: "
-              : level === LocationLevel.districts
-              ? "LK: "
-              : "Bundesweit"
-          }}
-          {{
-            level === LocationLevel.states
-              ? statesSelected.sort().join(", ")
-              : ""
-          }}
-          {{
-            level === LocationLevel.districts
-              ? districtsSelected.sort().join(", ")
-              : ""
-          }}</v-chip
-        >
+          <span v-html="formattedFilterLabel"></span>
+        </v-chip>
       </v-chip>
     </template>
     <template v-slot:default="{ isActive }">
@@ -36,10 +21,10 @@
             Ort-Filter
           </v-toolbar-title>
 
-          <v-spacer></v-spacer>
+          <v-spacer />
 
           <v-toolbar-items>
-            <v-btn icon="mdi-close" @click="isActive.value = false"></v-btn>
+            <v-btn icon="mdi-close" @click="isActive.value = false" />
           </v-toolbar-items>
         </v-toolbar>
         <v-card-text>
@@ -71,11 +56,17 @@
           </v-chip-group>
 
           <v-expand-transition>
-            <div class="pt-2" v-if="level === LocationLevel.states">
+            <div v-if="level === LocationLevel.states" class="pt-2">
               <p class="text-secondary text-subtitle-2 pt-2">
                 Welche Bundesländer möchten Sie filtern?
               </p>
-              <v-chip-group column multiple filter v-model="statesSelected">
+              <v-chip-group
+                v-model="statesSelected"
+                column
+                multiple
+                filter
+                @update:model-value="updateStates()"
+              >
                 <v-chip
                   v-for="state in states"
                   :key="state"
@@ -83,11 +74,12 @@
                   variant="outlined"
                   color="primary"
                   filter
-                  >{{ state }}
+                >
+                  {{ state }}
                 </v-chip>
               </v-chip-group>
             </div>
-            <div class="pt-2" v-if="level === LocationLevel.districts">
+            <div v-if="level === LocationLevel.districts" class="pt-2">
               <p class="text-secondary text-subtitle-2 pt-2">
                 Welche Landkreise möchten Sie filtern? (max. 5)
               </p>
@@ -104,7 +96,8 @@
                 class="pt-2"
                 hint="Maximal 5 Landkreise"
                 rounded="xl"
-              ></v-combobox>
+                @update:model-value="updateDistricts()"
+              />
             </div>
           </v-expand-transition>
         </v-card-text>
@@ -133,7 +126,30 @@ const level = ref<LocationLevel>(
 const districtsSelected = ref<string[]>(
   filterStore.filterParams.locationDistricts
 );
+
 const statesSelected = ref<string[]>(filterStore.filterParams.locationStates);
+
+const formattedFilterLabel = computed(() => {
+  if (level.value === LocationLevel.germany) return "Bundesweit";
+
+  if (level.value === LocationLevel.states) {
+    return (
+      statesSelected.value.slice(0, 1).join(", ") +
+      (statesSelected.value.length > 1
+        ? "<i> und " + (statesSelected.value.length - 1) + " weitere... </i>"
+        : "")
+    );
+  }
+
+  if (level.value === LocationLevel.districts) {
+    return (
+      districtsSelected.value.slice(0, 1).join(", ") +
+      (districtsSelected.value.length > 1
+        ? "<i> und " + (districtsSelected.value.length - 1) + " weitere... </i>"
+        : "")
+    );
+  }
+});
 
 const states = [
   "Baden-Württemberg",
@@ -166,57 +182,53 @@ const districts = computed(() => {
   );
 });
 
-// Watch the level selection
-watch(level, (newLevel) => {
-  if (newLevel === LocationLevel.germany) {
-    statesSelected.value = [];
+watch(
+  () => level.value,
+  (newVal) => {
+    if (!newVal) return;
+    if (newVal === LocationLevel.germany) {
+      statesSelected.value = [];
+      districtsSelected.value = [];
+      filterStore.locationStates = [];
+      filterStore.locationDistricts = [];
+    }
+
+    if (newVal === LocationLevel.states) {
+      districtsSelected.value = [];
+      filterStore.locationDistricts = [];
+    }
+
+    if (newVal === LocationLevel.districts) {
+      statesSelected.value = [];
+      filterStore.locationStates = [];
+    }
+  }
+);
+
+const updateStates = () => {
+  if (statesSelected.value.length === 0) {
+    filterStore.locationStates = [];
+  }
+  filterStore.locationStates = statesSelected.value;
+  filterStore.locationDistricts = [];
+};
+
+const updateDistricts = () => {
+  if (districtsSelected.value.length === 0) {
+    filterStore.locationDistricts = [];
+  }
+  filterStore.locationDistricts = districtsSelected.value;
+  filterStore.locationStates = [];
+};
+
+watch(
+  () => filterStore.locationStates,
+  (newVal) => {
+    if (!newVal) return;
+    if (newVal.length === 0) return;
+    statesSelected.value = newVal;
     districtsSelected.value = [];
-
-    // Update store (both empty)
-    filterStore.filterParams = {
-      ...filterStore.filterParams,
-      locationStates: [],
-      locationDistricts: [],
-    };
+    level.value = LocationLevel.states;
   }
-});
-
-// Watch the states selection
-watch(statesSelected, (newStates) => {
-  if (newStates.length > 0) {
-    districtsSelected.value = [];
-    // Update store: set states, clear districts
-    filterStore.filterParams = {
-      ...filterStore.filterParams,
-      locationStates: [...newStates],
-      locationDistricts: [],
-    };
-  } else if (level.value === LocationLevel.states) {
-    // No selection → also update store accordingly
-    filterStore.filterParams = {
-      ...filterStore.filterParams,
-      locationStates: [],
-    };
-  }
-});
-
-// Watch the districts selection
-watch(districtsSelected, (newDistricts) => {
-  if (newDistricts.length > 0) {
-    statesSelected.value = [];
-
-    // Update store: set districts, clear states
-    filterStore.filterParams = {
-      ...filterStore.filterParams,
-      locationDistricts: [...newDistricts],
-      locationStates: [],
-    };
-  } else if (level.value === LocationLevel.districts) {
-    // No selection → also update store accordingly
-    filterStore.filterParams = {
-      ...filterStore.filterParams,
-      locationDistricts: [],
-    };
-  }
-});
+);
 </script>

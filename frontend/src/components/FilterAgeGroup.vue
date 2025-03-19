@@ -5,16 +5,13 @@
         prepend-icon="mdi-shape-circle-plus"
         variant="outlined"
         color="secondary"
-        class="pr-1 my-1"
+        class="pr-1 my-1 mr-2"
         v-bind="activatorProps"
-        >Alter
+      >
+        Alter
         <v-chip density="compact" color="primary" class="ml-2 mr-0">
-          {{
-            ageGroupsSelected[0] === "00+"
-              ? "alle"
-              : ageGroupsSelected.sort().join(", ")
-          }}</v-chip
-        >
+          <span v-html="formattedFilterLabel"></span>
+        </v-chip>
       </v-chip>
     </template>
     <template v-slot:default="{ isActive }">
@@ -24,7 +21,7 @@
             Altersgruppen-Filter
           </v-toolbar-title>
 
-          <v-spacer></v-spacer>
+          <v-spacer />
 
           <v-toolbar-items>
             <v-btn icon="mdi-close" @click="isActive.value = false"></v-btn>
@@ -35,10 +32,10 @@
             Welche Altersgruppen möchten Sie auswählen?
           </p>
           <v-chip-group
+            v-model="ageGroupsSelected"
             column
             multiple
             filter
-            v-model="ageGroupsSelected"
             mandatory
           >
             <v-chip
@@ -48,7 +45,8 @@
               variant="outlined"
               color="primary"
               filter
-              >{{ ageGroup == "00+" ? "alle" : ageGroup }}
+            >
+              {{ ageGroup == "00+" ? "alle" : ageGroup }}
             </v-chip>
           </v-chip-group>
         </v-card-text>
@@ -58,7 +56,7 @@
 </template>
 
 <script setup lang="ts">
-import { ref, watch, nextTick } from "vue";
+import { ref, watch, computed } from "vue";
 import { useFilterStore } from "../stores/filters";
 
 const filterStore = useFilterStore();
@@ -69,10 +67,26 @@ const ageGroupsSelected = ref<string[]>(
 
 const ageGroups = ["00+", "00-04", "05-14", "15-34", "35-59", "60-79", "80+"];
 
-watch(ageGroupsSelected, (newValue) => {
-  filterStore.filterParams = {
-    ...filterStore.filterParams,
-    age: newValue,
-  };
+const formattedFilterLabel = computed(() => {
+  if (ageGroupsSelected.value[0] === "00+") return "Alle";
+
+  return (
+    ageGroupsSelected.value.sort().slice(0, 2).join(", ") +
+    (ageGroupsSelected.value.length > 2
+      ? "<i> und " + (ageGroupsSelected.value.length - 2) + " weitere... </i>"
+      : "")
+  );
 });
+
+watch(ageGroupsSelected, (newValue) => {
+  filterStore.age = newValue;
+});
+
+watch(
+  () => filterStore.age,
+  (newVal) => {
+    if (!newVal) return;
+    ageGroupsSelected.value = newVal;
+  }
+);
 </script>

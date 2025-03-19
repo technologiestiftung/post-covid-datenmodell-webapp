@@ -7,10 +7,11 @@
         color="secondary"
         class="pr-1 mr-2 my-1"
         v-bind="activatorProps"
-        >Zeitspanne
+      >
+        Zeitspanne
         <v-chip density="compact" color="primary" class="ml-2 mr-0">
-          {{ dateStartFormatted }} - {{ dateEndFormatted }}</v-chip
-        >
+          {{ dateStartFormatted }} - {{ dateEndFormatted }}
+        </v-chip>
       </v-chip>
     </template>
     <template v-slot:default="{ isActive }">
@@ -20,7 +21,7 @@
             Zeitspanne-Filter
           </v-toolbar-title>
 
-          <v-spacer></v-spacer>
+          <v-spacer />
 
           <v-toolbar-items>
             <v-btn icon="mdi-close" @click="isActive.value = false"></v-btn>
@@ -34,14 +35,14 @@
               </p>
               <v-locale-provider locale="de">
                 <v-date-picker
-                  hide-header
                   v-model="startDateSelected"
+                  hide-header
                   bg-color="white"
                   rounded="xl"
                   min="2020-01-01"
                   :max="today"
                   locale="de"
-                ></v-date-picker>
+                />
               </v-locale-provider>
             </v-col>
             <v-col cols="12" md="6">
@@ -50,14 +51,14 @@
               </p>
               <v-locale-provider locale="de">
                 <v-date-picker
-                  hide-header
                   v-model="endDateSelected"
+                  hide-header
                   bg-color="white"
                   rounded="xl"
                   min="2020-01-01"
                   :max="today"
                   locale="de"
-                ></v-date-picker>
+                />
               </v-locale-provider>
             </v-col>
           </v-row>
@@ -90,6 +91,23 @@ const endDateSelected = ref<Date>(
     ? new Date(filterStore.filterParams.start_date)
     : today
 );
+
+watch(
+  () => filterStore.startDate,
+  (newVal) => {
+    if (!newVal) return;
+    startDateSelected.value = new Date(newVal);
+  }
+);
+
+watch(
+  () => filterStore.endDate,
+  (newVal) => {
+    if (!newVal) return;
+    endDateSelected.value = new Date(newVal);
+  }
+);
+
 const startDateSelected = ref<Date>(
   filterStore.filterParams.end_date
     ? new Date(filterStore.filterParams.end_date)
@@ -128,11 +146,8 @@ watch(endDateSelected, (newVal) => {
   }
 
   // set it in the store
-  filterStore.filterParams = {
-    ...filterStore.filterParams,
-    start_date: startDateSelected.value.toDateString(),
-    end_date: endDateSelected.value.toDateString(),
-  };
+  filterStore.startDate = startDateSelected.value.toDateString();
+  filterStore.endDate = endDateSelected.value.toDateString();
 });
 
 // Watch the start date and adjust the end date if needed
@@ -152,10 +167,7 @@ watch(startDateSelected, (newVal) => {
   }
 
   // set it in the store
-  filterStore.filterParams = {
-    ...filterStore.filterParams,
-    start_date: startDateSelected.value.toDateString(),
-    end_date: endDateSelected.value.toDateString(),
-  };
+  filterStore.startDate = startDateSelected.value.toDateString();
+  filterStore.endDate = endDateSelected.value.toDateString();
 });
 </script>
