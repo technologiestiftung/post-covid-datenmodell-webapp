@@ -29,15 +29,24 @@ export const useFilterStore = defineStore(
     });
 
     // FilterParams
-    const filterParams = ref<FilterParams>({
-      start_date: "",
-      end_date: "",
-      locationStates: [],
-      locationDistricts: [],
-      age: ["00+"],
+    const startDate = ref<string>("");
+    const endDate = ref<string>("");
+    const locationStates = ref<string[]>([]);
+    const locationDistricts = ref<string[]>([]);
+    const age = ref<string[]>(["00+"]);
+
+
+    const filterParams = computed(() => {
+      return {
+        start_date: startDate.value,
+        end_date: endDate.value,
+        locationStates: locationStates.value,
+        locationDistricts: locationDistricts.value,
+        age: age.value,
+      };
     });
 
-    return { filterCategory, attributes, filterParams, filteredData };
+    return { filterCategory, attributes, filterParams, filteredData, startDate, endDate, locationStates, locationDistricts, age };
   },
   {
     persist: true,

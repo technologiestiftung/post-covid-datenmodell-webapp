@@ -1,8 +1,8 @@
 <template>
   <div>
     <v-chip-group
-      column
       v-model="filterStore.filterCategory"
+      column
       @update:model-value="(value) => (filterStore.filterCategory = value as Category)"
     >
       <v-chip
