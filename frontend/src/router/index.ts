@@ -32,7 +32,16 @@ const routes = [
     path: "/suggest-success",
     component: () => import("@/pages/DataSuggestionSuccess.vue"),
   },
-
+  {
+    name: "ContactPage",
+    path: "/contact",
+    component: () => import("@/pages/ContactPage.vue"),
+  },
+  {
+    name: "ContactPageSuccess",
+    path: "/contact-success",
+    component: () => import("@/pages/ContactPageSuccess.vue"),
+  },
 ];
 
 const router = createRouter({
