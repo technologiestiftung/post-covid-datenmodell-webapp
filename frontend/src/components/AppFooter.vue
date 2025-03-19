@@ -16,9 +16,8 @@
                   variant="flat"
                   rounded="xl"
                   size="small"
-                  href=""
-                  target="_blank"
                   class="text-primary text-capitalize"
+                  :to="{ name: 'ContactPage' }"
                 >
                   Daten vorschlagen
                 </v-btn>
@@ -122,7 +121,7 @@ const footerLinksProject = [
 const footerLinksKontakt = [
   {
     title: "Kontakt",
-    link: "",
+    link: "/contact",
   },
   {
     title: "Support",
