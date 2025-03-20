@@ -1,0 +1,56 @@
+[
+    {
+        "id": 1,
+        "category": "about",
+        "question": "Was ist das Post-COVID-Datenmodell?",
+        "answer": "Das Post-COVID-Datenmodell ist eine Webanwendung, die es Forschenden ermöglicht, offene und medizinische Daten einfach zu verknüpfen und auszuwerten. Ziel ist es, mit Hilfe von offenen Daten und Daten der Medizininformatik-Initiative (MII-Daten) innovative Fragestellungen zur Post-COVID-Forschung zu beantworten. <br/> <br/>Der enthaltene Metadatenkatalog listet die verfügbaren Datensätze auf. Die Datensätze sind nach dem anerkannten Metadatenstandard DCAT-AP.de strukturiert und können flexibel mit den MII-Daten kombiniert werden. Für spezifische Fragestellungen gibt es die Möglichkeit, bereits kombinierte Datensätze herunterzuladen. "
+    },
+    {
+        "id": 2,
+        "category": "about",
+        "question": "Was für Daten sind im Modell enthalten?",
+        "answer": "Im Datenmodell sind offene Datensätze aus den Bereichen Umwelt, Gesellschaft, Gesundheit und Demografie enthalten. Offene Datensätze sind Daten, die von frei und ohne Einschränkung kostenlos verwendet werden dürfen."
+    },
+    {
+        "id": 3,
+        "category": "about",
+        "question": "Sind Gesundheitsdaten im Modell enthalten?",
+        "answer": "Das Datenmodell selbst enthält offene Daten aus dem Gesundheitsbereich, wie z. B. die Post-COVID Reha-Angebote. Es enthält keine Patientendaten oder andere personenbezogene Daten. Es richtet sich primär an Forschende, die Zugang zu Daten der Medizininformatik-Initiative haben. Forschende können bei der <a href='https://forschen-fuer-gesundheit.de' target='_blank'>Medizininformatik-Initiative<a/> einen Antrag auf Forschungsdaten stellen."
+    },
+    {
+        "id": 4,
+        "category": "about",
+        "question": "Wie wird der Schutz meiner MII-Daten sichergestellt?",
+        "answer": "Die Webseite verzichtet bewusst auf klassische Profile mit Registrierungspflicht und Login. Stattdessen zielt sie darauf ab, den Prozess der Datenverknüpfung schnell und unkompliziert durchzuführen. Dadurch entfällt die Notwendigkeit, personenbezogene Nutzerdaten auf einem Server zu speichern. Die Verarbeitung erfolgt ausschließlich clientseitig im Browser. Darüber hinaus erfolgt auch die Verknüpfung der MII-Daten mit den offenen Datensätzen clientseitig, sodas die MII-Daten zu keinem Zeitpunkt das Endgerät der Nutzer:innen verlassen."
+    },
+    {
+        "id": 5,
+        "category": "about",
+        "question": "Kann ich das Datenmodell auch ohne MII-Daten nutzen?",
+        "answer": "Sie können das Datenmodell mit einem Dummy-Datensatz testen. Hier[LINK tbd] finden Sie einen synthetischen Datensatz, der zeigt wie der MII-Datensatz aufgebaut ist. Diesen Datensatz können Sie z.B. nutzen, um die Verschneidung von Datensätzen zu simulieren, auch ohne bereits Daten der MII vorliegen zu haben. <br/> <br/> Selbstverständlich können Sie die offenen Datensätze auch downloaden, ohne Sie für eine Verknüpfung mit MII-Daten anzupassen."
+    },
+    {
+        "id": 6,
+        "category": "about",
+        "question": "Wer steckt hinter dem Post-Covid-Datenmodell?",
+        "answer": "Das Post-Covid-Datenmodell wurde von der Technologiestiftung Berlin entwickelt – mit Unterstützung des Berlin Institute of Health at Charité Berlin und &effect. Das Projekt entstand im Rahmen der Post-COVID-Datenmodell-Challenge des Bundesministeriums des Innern und für Heimat (BMI) und des Bundesministeriums für Wirtschaft und Klimaschutz (BMWK)."
+    },
+    {
+        "id": 7,
+        "category": "about",
+        "question": "Ist das Datenmodell Open Source?",
+        "answer": "Ja, der komplette Quellcode der Anwendung ist auf GitHub verfügbar. Sie können ihn gerne als Grundlage für Ihr eigenes Projekt verwenden. <br/> <br/> <a href='https://github.com/technologiestiftung/post-covid-datenmodell-webapp/tree/main' target='_blank'>Hier<a/> geht's zum Repository."
+    },
+    {
+        "id": 8,
+        "category": "data_contribution",
+        "question": "Wie kann ich das Datenmodell mitgestalten?",
+        "answer": "Damit das Datenmodell stetig verbessert werden kann, freuen wir uns über Vorschläge und Beiträge zu neuen Datensätzen. Wenn Sie interessante offene Datensätze kennen, die bei der Beantwortung von Fragen zur Post-COVID-Forschung helfen können, können Sie diese gerne beisteuern. <br/><br/> Diese Anforderungen müssen die Datensätze erfüllen: <br/><br/>  <ul><li>Die Daten dürfen keine personenbezogenen Daten enthalten</li><li>Sie müssen eine offene Lizenz für die Weiterverwendung besitzen</li><li>Sie müssen online über eine stabile URL zum Dateidownload oder über eine Schnittstelle frei verfügbar sein</li></ul> Weitere Informationen zu offenen Daten finden Sie z. B. <a href='https://www.kas.de/de/einzeltitel/-/content/open-data1' target='_blank'>hier<a/>. <br/> <br/>Offene Daten können Sie direkt unter “Beitragen” zur Integration vorschlagen. Das Team prüft Ihren Vorschlag und meldet sich bei Ihnen. <br/> <br/> Alternativ können Sie auch einen Pull Request auf GitHub stellen (<a href='https://github.com/technologiestiftung/post-covid-datenmodell-webapp/tree/main' target='_blank'>hier<a/>)."
+    },
+    {
+        "id": 0,
+        "category": "",
+        "question": "",
+        "answer": ""
+    }
+]

@@ -133,7 +133,7 @@ const footerLinksKontakt = [
   },
   {
     title: "FAQ",
-    link: "",
+    link: "/faq",
   },
 ];
 </script>
