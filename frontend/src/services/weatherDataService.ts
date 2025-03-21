@@ -202,6 +202,7 @@ class WeatherService extends BaseService {
             }),
             {}
           ),
+          // todo:should we include these in the download?
           dwd_station_id: stationId,
           station_latitude: stationLatitude,
           station_longitude: stationLongitude,

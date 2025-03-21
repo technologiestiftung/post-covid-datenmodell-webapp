@@ -1,7 +1,35 @@
 // util functions used for geo-transformation
-import { getDistance, getCenter } from "geolib";
+import { getDistance, getCenter, findNearest } from "geolib";
 import { useDataStore } from "@/stores/data";
 import rehabilitationData from "../data/2024-12-02_post_covid_reha.json";
+import type { GeolibInputCoordinates } from "geolib/es/types";
+
+export const findNearestStation = (
+  patientLat: number,
+  patientLong: number,
+  dataset: any[],
+  latColumn: string,
+  longColumn: string
+) => {
+  // Convert dataset to geolib points format
+  const points = dataset.map((station, index) => ({
+    latitude: station[latColumn],
+    longitude: station[longColumn],
+    originalIndex: index, // Keep track of original index
+  }));
+
+  // Find nearest point
+  const nearest = findNearest(
+    { latitude: patientLat, longitude: patientLong },
+    points
+  ) as GeolibInputCoordinates & { originalIndex: number };
+  if (!nearest) {
+    throw new Error("No nearest station found");
+  }
+
+  // Return the original dataset row
+  return dataset[nearest.originalIndex];
+};
 
 // todo: typing Reha entry for return
 
