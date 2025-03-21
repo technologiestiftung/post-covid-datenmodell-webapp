@@ -10,6 +10,7 @@ type ServiceError = {
 interface BaseServiceType {
   transformFilterParams(filterParams: FilterParams): any;
   fetchData(transformedFilterParams: any): Promise<fetchedDataset>;
+  filterData(data: fetchedDataset, transformedFilterParams: any): any;
   onStateChange?: (loading: boolean) => void;
 }
 
@@ -32,6 +33,7 @@ abstract class BaseService implements BaseServiceType {
   }
 
   abstract transformFilterParams(filterParams: FilterParams): any;
+  abstract filterData(data: fetchedDataset, transformedFilterParams: any): any;
 
   async fetchData(transformedFilterParams: any): Promise<any> {
     this.setLoading(true);

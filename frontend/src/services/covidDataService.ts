@@ -2,28 +2,79 @@ import axios from "axios";
 import { type fetchedDataset } from "@/types/export";
 import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
+import { reverseBundeslandMapper } from "@/utils/geoTransformation";
+import { useDataStore } from "@/stores/data";
+import { formatDate } from "@/utils/timeTransformation";
+import { useNotificationStore } from "@/stores/notifications";
 
 type CovidFilterParams = {
-  bundesland: string;
-  age_group: string | null;
-  start_time: string;
-  end_time: string;
+  states: string[] | undefined;
+  ageGroups: string[] | undefined;
+  startDate: string | undefined;
+  endDate: string | undefined;
 };
 
 class CovidDataService extends BaseService {
   transformFilterParams(filterParams: FilterParams): CovidFilterParams {
-    const bundesland = "01";
+    const dataStore = useDataStore();
 
-    const transformedFilterParams = {
-      bundesland: bundesland,
-      age_group: null,
-      start_time: filterParams.start_date,
-      end_time: filterParams.end_date,
+    // format dates
+    const startDate = filterParams.startDate
+      ? formatDate(filterParams.startDate)
+      : "";
+    const endDate = filterParams.endDate
+      ? formatDate(filterParams.endDate)
+      : "";
+
+    // location transformation
+    const locationLevel =
+      filterParams.locationStates?.length > 0
+        ? "states"
+        : filterParams.locationDistricts?.length > 0
+        ? "districts"
+        : "germany";
+
+    // default (for germany or missings)
+    let relevantStates: string[] | undefined = undefined;
+
+    if (locationLevel === "states") {
+      // we can pass the states but need different mapping (id)
+      relevantStates = filterParams.locationStates?.map(
+        (state) => reverseBundeslandMapper[state]
+      );
+    } else if (locationLevel === "districts") {
+      // get Bundesländer for selected districts
+      const additionalData = dataStore.kreisData.filter((d) =>
+        filterParams.locationDistricts.includes(d.name)
+      );
+      const unmappedStates = additionalData.map((d) => d.bundesland);
+      relevantStates = unmappedStates.map(
+        (state) => reverseBundeslandMapper[state]
+      );
+    }
+
+    // age group transformation
+    let relevantAgeGroups: string[] | undefined = undefined;
+    if (filterParams.age) {
+      // catch "alle" category
+      if (filterParams.age.includes("00+")) {
+        relevantAgeGroups = [];
+      } else {
+        relevantAgeGroups = filterParams.age;
+      }
+    }
+
+    return {
+      startDate: startDate,
+      endDate: endDate,
+      states: relevantStates,
+      ageGroups: relevantAgeGroups,
     };
-    return transformedFilterParams;
   }
 
-  protected async performFetch(filterParams: CovidFilterParams): Promise<any> {
+  protected async performFetch(): Promise<any> {
+    const notificationStore = useNotificationStore();
+
     // get data from GitHub url
     try {
       const response = await axios.get(
@@ -47,20 +98,65 @@ class CovidDataService extends BaseService {
         }
       }
 
-      // filter by filterParams
-      const filteredData = parsedData.filter(
-        (row) =>
-          row["Bundesland_id"] == filterParams.bundesland &&
-          row["Meldedatum"] >= filterParams.start_time &&
-          row["Meldedatum"] <= filterParams.end_time
-      );
-
-      return filteredData;
+      return parsedData;
     } catch (error) {
-      console.error("API error:", error);
-    }  
+      notificationStore.addNotification("Fehler beim Laden der Daten.");
+    }
   }
- 
+  filterData(data: any, filterParams: CovidFilterParams): any {
+    const notificationStore = useNotificationStore();
+    // case: no data / filtering
+    if (!data || !data.rows) {
+      notificationStore.addNotification("Fehler beim Laden der Daten.");
+      return [];
+    }
+
+    // todo: handle out of frame time
+    let filteredRows = data.rows;
+
+    // location
+    if (filterParams.states?.length) {
+      filteredRows = filteredRows.filter((row: any) =>
+        filterParams.states!.includes(row.Bundesland_id)
+      );
+    }
+    // time
+    if (filterParams.startDate) {
+      filteredRows = filteredRows.filter(
+        (row: any) => row.Meldedatum >= filterParams.startDate!
+      );
+    }
+
+    if (filterParams.endDate) {
+      filteredRows = filteredRows.filter(
+        (row: any) => row.Meldedatum <= filterParams.endDate!
+      );
+    }
+
+    // age
+    if (filterParams.ageGroups?.length) {
+      console.log("filterParams.age_groups", filterParams.ageGroups);
+      filteredRows = filteredRows.filter((row: any) =>
+        filterParams.ageGroups!.includes(row.Altersgruppe)
+      );
+    }
+
+    // case: no results
+    if (filteredRows.length === 0) {
+      notificationStore.addNotification(
+        "Für die gewählten Filterkriterien wurden keine Einrichtungen gefunden. Es wurde der ungefilterte Datensatz dem Export hinzugefügt."
+      );
+      return {
+        ...data,
+      };
+    }
+
+    // Return new object with filtered rows
+    return {
+      ...data,
+      rows: filteredRows,
+    };
+  }
 }
 
 export { CovidDataService };

@@ -19,8 +19,8 @@ export enum LocationLevel {
 }
 
 export type FilterParams = {
-  start_date: string;
-  end_date: string; // todo: Date format?
+  startDate: string;
+  endDate: string;
   locationStates: string[];
   locationDistricts: string[];
   age: string[];

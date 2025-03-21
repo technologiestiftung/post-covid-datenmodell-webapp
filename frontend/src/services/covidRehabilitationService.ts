@@ -1,34 +1,82 @@
-import rehabilitationData from "../data/2024-12-02_post_covid_reha.json";
 import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
+import { findNearestRehaLocation } from "@/utils/geoTransformation";
+import rehabilitationData from "../data/2024-12-02_post_covid_reha.json";
+import { useNotificationStore } from "@/stores/notifications";
 
 type RehabFilterParams = {
-  latitude: number;
-  longitude: number;
-  start_time: string;
-  end_time: string;
+  facilityIds: string[] | undefined;
 };
 
 class CovidRehabilitationService extends BaseService {
   transformFilterParams(filterParams: FilterParams): RehabFilterParams {
-    const transformedFilterParams = {
-      start_time: filterParams.start_date,
-      end_time: filterParams.end_date,
-      latitude: 52.4993, // todo: get from location
-      longitude: 13.3914, // todo: get from location
-    };
-    return transformedFilterParams;
+    // info: for this service only location is relevant
+    const locationLevel =
+      filterParams.locationStates?.length > 0
+        ? "states"
+        : filterParams.locationDistricts?.length > 0
+        ? "districts"
+        : "germany";
+
+    const relevantFacilities: any[] = [];
+
+    if (locationLevel === "states") {
+      filterParams.locationStates.forEach((state) => {
+        relevantFacilities.push(findNearestRehaLocation(state, "state"));
+      });
+    } else if (locationLevel === "districts") {
+      filterParams.locationDistricts.forEach((district) => {
+        relevantFacilities.push(findNearestRehaLocation(district, "districts"));
+      });
+    }
+    const relevantFacilityIds = relevantFacilities.map((f) => f.uid);
+    return { facilityIds: relevantFacilityIds };
   }
-  protected async performFetch(filterParams: RehabFilterParams): Promise<any> {
+
+  protected async performFetch(): Promise<any> {
+    const notificationStore = useNotificationStore();
+
     try {
       // Load data from JSON file
       const data = rehabilitationData;
 
       return data["data"];
     } catch (error) {
-      console.error("Error loading rehabilitation data:", error);
+      notificationStore.addNotification("Fehler beim Laden der Daten.");
       return [];
     }
+  }
+  filterData(data: any, filterParams: RehabFilterParams): any {
+    const notificationStore = useNotificationStore();
+
+    // case: no data / filtering
+    if (!data || !data.rows) {
+      notificationStore.addNotification("Fehler beim Laden der Daten.");
+      return [];
+    }
+    let filteredRows = data.rows;
+
+    if (filterParams.facilityIds?.length) {
+      filteredRows = filteredRows.filter((row: any) =>
+        filterParams.facilityIds!.includes(row.uid)
+      );
+    }
+
+    // case: no results
+    if (filteredRows.length === 0) {
+      notificationStore.addNotification(
+        "Für die gewählten Filterkriterien wurden keine Einrichtungen gefunden. Es wurde der ungefilterte Datensatz dem Export hinzugefügt."
+      );
+      return {
+        ...data,
+      };
+    }
+
+    // Return new object with filtered rows
+    return {
+      ...data,
+      rows: filteredRows,
+    };
   }
 }
 

@@ -1,42 +1,228 @@
 import axios from "axios";
 import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
+import { formatDate } from "@/utils/timeTransformation";
+import { calculateCenterLongLat } from "@/utils/geoTransformation";
+import { useDataStore } from "@/stores/data";
+import { useNotificationStore } from "@/stores/notifications";
 
-type WeatherFilterParams = {
+type location = {
   latitude: number;
   longitude: number;
-  start_time: string;
-  end_time: string;
-}
+};
+
+type WeatherFilterParams = {
+  locations: location[] | undefined;
+  startTime: string;
+  endTime: string;
+};
 
 class WeatherService extends BaseService {
   transformFilterParams(filterParams: FilterParams): WeatherFilterParams {
-    const start_time_timed = filterParams.start_date + "T00:00:00";
-    const end_time_timed = filterParams.end_date + "T23:00:00";
+    const dataStore = useDataStore();
 
-    // todo: get long lat from plz
-    const latitude = 52.520008;
-    const longitude = 13.404954;
+    // format dates
+    const startTime = filterParams.startDate
+      ? formatDate(filterParams.startDate) + "T00:00:00"
+      : "";
+    const endTime = filterParams.endDate
+      ? formatDate(filterParams.endDate) + "T23:00:00"
+      : "";
 
-    const transformedFilterParams = {
-      latitude: latitude,
-      longitude: longitude,
-      start_time: start_time_timed,
-      end_time: end_time_timed,
+    // get center long lat from location
+    const locationLevel =
+      filterParams.locationStates?.length > 0
+        ? "states"
+        : filterParams.locationDistricts?.length > 0
+        ? "districts"
+        : "germany";
+
+    const relevantLocations: location[] | undefined = [];
+
+    if (locationLevel === "germany") {
+      // get center for every state
+      const allStates = [
+        "Schleswig-Holstein",
+        "Hamburg",
+        "Niedersachsen",
+        "Bremen",
+        "Nordrhein-Westfalen",
+        "Hessen",
+        "Rheinland-Pfalz",
+        "Baden-Württemberg",
+        "Bayern",
+        "Saarland",
+        "Berlin",
+        "Brandenburg",
+        "Mecklenburg-Vorpommern",
+        "Sachsen",
+        "Sachsen-Anhalt",
+        "Thüringen",
+      ];
+      // find center for each state
+      allStates.forEach((state) => {
+        const additionalData = dataStore.kreisData.filter(
+          (d) => state == d.bundesland
+        );
+
+        const center = calculateCenterLongLat(
+          additionalData.map((d) => ({
+            latitude: d.geoPoint.lat,
+            longitude: d.geoPoint.lng,
+          }))
+        );
+        if (center) {
+          relevantLocations.push(center);
+        }
+      });
+    }
+
+    if (locationLevel === "states") {
+      // find center for each state
+      filterParams.locationStates.forEach((state) => {
+        const additionalData = dataStore.kreisData.filter(
+          (d) => state == d.bundesland
+        );
+
+        const center = calculateCenterLongLat(
+          additionalData.map((d) => ({
+            latitude: d.geoPoint.lat,
+            longitude: d.geoPoint.lng,
+          }))
+        );
+        if (center) {
+          relevantLocations.push(center);
+        }
+      });
+    }
+
+    if (locationLevel === "districts") {
+      // find center for each district
+      filterParams.locationDistricts.forEach((district) => {
+        const additionalData = dataStore.kreisData.filter(
+          (d) => district == d.name
+        );
+
+        const center = calculateCenterLongLat(
+          additionalData.map((d) => ({
+            latitude: d.geoPoint.lat,
+            longitude: d.geoPoint.lng,
+          }))
+        );
+        if (center) {
+          relevantLocations.push(center);
+        }
+      });
+    }
+
+    return {
+      locations: relevantLocations,
+      startTime: startTime,
+      endTime: endTime,
     };
-    return transformedFilterParams;
   }
 
-  protected async performFetch(filterParams: WeatherFilterParams): Promise<any> {
-    const response = await axios.get(
-      `https://api.brightsky.dev/weather?lat=${filterParams.latitude}&lon=${filterParams.longitude}&date=${filterParams.start_time}&last_date=${filterParams.end_time}&units=dwd&tz=Europe/Berlin`
-    );   
-    
-    if (!response.data?.weather) {
-      throw new Error('No weather data available');
-    }   
-    
-    return response.data.weather;
+  protected async performFetch(
+    transformedFilterParams: WeatherFilterParams
+  ): Promise<any> {
+    const notificationStore = useNotificationStore();
+
+    if (
+      !transformedFilterParams.locations ||
+      transformedFilterParams.locations.length === 0
+    ) {
+      notificationStore.addNotification("Fehler beim Laden der Daten.");
+      return [];
+    }
+
+    // Fetch weather data for all locations
+    const allResponses = await Promise.all(
+      transformedFilterParams.locations.map(async (location) => {
+        const response = await axios.get(
+          `https://api.brightsky.dev/weather?lat=${location.latitude}&lon=${location.longitude}&date=${transformedFilterParams.startTime}&last_date=${transformedFilterParams.endTime}&units=dwd&tz=Europe/Berlin`
+        );
+
+        if (!response.data?.weather || !response.data?.sources) {
+          notificationStore.addNotification("Fehler beim Laden der Daten.");
+        }
+
+        // get additional data for the station
+        const stationId = response.data.sources[0].dwd_station_id;
+        const stationLatitude = response.data.sources[0].lat;
+        const stationLongitude = response.data.sources[0].lon;
+
+        // relevant columns for aggregation
+        const numericCols = [
+          "precipitation",
+          "pressure_msl",
+          "sunshine",
+          "temperature",
+          "wind_speed",
+          "relative_humidity",
+        ];
+
+        // Group data by day and calculate means
+        const dailyMeans = Object.values(
+          // acc = accumulator object to keep track
+          response.data.weather.reduce((acc: any, entry: any) => {
+            // get the day
+            const day = entry.timestamp.split("T")[0];
+
+            // initialize new day if it doesn't exist
+            if (!acc[day]) {
+              acc[day] = {
+                Tag: day,
+                count: {}, // tracks count per column
+                ...numericCols.reduce(
+                  (cols, col) => ({ ...cols, [col]: 0 }), // initialize all numeric values to 0
+                  {}
+                ),
+              };
+            }
+
+            numericCols.forEach((col) => {
+              // skips null, undefined, and NaN values (but counts 0)
+              if (entry[col] != null && !Number.isNaN(entry[col])) {
+                acc[day][col] += entry[col]; // add value to sum
+                acc[day].count[col] = (acc[day].count[col] || 0) + 1; // increment count
+              }
+            });
+
+            return acc;
+          }, {})
+        ).map((dayData: any) => ({
+          day: dayData.Tag,
+          ...numericCols.reduce(
+            (cols, col) => ({
+              ...cols,
+              // only divide if we have values for this column
+              [col]: dayData.count[col]
+                ? dayData[col] / dayData.count[col] // calculate average
+                : null,
+            }),
+            {}
+          ),
+          dwd_station_id: stationId,
+          station_latitude: stationLatitude,
+          station_longitude: stationLongitude,
+        }));
+        return dailyMeans;
+      })
+    );
+
+    // Combine all weather data
+    return allResponses.flat();
+  }
+
+  filterData(data: any, filterParams: WeatherFilterParams): any {
+    const notificationStore = useNotificationStore();
+    if (!data || !data.rows) {
+      notificationStore.addNotification("Fehler beim Laden der Daten.");
+      return [];
+    }
+
+    // info: no filtering needed as only relevant retrieved (time and location)
+    return data;
   }
 }
 

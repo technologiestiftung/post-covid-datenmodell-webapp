@@ -35,18 +35,27 @@ export const useFilterStore = defineStore(
     const locationDistricts = ref<string[]>([]);
     const age = ref<string[]>(["00+"]);
 
-
     const filterParams = computed(() => {
       return {
-        start_date: startDate.value,
-        end_date: endDate.value,
+        startDate: startDate.value,
+        endDate: endDate.value,
         locationStates: locationStates.value,
         locationDistricts: locationDistricts.value,
         age: age.value,
       };
     });
 
-    return { filterCategory, attributes, filterParams, filteredData, startDate, endDate, locationStates, locationDistricts, age };
+    return {
+      filterCategory,
+      attributes,
+      filterParams,
+      filteredData,
+      startDate,
+      endDate,
+      locationStates,
+      locationDistricts,
+      age,
+    };
   },
   {
     persist: true,
