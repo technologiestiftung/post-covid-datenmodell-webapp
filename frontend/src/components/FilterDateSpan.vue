@@ -87,8 +87,8 @@ const today = new Date();
 
 // State for start and end dates
 const endDateSelected = ref<Date>(
-  filterStore.filterParams.start_date
-    ? new Date(filterStore.filterParams.start_date)
+  filterStore.filterParams.startDate
+    ? new Date(filterStore.filterParams.startDate)
     : today
 );
 
@@ -109,8 +109,8 @@ watch(
 );
 
 const startDateSelected = ref<Date>(
-  filterStore.filterParams.end_date
-    ? new Date(filterStore.filterParams.end_date)
+  filterStore.filterParams.endDate
+    ? new Date(filterStore.filterParams.endDate)
     : addYears(today, -1)
 ); // one year before today by default
 

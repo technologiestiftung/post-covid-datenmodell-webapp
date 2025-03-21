@@ -1,6 +1,8 @@
 import { ref, computed } from "vue";
 import { defineStore } from "pinia";
+import { useFilterStore } from "./filters";
 import { type exportListItem } from "../types/export";
+import { useNotificationStore } from "./notifications";
 
 // services
 import { WeatherService } from "@/services/weatherDataService";
@@ -24,6 +26,8 @@ const serviceRegistry = new Map<string, BaseService>([
 export const useExportStore = defineStore(
   "export",
   () => {
+    const notificationStore = useNotificationStore();
+    const filterStore = useFilterStore();
     const exportDatasets = ref<exportListItem[]>([]);
     const isDataLoading = ref(false);
     const isLoading = ref(false);
@@ -45,27 +49,36 @@ export const useExportStore = defineStore(
         const service = getService(id);
 
         if (!service) {
+          notificationStore.addNotification(
+            "Diese Daten sind momentan nicht verfügbar"
+          );
           throw new Error(`Service not found for id: ${id}`);
         }
 
-        const transformedFilterParams = service.transformFilterParams({
-          start_date: "2022-01-01",
-          end_date: "2022-02-01",
-          locationDistricts: [],
-          locationStates: [],
-          age: [],
-        });
+        const transformedFilterParams = service.transformFilterParams(
+          filterStore.filterParams
+        );
         const fetchedData = await service.fetchData(transformedFilterParams);
         const transformedData = service.getTransformedData(fetchedData);
+        const filteredData = service.filterData(
+          transformedData!,
+          transformedFilterParams
+        );
+
+        // catch empty data
+        if (!filteredData) {
+          // abort adding to export
+          return;
+        }
 
         exportDatasets.value.push({
           id: id,
-          data: transformedData!,
+          data: filteredData,
           export_fields: [],
           format: "csv",
         });
       } catch (error) {
-        console.error("Error adding to export:", error);
+        notificationStore.addNotification("Fehler beim Hinzufügen zum Export");
       } finally {
         isDataLoading.value = false;
       }
@@ -106,12 +119,15 @@ export const useExportStore = defineStore(
     };
 
     const downloadData = () => {
-      const timestamp = new Date().toISOString().split('T')[0];
+      const timestamp = new Date().toISOString().split("T")[0];
 
       for (const dataset of exportDatasets.value) {
-        if(dataset.format === "csv") {        
+        if (dataset.format === "csv") {
           const data = dataset.data;
-          const headers = dataset.export_fields.length > 0 ? dataset.export_fields : Object.keys(data.rows[0]);          
+          const headers =
+            dataset.export_fields.length > 0
+              ? dataset.export_fields
+              : Object.keys(data.rows[0]);
 
           let csvContent = "data:text/csv;charset=utf-8,";
           csvContent += headers.join(",") + "\n";
@@ -120,37 +136,39 @@ export const useExportStore = defineStore(
           });
 
           const url = encodeURI(csvContent);
-          
+
           const link = document.createElement("a");
-          link.href = url;     
-          link.download = `${timestamp}-${dataset.id}-export.csv`; 
+          link.href = url;
+          link.download = `${timestamp}-${dataset.id}-export.csv`;
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
           window.URL.revokeObjectURL(url);
-
-        }else if(dataset.format === "json") {
+        } else if (dataset.format === "json") {
           const data = dataset.data;
-          const headers = dataset.export_fields.length > 0 ? dataset.export_fields : Object.keys(data.rows[0]);    
+          const headers =
+            dataset.export_fields.length > 0
+              ? dataset.export_fields
+              : Object.keys(data.rows[0]);
           console.log(headers);
-          const filteredData = data.rows.map(row => {
+          const filteredData = data.rows.map((row) => {
             const filteredRow: Record<string, any> = {};
-            headers.forEach(header => {
-                filteredRow[header] = row[header];
+            headers.forEach((header) => {
+              filteredRow[header] = row[header];
             });
             return filteredRow;
           });
-          
-          const jsonString = JSON.stringify(filteredData, null, 2);           
-          
-          const blob = new Blob([jsonString], { type: 'application/json' });            
-          const url = window.URL.createObjectURL(blob); 
-          const link = document.createElement('a');
-          link.href = url;                   
-          link.download = `${timestamp}-${dataset.id}-export.json`;          
+
+          const jsonString = JSON.stringify(filteredData, null, 2);
+
+          const blob = new Blob([jsonString], { type: "application/json" });
+          const url = window.URL.createObjectURL(blob);
+          const link = document.createElement("a");
+          link.href = url;
+          link.download = `${timestamp}-${dataset.id}-export.json`;
           document.body.appendChild(link);
           link.click();
-          document.body.removeChild(link);            
+          document.body.removeChild(link);
           window.URL.revokeObjectURL(url);
         }
       }
