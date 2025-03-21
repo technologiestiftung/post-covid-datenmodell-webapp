@@ -25,6 +25,7 @@
       <!-- Export Action -->
       <v-col cols="11" md="4">
         <ExportDataCard />
+        <UnifiedDataExportCard />
       </v-col>
     </v-row>
     <v-row v-else>
@@ -58,6 +59,7 @@ import MetaDataCard from "../components/MetaDataCard.vue";
 import AppInformation from "../components/AppInformation.vue";
 import { useExportStore } from "../stores/export";
 import ExportDataCard from "../components/ExportDataCard.vue";
+import UnifiedDataExportCard from "../components/UnifiedDataExportCard.vue";
 
 const exportStore = useExportStore();
 const dataStore = useDataStore();
