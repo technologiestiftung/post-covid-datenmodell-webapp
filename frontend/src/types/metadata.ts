@@ -54,6 +54,15 @@ export enum DataFormat {
   "json" = "json",
 }
 
+export type AttributeMeta = {
+  id: string;
+  time_attribute: boolean;
+  location_attribute: boolean;
+  age_attribute: boolean;
+  type: string;
+  description: string;
+};
+
 export type MetaDataEntry = {
   id: string;
   title: string;
@@ -68,6 +77,7 @@ export type MetaDataEntry = {
   data_formats: DataFormat[];
   // MII-Schlüsselattribute
   attributes: Attribute[];
+  attributes_meta: AttributeMeta[];
   availability_age: boolean;
   availability_gender: boolean;
   availability_temporal: TemporalAvailability;

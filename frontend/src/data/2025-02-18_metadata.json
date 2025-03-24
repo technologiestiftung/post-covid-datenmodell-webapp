@@ -6,7 +6,10 @@
     "source": "https://api.brightsky.dev/weather",
     "license": "Öffentlich zugänglich",
     "category": "Umwelt",
-    "data_formats": ["json", "csv"],
+    "data_formats": [
+      "json",
+      "csv"
+    ],
     "last_updated": "todo",
     "availability_temporal": {
       "start_date": "2010-01-01",
@@ -40,7 +43,164 @@
       "solar",
       "icon"
     ],
-    "filter_attributes": ["Ort", "Zeitspanne"],
+    "filter_attributes": [
+      "Ort",
+      "Zeitspanne"
+    ],
+    "attributes_meta": [
+      {
+        "id": "day",
+        "time_attribute": true,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Zeitstempel der Wetterdaten",
+        "type": "datetime"
+      },
+      {
+        "id": "dwd_station_id",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "ID des Datenquellen",
+        "type": "string"
+      },
+      {
+        "id": "precipitation",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Niederschlag in mm",
+        "type": "float"
+      },
+      {
+        "id": "pressure_msl",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Luftdruck auf Meereshöhe in hPa",
+        "type": "float"
+      },
+      {
+        "id": "sunshine",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Sonnenscheindauer in Stunden",
+        "type": "float"
+      },
+      {
+        "id": "temperature",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Temperatur in Grad Celsius",
+        "type": "float"
+      },
+      {
+        "id": "wind_direction",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Windrichtung in Grad",
+        "type": "float"
+      },
+      {
+        "id": "wind_speed",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Windgeschwindigkeit in m/s",
+        "type": "float"
+      },
+      {
+        "id": "cloud_cover",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Bewölkung in Prozent",
+        "type": "float"
+      },
+      {
+        "id": "dew_point",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Taupunkt in Grad Celsius",
+        "type": "float"
+      },
+      {
+        "id": "relative_humidity",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Relative Luftfeuchtigkeit in Prozent",
+        "type": "float"
+      },
+      {
+        "id": "visibility",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Sichtweite in km",
+        "type": "float"
+      },
+      {
+        "id": "wind_gust_direction",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Windböenrichtung in Grad",
+        "type": "float"
+      },
+      {
+        "id": "wind_gust_speed",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Windböengeschwindigkeit",
+        "type": "float"
+      },
+      {
+        "id": "condition",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Wetterzustand",
+        "type": "string"
+      },
+      {
+        "id": "precipitation_probability",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Niederschlagswahrscheinlichkeit",
+        "type": "float"
+      },
+      {
+        "id": "precipitation_probability_6h",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Niederschlagswahrscheinlichkeit für 6 Stunden",
+        "type": "float"
+      },
+      {
+        "id": "solar",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Sonnenstrahlung",
+        "type": "float"
+      },
+      {
+        "id": "icon",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Wetter-Icon",
+        "type": "string"
+      }
+    ],
     "keywords": [
       "Wetter",
       "Stundenwetter",
@@ -63,7 +223,10 @@
     "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_reha.json",
     "license": "Daten öffentlich zugänglich",
     "category": "Gesundheit",
-    "data_formats": ["json", "csv"],
+    "data_formats": [
+      "json",
+      "csv"
+    ],
     "last_updated": "2024-12-02",
     "availability_temporal": {
       "start_date": "2024-12",
@@ -84,7 +247,59 @@
       "longitude",
       "isPositionAddedManually"
     ],
-    "filter_attributes": ["Ort"],
+    "filter_attributes": [
+      "Ort"
+    ],
+    "attributes_meta": [
+      {
+        "id": "uuid",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Eindeutige ID der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "nameKurz",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Kurzer Name der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "nameLang",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Langname der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "latitude",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Geographische Breite der Einrichtung",
+        "type": "float"
+      },
+      {
+        "id": "longitude",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Geographische Länge der Einrichtung",
+        "type": "float"
+      },
+      {
+        "id": "isPositionAddedManually",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Position manuell hinzugefügt",
+        "type": "boolean"
+      }
+    ],
     "keywords": [
       "Rehabilitat",
       "Rehaeinrichtungen",
@@ -106,7 +321,10 @@
     "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_ambulanzen_kliniken.json",
     "license": "Daten öffentlich zugänglich",
     "category": "Gesundheit",
-    "data_formats": ["json", "csv"],
+    "data_formats": [
+      "json",
+      "csv"
+    ],
     "last_updated": "2024-12-02",
     "availability_temporal": {
       "start_date": "2024-12-02",
@@ -131,7 +349,91 @@
       "focusarea1",
       "focusarea2"
     ],
-    "filter_attributes": ["Ort"],
+    "filter_attributes": [
+      "Ort"
+    ],
+    "attributes_meta": [
+      {
+        "id": "id",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Eindeutige ID der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "status",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Status der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "state",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Bundesland der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "place",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Ort der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "zip",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Postleitzahl der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "name",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Name der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "link",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Link zur Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "type",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Typ der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "focusarea1",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Fokusgebiet 1 der Einrichtung",
+        "type": "string"
+      },
+      {
+        "id": "focusarea2",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Fokusgebiet 2 der Einrichtung",
+        "type": "string"
+      }
+    ],
     "keywords": [
       "Post-COVID",
       "Rehabilitation",
@@ -154,7 +456,10 @@
     "source": "https://www.umweltbundesamt.de/daten/luft/luftdaten",
     "license": "CC-BY 4.0",
     "category": "Umwelt",
-    "data_formats": ["json", "csv"],
+    "data_formats": [
+      "json",
+      "csv"
+    ],
     "last_updated": "todo",
     "availability_temporal": {
       "start_date": "2016-01-01",
@@ -167,8 +472,13 @@
     },
     "availability_age": false,
     "availability_gender": false,
-    "attributes": ["todo"],
-    "filter_attributes": ["Ort", "Zeitspanne"],
+    "attributes": [
+      "todo"
+    ],
+    "filter_attributes": [
+      "Ort",
+      "Zeitspanne"
+    ],
     "keywords": [],
     "contact": {
       "name": "Umweltbundesamt",
@@ -184,7 +494,10 @@
     "source": "https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland",
     "license": "CC-BY 4.0",
     "category": "Gesundheit",
-    "data_formats": ["json", "csv"],
+    "data_formats": [
+      "json",
+      "csv"
+    ],
     "last_updated": "todo",
     "availability_temporal": {
       "start_date": "2020-01-01",
@@ -207,8 +520,85 @@
       "Faelle_7-Tage",
       "Inzidenz_7-Tage"
     ],
-    "filter_attributes": ["Ort", "Zeitspanne", "Geschlecht", "Alter"],
-    "keywords": ["COVID-19", "SARS-CoV-2", "Infektionen", "Fallzahlen", "RKI"],
+    "filter_attributes": [
+      "Ort",
+      "Zeitspanne",
+      "Geschlecht",
+      "Alter"
+    ],
+    "attributes_meta": [
+      {
+        "id": "Meldedatum",
+        "time_attribute": true,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Datum der Meldung",
+        "type": "datetime"
+      },
+      {
+        "id": "Bundesland_id",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "ID des Bundeslandes",
+        "type": "string"
+      },
+      {
+        "id": "Altersgruppe",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": true,
+        "description": "Altersgruppe",
+        "type": "string"
+      },
+      {
+        "id": "Bevoelkerung",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Bevölkerungszahl",
+        "type": "integer"
+      },
+      {
+        "id": "Faelle_gesamt",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Gesamtzahl der Fälle",
+        "type": "integer"
+      },
+      {
+        "id": "Faelle_neu",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Neue Fälle",
+        "type": "integer"
+      },
+      {
+        "id": "Faelle_7-Tage",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Fälle der letzten 7 Tage",
+        "type": "integer"
+      },
+      {
+        "id": "Inzidenz_7-Tage",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "7-Tage-Inzidenz",
+        "type": "float"
+      }
+    ],
+    "keywords": [
+      "COVID-19",
+      "SARS-CoV-2",
+      "Infektionen",
+      "Fallzahlen",
+      "RKI"
+    ],
     "contact": {
       "name": "Robert Koch-Institut, Open Data Team, Fachgebiet MF4",
       "address": "Nordufer 20 <br/> 13353 Berlin",
@@ -223,7 +613,10 @@
     "source": "https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG",
     "license": "CC-BY 4.0",
     "category": "Umwelt",
-    "data_formats": ["json", "csv"],
+    "data_formats": [
+      "json",
+      "csv"
+    ],
     "last_updated": "todo",
     "availability_temporal": {
       "start_date": "22.11.2022",
@@ -250,8 +643,108 @@
       "typ",
       "unter_bg"
     ],
-
-    "filter_attributes": ["Ort", "Zeitspanne"],
+    "filter_attributes": [
+      "Ort",
+      "Zeitspanne"
+    ],
+    "attributes_meta": [
+      {
+        "id": "standort",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Standort der Kläranlage",
+        "type": "string"
+      },
+      {
+        "id": "bundesland",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Bundesland",
+        "type": "string"
+      },
+      {
+        "id": "datum",
+        "time_attribute": true,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Datum der Messung",
+        "type": "datetime"
+      },
+      {
+        "id": "viruslast",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Viruslast in Genomkopien pro Liter",
+        "type": "float"
+      },
+      {
+        "id": "loess_vorhersage",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Loess Vorhersage",
+        "type": "float"
+      },
+      {
+        "id": "loess_obere_schranke",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Loess obere Grenze",
+        "type": "float"
+      },
+      {
+        "id": "loess_untere_schranke",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Loess untere Grenze",
+        "type": "float"
+      },
+      {
+        "id": "einwohner",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Einwohnerzahl",
+        "type": "integer"
+      },
+      {
+        "id": "laborwechsel",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Laborwechsel",
+        "type": "boolean"
+      },
+      {
+        "id": "normalisierung",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Normalisierung",
+        "type": "boolean"
+      },
+      {
+        "id": "typ",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Typ",
+        "type": "string"
+      },
+      {
+        "id": "unter_bg",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Unter BG",
+        "type": "boolean"
+      }
+    ],
     "keywords": [
       "COVID-19",
       "SARS-CoV-2",
