@@ -4,7 +4,7 @@
       <v-btn
         color="primary"
         variant="text"
-        prepend-icon="mdi-menu"
+        prepend-icon="mdi-open-in-app"
         v-bind="activatorProps"
       >
         Menü öffnen
@@ -190,8 +190,13 @@
               </span>
             </template>
             <span>
-              In unserem GitHub Repository finden Sie Python-Skripte um weitere
-              Analysen durchzuführen.
+              In unserem
+              <a
+                href="https://github.com/technologiestiftung/post-covid-datenmodell"
+                target="_blank"
+                >GitHub Repository</a
+              >
+              finden Sie Python-Skripte um weitere Analysen durchzuführen.
             </span>
           </v-alert>
         </v-card-text>

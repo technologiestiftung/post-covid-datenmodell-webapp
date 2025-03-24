@@ -1,5 +1,5 @@
 <template>
-  <v-card color="secondary" rounded="xl" class="custom-card fill-height">
+  <v-card rounded="xl" elevation="0" class="custom-card fill-height">
     <v-card-text class="d-flex flex-column fill-height">
       <v-row class="fill-height">
         <v-col cols="3">
@@ -29,6 +29,7 @@
                 'text-button': $vuetify.display.smAndUp,
                 'text-caption': $vuetify.display.xs,
               }"
+              @click="goToDataList"
             >
               passende Datensätze finden
               <v-icon end icon="mdi-arrow-right" />
@@ -42,12 +43,18 @@
 
 <script setup lang="ts">
 import { computed } from "vue";
+import type { Category } from "@/types/metadata";
 
 // Import icons directly
 import umweltIcon from "../assets/umwelt.png";
 import gesundheitIcon from "../assets/gesundheit.png";
 import gesellschaftIcon from "../assets/gesellschaft.png";
 import demografieIcon from "../assets/demografie.png";
+import { useRouter } from "vue-router";
+import { useFilterStore } from "@/stores/filters";
+
+const router = useRouter();
+const filterStore = useFilterStore();
 
 const props = defineProps<{
   icon: string;
@@ -65,6 +72,12 @@ const iconStr = computed(() => {
   };
   return icons[props.icon] || "";
 });
+
+const goToDataList = () => {
+  filterStore.filterCategory = props.title as Category;
+  window.scrollTo(0, 0);
+  router.push({ name: "DataList" });
+};
 </script>
 
 <style scoped>

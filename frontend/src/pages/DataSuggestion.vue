@@ -1,17 +1,16 @@
 <template>
   <div class="d-flex flex-column" style="min-height: 90vh">
     <v-row
-      class="justify-center flex-grow-0 py-8"
+      class="justify-center flex-grow-0 py-4"
       style="background-color: #c6dee6"
     >
-      <v-col cols="11" md="8">
-        <div class="d-flex py-2">
+      <v-col cols="11" md="9">
+        <div class="d-flex">
           <h1 class="text-secondary">Datensatz vorschlagen</h1>
-          <AppInformation metric="metadatenkatalog" />
         </div>
         <v-row>
-          <v-col cols="12" md="8">
-            <p class="pb-4">
+          <v-col cols="12" md="9">
+            <p class="pb-2">
               Haben Sie einen relevanten Datensatz entdeckt? Schlagen Sie ihn
               hier für die Aufnahme in unseren Katalog vor. Geben Sie uns dazu
               einige grundlegende Informationen, und wir prüfen die Möglichkeit
@@ -25,7 +24,7 @@
       <v-col cols="11" md="8">
         <div class="d-flex py-2">
           <h2 class="text-secondary">Formular zum Datensatz ausfüllen</h2>
-          <AppInformation metric="metadatenkatalog" />
+          <AppInformation metric="contactForm" />
         </div>
         <v-row>
           <v-col cols="11" md="8">

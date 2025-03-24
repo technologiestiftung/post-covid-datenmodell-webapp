@@ -17,7 +17,7 @@
                   rounded="xl"
                   size="small"
                   class="text-primary text-capitalize"
-                  :to="{ name: 'ContactPage' }"
+                  :to="{ name: 'DataSuggestion' }"
                 >
                   Daten vorschlagen
                 </v-btn>
@@ -52,7 +52,7 @@
                   <v-list-item
                     v-for="(item, index) in footerLinksKontakt"
                     :key="index"
-                    :href="item.link"
+                    :to="{ name: item.componentName }"
                     class="px-1"
                   >
                     <v-list-item-title>{{ item.title }}</v-list-item-title>
@@ -73,7 +73,7 @@
               <v-btn
                 variant="text"
                 size="small"
-                href=""
+                href="https://www.technologiestiftung-berlin.de/impressum"
                 target="_blank"
                 class="text-capitalize"
               >
@@ -82,7 +82,7 @@
               <v-btn
                 variant="text"
                 size="small"
-                href=""
+                href="https://www.technologiestiftung-berlin.de/datenschutz"
                 target="_blank"
                 class="text-capitalize"
               >
@@ -106,34 +106,26 @@
 const footerLinksProject = [
   {
     title: "Über dieses Projekt",
-    link: "",
+    link: "https://www.technologiestiftung-berlin.de/",
   },
   {
     title: "Für Medizinforschende",
-    link: "",
+    link: "https://www.technologiestiftung-berlin.de/",
   },
   {
     title: "Für datenhaltende Stellen",
-    link: "",
+    link: "https://www.technologiestiftung-berlin.de/",
   },
 ];
 
 const footerLinksKontakt = [
   {
     title: "Kontakt",
-    link: "/contact",
-  },
-  {
-    title: "Support",
-    link: "",
-  },
-  {
-    title: "Barrierefreiheit",
-    link: "",
+    componentName: "ContactPage",
   },
   {
     title: "FAQ",
-    link: "/faq",
+    componentName: "FAQ",
   },
 ];
 </script>

@@ -1,7 +1,7 @@
 <template>
   <div class="d-flex flex-column" style="min-height: 90vh">
     <v-row class="justify-center flex-grow-0 pt-4">
-      <v-col cols="11" md="10" xl="6">
+      <v-col cols="11" md="9" xl="6">
         <div class="d-flex">
           <h1 class="text-secondary">Metadatenkatalog</h1>
           <AppInformation metric="metadatenkatalog" />
@@ -10,14 +10,14 @@
     </v-row>
     <!-- Kategorien -->
     <v-row class="justify-center flex-grow-0">
-      <v-col cols="11" md="8" xl="6">
+      <v-col cols="11" md="9" xl="6">
         <b>Kategorie</b>
         <FilterCategories />
       </v-col>
     </v-row>
     <!-- Schlüsselattribute -->
     <v-row class="justify-center flex-grow-0">
-      <v-col cols="11" md="8" xl="6">
+      <v-col cols="11" md="9" xl="6">
         <b>MII-Schlüsselattribute</b>
         <AttributeCategories />
       </v-col>
@@ -82,7 +82,7 @@ const filterCategory = computed(() => {
 });
 
 const page = ref<number>(1);
-const itemsPerPage: number = 2;
+const itemsPerPage: number = 6;
 
 // todo: add Schlüsselattribute
 watch(filterCategory, () => {
