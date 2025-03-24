@@ -279,6 +279,7 @@ const chartAvailable = (dataEntry: MetaDataEntry) => {
   ];
 
   return availableCharts.includes(dataEntry.id);
+};
 // implement favorite button
 const filterStore = useFilterStore();
 const toggleSelected = () => {
