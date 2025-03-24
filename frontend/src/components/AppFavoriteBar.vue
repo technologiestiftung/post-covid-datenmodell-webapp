@@ -3,15 +3,22 @@
     <h1 class="favoriten-text">Favoriten</h1>
     <v-btn
       icon
-      variant="outlined"
+      :variant="filterStore.showFavorites ? 'flat' : 'outlined'"
       density="compact"
       color="primary"
       style="background-color: #fbfbfd"
+      @click="filterStore.showFavorites = !filterStore.showFavorites"
     >
       <v-icon size="16"> mdi-star </v-icon>
     </v-btn>
   </div>
 </template>
+
+<script setup lang="ts">
+import { useFilterStore } from "@/stores/filters";
+
+const filterStore = useFilterStore();
+</script>
 
 <style scoped>
 .favoriten-bar {
