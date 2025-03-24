@@ -17,9 +17,17 @@ export const useFilterStore = defineStore(
     const favorites = ref<string[]>([]);
     const showFavorites = ref<boolean>(false);
 
+    const search = ref<string>("");
+
     // Replace ref with computed
     const filteredData = computed(() => {
       let result = allData;
+
+      // first check: if favorites are selected and showFavorites is true
+      if (favorites.value.length > 0 && showFavorites.value) {
+        result = allData.filter((item) => favorites.value.includes(item.id));
+        return result;
+      }
 
       // Filter by category if one is selected
       if (filterCategory.value) {
@@ -29,8 +37,15 @@ export const useFilterStore = defineStore(
         return result;
       }
 
-      if (favorites.value.length > 0 && showFavorites.value) {
-        result = allData.filter((item) => favorites.value.includes(item.id));
+      // Filter by search
+      if (search.value) {
+        result = result.filter((item) =>
+          item.title.toLowerCase().includes(search.value.toLowerCase()) || 
+          item.description.toLowerCase().includes(search.value.toLowerCase()) || 
+          item.id.toLowerCase().includes(search.value.toLowerCase()) ||
+          item.keywords.some((keyword) => keyword.toLowerCase().includes(search.value.toLowerCase()))
+        );
+
         return result;
       }
 
@@ -66,6 +81,7 @@ export const useFilterStore = defineStore(
       age,
       favorites,
       showFavorites,
+      search,
     };
   },
   {

@@ -1,8 +1,10 @@
 <template>
   <v-card variant="tonal" color="primary" rounded="xl" flat>
-    <v-card-title
-      ><v-icon class="mr-2">mdi-creation</v-icon>Export mit MII-Daten
-      verknüpfen</v-card-title
+    <v-card-title style="white-space: nowrap"
+      ><v-icon class="mr-2">mdi-creation</v-icon
+      ><span style="word-break: normal; white-space: normal"
+        >Export mit MII-Daten verknüpfen</span
+      ></v-card-title
     >
     <v-card-text>
       Hier können Sie die ausgewählten Datensätze mit Ihren MII-Daten

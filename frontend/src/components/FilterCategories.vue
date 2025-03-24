@@ -3,7 +3,7 @@
     <v-chip-group
       v-model="filterStore.filterCategory"
       column
-      @update:model-value="(value) => (filterStore.filterCategory = value as Category)"
+      @update:model-value="(value) => updateFilterCategory(value as Category)"
     >
       <v-chip
         v-for="category in [
@@ -20,6 +20,13 @@
         {{ category }}
       </v-chip>
     </v-chip-group>
+    <v-chip
+      class="font-italic mt-2"
+      v-if="filterStore.search"
+      closable
+      @click:close="filterStore.search = ''"
+      >Suchwort: {{ filterStore.search }}</v-chip
+    >
   </div>
 </template>
 <script setup lang="ts">
@@ -27,4 +34,9 @@ import { useFilterStore } from "../stores/filters";
 import { Category } from "../types/metadata";
 
 const filterStore = useFilterStore();
+
+const updateFilterCategory = (value: Category) => {
+  filterStore.filterCategory = value;
+  filterStore.search = "";
+};
 </script>
