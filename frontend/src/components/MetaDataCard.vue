@@ -156,18 +156,12 @@
     <!-- Datenvorschau + Export -->
     <v-row justify="end">
       <v-col cols="12" sm="auto">
-        <!--
-        <v-btn
-          v-if="isInExportList"
-          prepend-icon="mdi-folder-eye"
-          rounded="xl"
-          color="primary"
-          variant="outlined"
-          block
-        >
-          Datenvorschau
-        </v-btn>
-        -->
+        <data-chart-dialog
+          v-if="isInExportList && chartAvailable(dataEntry)"
+          :dataEntry="dataEntry"
+        ></data-chart-dialog>
+      </v-col>
+      <v-col cols="12" sm="auto">
         <data-preview-dialog
           v-if="isInExportList"
           :dataEntry="dataEntry"
@@ -250,6 +244,7 @@ import { useExportStore } from "@/stores/export";
 import { useFilterStore } from "@/stores/filters";
 import { DataFormat } from "@/types/metadata";
 import DataPreviewDialog from "./DataPreviewDialog.vue";
+import DataChartDialog from "./DataChartDialog.vue";
 
 const props = defineProps<{
   dataEntry: MetaDataEntry;
@@ -273,6 +268,17 @@ const showSource = ref(false);
 
 const loading = computed(() => exportStore.isLoading);
 
+// function to check if chart is available from a list of datasets with chart data
+
+const chartAvailable = (dataEntry: MetaDataEntry) => {
+  const availableCharts = [
+    "weather",
+    "air-quality",
+    "covid-cases",
+    "sewage-water",
+  ];
+
+  return availableCharts.includes(dataEntry.id);
 // implement favorite button
 const filterStore = useFilterStore();
 const toggleSelected = () => {

@@ -158,6 +158,16 @@ class WeatherService extends BaseService {
           "sunshine",
           "temperature",
           "wind_speed",
+          "wind_direction",
+          "cloud_cover",
+          "dew_point",
+          "relative_humidity",
+          "visibility",
+          "wind_gust_direction",
+          "wind_gust_speed",
+          "precipitation_probability",
+          "precipitation_probability_6h",
+          "solar",
           "relative_humidity",
         ];
 
