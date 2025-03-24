@@ -14,6 +14,9 @@ export const useFilterStore = defineStore(
     const filterCategory = ref<Category | undefined>(undefined);
     const attributes = ref<Attribute[]>();
 
+    const favorites = ref<string[]>([]);
+    const showFavorites = ref<boolean>(false);
+
     // Replace ref with computed
     const filteredData = computed(() => {
       let result = allData;
@@ -23,6 +26,12 @@ export const useFilterStore = defineStore(
         result = result.filter(
           (item) => item.category === filterCategory.value
         );
+        return result;
+      }
+
+      if (favorites.value.length > 0 && showFavorites.value) {
+        result = allData.filter((item) => favorites.value.includes(item.id));
+        return result;
       }
 
       return result;
@@ -55,6 +64,8 @@ export const useFilterStore = defineStore(
       locationStates,
       locationDistricts,
       age,
+      favorites,
+      showFavorites,
     };
   },
   {

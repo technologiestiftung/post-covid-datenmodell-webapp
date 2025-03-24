@@ -9,11 +9,12 @@
         </v-col>
         <v-col cols="12" md="5" class="d-flex align-top justify-end">
           <v-btn
+            v-if="!exportView"
             icon
-            variant="outlined"
+            :variant="isSelected ? 'flat' : 'outlined'"
             color="primary"
             size="x-small"
-            @click="isSelected = !isSelected"
+            @click="toggleSelected"
           >
             <v-icon>
               {{ isSelected ? "mdi-star" : "mdi-star-outline" }}
@@ -197,26 +198,19 @@
         >
           Zum Export hinzufügen
         </v-btn>
-      </v-col>                  
-    </v-row>  
+      </v-col>
+    </v-row>
     <v-row justify="center">
-      <v-col 
-        cols="12" 
-        sm="auto"
-      >
+      <v-col cols="12" sm="auto">
         <v-overlay
           :model-value="loading"
           class="align-center justify-center"
           persistent
         >
-          <v-progress-circular
-            color="primary"
-            indeterminate
-            size="100"
-          />
+          <v-progress-circular color="primary" indeterminate size="100" />
         </v-overlay>
       </v-col>
-    </v-row> 
+    </v-row>
 
     <!-- todo: option for better distribution of buttons when small screen -->
     <!-- <v-card-actions v-if="smAndDown">
@@ -253,6 +247,7 @@
 import { ref, computed } from "vue";
 import { type MetaDataEntry } from "../types/metadata";
 import { useExportStore } from "@/stores/export";
+import { useFilterStore } from "@/stores/filters";
 import { DataFormat } from "@/types/metadata";
 import DataPreviewDialog from "./DataPreviewDialog.vue";
 
@@ -278,4 +273,16 @@ const showSource = ref(false);
 
 const loading = computed(() => exportStore.isLoading);
 
+// implement favorite button
+const filterStore = useFilterStore();
+const toggleSelected = () => {
+  isSelected.value = !isSelected.value;
+  if (isSelected.value) {
+    filterStore.favorites.push(props.dataEntry.id);
+  } else {
+    filterStore.favorites = filterStore.favorites.filter(
+      (id) => id !== props.dataEntry.id
+    );
+  }
+};
 </script>
