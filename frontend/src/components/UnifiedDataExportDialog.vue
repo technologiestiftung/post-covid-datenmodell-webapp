@@ -90,6 +90,10 @@
                       v-if="showUseCase('covid-rehabilitation')"
                       :mii-data="parsedData"
                     />
+                    <UnifiedDataExportWasteWater
+                      v-if="showUseCase('sewage-water')"
+                      :mii-data="parsedData"
+                    />
                   </v-list>
                 </v-col>
                 <v-col cols="12" md="6">
@@ -211,6 +215,7 @@ import { parseMiiData } from "@/utils/miiParser";
 import { type ParsedMiiData } from "@/types/mii";
 import UnifiedDataExportWeather from "./UnifiedDataExportWeather.vue";
 import UnifiedDataExportReha from "./UnifiedDataExportReha.vue";
+import UnifiedDataExportWasteWater from "./UnifiedDataExportWasteWater.vue";
 import { useMatchedDataStore } from "@/stores/matching";
 import metaData from "../data/2025-02-18_metadata.json";
 import { type exportListItem } from "@/types/export";
