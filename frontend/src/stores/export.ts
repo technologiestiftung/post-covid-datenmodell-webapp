@@ -55,9 +55,11 @@ export const useExportStore = defineStore(
           throw new Error(`Service not found for id: ${id}`);
         }
 
-        const transformedFilterParams = service.transformFilterParams(
-          filterStore.filterParams
-        );
+        const transformedFilterParams = service.transformFilterParams({
+          ...filterStore.filterParams,
+          startDate: filterStore.filterParams.startDate.toString(),
+          endDate: filterStore.filterParams.endDate.toString(),
+        });
         const fetchedData = await service.fetchData(transformedFilterParams);
         const transformedData = service.getTransformedData(fetchedData);
         const filteredData = service.filterData(

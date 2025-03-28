@@ -5,6 +5,7 @@ import abwasserStandorte from "../data/2024_11_26_abwasser_standorte.json";
 import { useDataStore } from "@/stores/data";
 import { formatDate } from "@/utils/timeTransformation";
 import { useNotificationStore } from "@/stores/notifications";
+import { LocationLevel } from "../types/metadata";
 
 type WasteWaterFilterParams = {
   standorte: string[] | undefined;
@@ -25,22 +26,22 @@ class WasteWaterDataService extends BaseService {
       : "";
 
     // adjust location
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
     // default (for germany or missings)
     let relevantStandorte: string[] | undefined = undefined;
 
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       const additionalData = abwasserStandorte.filter((d: any) =>
         filterParams.locationStates.includes(d.Bundesland)
       );
       relevantStandorte = additionalData.map((d: any) => d["Kläranlage"]);
-    } else if (locationLevel === "districts") {
+    } else if (locationLevel === LocationLevel.districts) {
       // get Bundesländer for selected districts
       const additionalData = dataStore.kreisData.filter((d) =>
         filterParams.locationDistricts.includes(d.name)
@@ -108,6 +109,18 @@ class WasteWaterDataService extends BaseService {
       );
     }
     // time
+    // check for timeframe
+    // improvement: get this dynamically from meta-data for all services
+    const firstAvailableDate = new Date("2022-11-01");
+    if (
+      filterParams.startDate &&
+      new Date(filterParams.startDate) < firstAvailableDate
+    ) {
+      notificationStore.addNotification(
+        "Der gewählte Zeitraum liegt außerhalb des verfügbaren Datensatzes."
+      );
+    }
+
     if (filterParams.startDate) {
       filteredRows = filteredRows.filter(
         (row: any) => row.datum >= filterParams.startDate!

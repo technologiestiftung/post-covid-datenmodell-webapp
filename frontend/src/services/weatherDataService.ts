@@ -5,6 +5,7 @@ import { formatDate } from "@/utils/timeTransformation";
 import { calculateCenterLongLat } from "@/utils/geoTransformation";
 import { useDataStore } from "@/stores/data";
 import { useNotificationStore } from "@/stores/notifications";
+import { LocationLevel } from "../types/metadata";
 
 type location = {
   latitude: number;
@@ -30,16 +31,16 @@ class WeatherService extends BaseService {
       : "";
 
     // get center long lat from location
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
     const relevantLocations: location[] | undefined = [];
 
-    if (locationLevel === "germany") {
+    if (locationLevel === LocationLevel.germany) {
       // get center for every state
       const allStates = [
         "Schleswig-Holstein",
@@ -77,7 +78,7 @@ class WeatherService extends BaseService {
       });
     }
 
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       // find center for each state
       filterParams.locationStates.forEach((state) => {
         const additionalData = dataStore.kreisData.filter(
@@ -96,7 +97,7 @@ class WeatherService extends BaseService {
       });
     }
 
-    if (locationLevel === "districts") {
+    if (locationLevel === LocationLevel.districts) {
       // find center for each district
       filterParams.locationDistricts.forEach((district) => {
         const additionalData = dataStore.kreisData.filter(

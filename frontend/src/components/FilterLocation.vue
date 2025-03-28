@@ -1,5 +1,5 @@
 <template>
-  <v-dialog max-width="800px" min-height="400px">
+  <v-dialog max-width="800px" min-height="400px" :persistent="isDialogDisabled">
     <template v-slot:activator="{ props: activatorProps }">
       <v-chip
         prepend-icon="mdi-map-marker-outline"
@@ -24,7 +24,11 @@
           <v-spacer />
 
           <v-toolbar-items>
-            <v-btn icon="mdi-close" @click="isActive.value = false" />
+            <v-btn
+              icon="mdi-close"
+              :disabled="isDialogDisabled"
+              @click="isActive.value = false"
+            />
           </v-toolbar-items>
         </v-toolbar>
         <v-card-text>
@@ -81,7 +85,7 @@
             </div>
             <div v-if="level === LocationLevel.districts" class="pt-2">
               <p class="text-secondary text-subtitle-2 pt-2">
-                Welche Landkreise möchten Sie filtern? (max. 5)
+                Welche Landkreise möchten Sie filtern? (max. 10)
               </p>
               <v-combobox
                 v-model="districtsSelected"
@@ -94,7 +98,9 @@
                 chips
                 clearable
                 class="pt-2"
-                hint="Maximal 5 Landkreise"
+                hint="Maximal 10 Landkreise"
+                :rules="maxDistrictRules"
+                validate-on="eager"
                 rounded="xl"
                 @update:model-value="updateDistricts()"
               />
@@ -115,6 +121,15 @@ import { LocationLevel } from "../types/metadata";
 const filterStore = useFilterStore();
 const dataStore = useDataStore();
 
+const maxDistrictRules = [
+  (v: string[]) => {
+    if (v.length > 10) {
+      return "Maximal 10 Landkreise auswählen.";
+    }
+    return true;
+  },
+];
+
 const level = ref<LocationLevel>(
   filterStore.filterParams.locationStates?.length > 0
     ? LocationLevel.states
@@ -126,6 +141,16 @@ const level = ref<LocationLevel>(
 const districtsSelected = ref<string[]>(
   filterStore.filterParams.locationDistricts
 );
+
+const isDialogDisabled = computed(() => {
+  if (
+    level.value === LocationLevel.districts &&
+    districtsSelected.value.length > 10
+  ) {
+    return true;
+  }
+  return false;
+});
 
 const statesSelected = ref<string[]>(filterStore.filterParams.locationStates);
 
@@ -214,6 +239,10 @@ const updateStates = () => {
 };
 
 const updateDistricts = () => {
+  if (districtsSelected.value.length > 10) {
+    // no save to filterstore
+    return;
+  }
   if (districtsSelected.value.length === 0) {
     filterStore.locationDistricts = [];
   }

@@ -3,6 +3,7 @@ import { BaseService } from "./baseService";
 import { findNearestRehaLocation } from "@/utils/geoTransformation";
 import rehabilitationData from "../data/2024-12-02_post_covid_reha.json";
 import { useNotificationStore } from "@/stores/notifications";
+import { LocationLevel } from "../types/metadata";
 
 type RehabFilterParams = {
   facilityIds: string[] | undefined;
@@ -11,20 +12,20 @@ type RehabFilterParams = {
 class CovidRehabilitationService extends BaseService {
   transformFilterParams(filterParams: FilterParams): RehabFilterParams {
     // info: for this service only location is relevant
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
     const relevantFacilities: any[] = [];
 
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       filterParams.locationStates.forEach((state) => {
         relevantFacilities.push(findNearestRehaLocation(state, "state"));
       });
-    } else if (locationLevel === "districts") {
+    } else if (locationLevel === LocationLevel.districts) {
       filterParams.locationDistricts.forEach((district) => {
         relevantFacilities.push(findNearestRehaLocation(district, "districts"));
       });

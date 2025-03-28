@@ -74,23 +74,15 @@
 <script setup lang="ts">
 import { ref, computed, watch } from "vue";
 import { useFilterStore } from "../stores/filters";
+import { addYears } from "@/utils/timeTransformation";
 
 const filterStore = useFilterStore();
-
-// Utility to add or subtract years from a date
-function addYears(date: Date, years: number): Date {
-  return new Date(date.getFullYear() + years, date.getMonth(), date.getDate());
-}
 
 // Today's date is the latest selectable end date
 const today = new Date();
 
 // State for start and end dates
-const endDateSelected = ref<Date>(
-  filterStore.filterParams.startDate
-    ? new Date(filterStore.filterParams.startDate)
-    : today
-);
+const endDateSelected = ref<Date>(new Date(filterStore.filterParams.endDate));
 
 watch(
   () => filterStore.startDate,
@@ -109,9 +101,7 @@ watch(
 );
 
 const startDateSelected = ref<Date>(
-  filterStore.filterParams.endDate
-    ? new Date(filterStore.filterParams.endDate)
-    : addYears(today, -1)
+  new Date(filterStore.filterParams.startDate)
 ); // one year before today by default
 
 // Formatted date strings for display
