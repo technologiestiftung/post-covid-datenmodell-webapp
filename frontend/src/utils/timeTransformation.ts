@@ -8,3 +8,8 @@ export const formatDate = (dateString: string): string => {
   ).toISOString();
   return localISOTime.split("T")[0];
 };
+
+// Utility to add or subtract years from a date
+export const addYears = (date: Date, years: number): Date => {
+  return new Date(date.getFullYear() + years, date.getMonth(), date.getDate());
+};

@@ -3,6 +3,7 @@ import { type FilterParams } from "@/types/metadata";
 import { BaseService } from "./baseService";
 import { useDataStore } from "@/stores/data";
 import { useNotificationStore } from "@/stores/notifications";
+import { LocationLevel } from "../types/metadata";
 
 type ClinicFilterParams = {
   states: string[] | undefined;
@@ -16,17 +17,17 @@ class CovidAmbulanceClinicService extends BaseService {
 
     const dataStore = useDataStore();
 
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       //states can just be passed as they are
       return { states: filterParams.locationStates, zip_codes: undefined };
-    } else if (locationLevel === "districts") {
+    } else if (locationLevel === LocationLevel.districts) {
       // get additional data for the districts
       const additionalData = dataStore.kreisData.filter((d) =>
         filterParams.locationDistricts.includes(d.name)

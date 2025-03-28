@@ -1,13 +1,18 @@
 // Utilities
 import { defineStore } from "pinia";
-import { ref, computed, reactive } from "vue";
+import { ref, computed } from "vue";
 import { Attribute, Category, LocationLevel } from "../types/metadata";
 import { type FilterParams } from "../types/metadata";
 import { useDataStore } from "../stores/data";
+import { addYears } from "@/utils/timeTransformation";
 
 export const useFilterStore = defineStore(
   "filters",
   () => {
+    // time variables
+    const today = new Date();
+    const todayOneYearAgo = addYears(today, -1);
+
     const dataStore = useDataStore();
     const allData = dataStore.metaData;
 
@@ -39,11 +44,16 @@ export const useFilterStore = defineStore(
 
       // Filter by search
       if (search.value) {
-        result = result.filter((item) =>
-          item.title.toLowerCase().includes(search.value.toLowerCase()) || 
-          item.description.toLowerCase().includes(search.value.toLowerCase()) || 
-          item.id.toLowerCase().includes(search.value.toLowerCase()) ||
-          item.keywords.some((keyword) => keyword.toLowerCase().includes(search.value.toLowerCase()))
+        result = result.filter(
+          (item) =>
+            item.title.toLowerCase().includes(search.value.toLowerCase()) ||
+            item.description
+              .toLowerCase()
+              .includes(search.value.toLowerCase()) ||
+            item.id.toLowerCase().includes(search.value.toLowerCase()) ||
+            item.keywords.some((keyword) =>
+              keyword.toLowerCase().includes(search.value.toLowerCase())
+            )
         );
 
         return result;
@@ -53,10 +63,13 @@ export const useFilterStore = defineStore(
     });
 
     // FilterParams
-    const startDate = ref<string>("");
-    const endDate = ref<string>("");
+    // default times
+    const startDate = ref<string | Date>(todayOneYearAgo);
+    const endDate = ref<string | Date>(today);
+    // no default locations
     const locationStates = ref<string[]>([]);
     const locationDistricts = ref<string[]>([]);
+    // default: all age groups
     const age = ref<string[]>(["00+"]);
 
     const filterParams = computed(() => {

@@ -6,6 +6,7 @@ import { reverseBundeslandMapper } from "@/utils/geoTransformation";
 import { useDataStore } from "@/stores/data";
 import { formatDate } from "@/utils/timeTransformation";
 import { useNotificationStore } from "@/stores/notifications";
+import { LocationLevel } from "../types/metadata";
 
 type CovidFilterParams = {
   states: string[] | undefined;
@@ -27,22 +28,22 @@ class CovidDataService extends BaseService {
       : "";
 
     // location transformation
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
     // default (for germany or missings)
     let relevantStates: string[] | undefined = undefined;
 
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       // we can pass the states but need different mapping (id)
       relevantStates = filterParams.locationStates?.map(
         (state) => reverseBundeslandMapper[state]
       );
-    } else if (locationLevel === "districts") {
+    } else if (locationLevel === LocationLevel.districts) {
       // get Bundesländer for selected districts
       const additionalData = dataStore.kreisData.filter((d) =>
         filterParams.locationDistricts.includes(d.name)
