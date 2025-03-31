@@ -10,7 +10,13 @@
       >
         Ort
         <v-chip density="compact" color="primary" class="ml-2 mr-0">
-          <span v-html="formattedFilterLabel"></span>
+          <span
+            v-html="
+              $vuetify.display.mdAndUp
+                ? formattedFilterLabel
+                : formattedFilterLabelShort
+            "
+          ></span>
         </v-chip>
       </v-chip>
     </template>
@@ -173,6 +179,18 @@ const formattedFilterLabel = computed(() => {
         ? "<i> und " + (districtsSelected.value.length - 1) + " weitere... </i>"
         : "")
     );
+  }
+});
+
+const formattedFilterLabelShort = computed(() => {
+  if (level.value === LocationLevel.germany) return "Bundesweit";
+
+  if (level.value === LocationLevel.states) {
+    return statesSelected.value.length + " Bundesländer";
+  }
+
+  if (level.value === LocationLevel.districts) {
+    return districtsSelected.value.length + " Kreise";
   }
 });
 

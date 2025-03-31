@@ -8,9 +8,17 @@
         class="pr-1 mr-2 my-1"
         v-bind="activatorProps"
       >
-        Zeitspanne
+        {{ $vuetify.display.mdAndUp ? "Zeitspanne" : "Zeit" }}
         <v-chip density="compact" color="primary" class="ml-2 mr-0">
-          {{ dateStartFormatted }} - {{ dateEndFormatted }}
+          {{
+            $vuetify.display.mdAndUp
+              ? dateStartFormatted
+              : dateStartFormattedShort
+          }}
+          -
+          {{
+            $vuetify.display.mdAndUp ? dateEndFormatted : dateEndFormattedShort
+          }}
         </v-chip>
       </v-chip>
     </template>
@@ -74,6 +82,7 @@
 <script setup lang="ts">
 import { ref, computed, watch } from "vue";
 import { useFilterStore } from "../stores/filters";
+import vuetify from "@/plugins/vuetify";
 import { addYears } from "@/utils/timeTransformation";
 
 const filterStore = useFilterStore();
@@ -105,17 +114,31 @@ const startDateSelected = ref<Date>(
 ); // one year before today by default
 
 // Formatted date strings for display
-const dateStartFormatted = computed(() =>
-  startDateSelected.value.toLocaleDateString("de-DE", {
+const dateStartFormatted = computed(() => {
+  return startDateSelected.value.toLocaleDateString("de-DE", {
     month: "short",
     year: "numeric",
-  })
-);
+  });
+});
+
+const dateStartFormattedShort = computed(() => {
+  return startDateSelected.value.toLocaleDateString("de-DE", {
+    month: "short",
+    year: "2-digit",
+  });
+});
 
 const dateEndFormatted = computed(() =>
   endDateSelected.value.toLocaleDateString("de-DE", {
     month: "short",
     year: "numeric",
+  })
+);
+
+const dateEndFormattedShort = computed(() =>
+  endDateSelected.value.toLocaleDateString("de-DE", {
+    month: "short",
+    year: "2-digit",
   })
 );
 

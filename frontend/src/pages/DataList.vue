@@ -11,14 +11,14 @@
     <!-- Kategorien -->
     <v-row class="justify-center flex-grow-0">
       <v-col cols="11" md="9" xl="6">
-        <b>Kategorie</b>
+        Kategorie
         <FilterCategories />
       </v-col>
     </v-row>
     <!-- Schlüsselattribute -->
     <v-row class="justify-center flex-grow-0">
       <v-col cols="11" md="9" xl="6">
-        <b>MII-Schlüsselattribute</b>
+        MII-Schlüsselattribute
         <AttributeCategories />
       </v-col>
     </v-row>
@@ -30,8 +30,8 @@
           <b> {{ filteredData.length }}</b>
           {{
             filteredData.length === 1
-              ? "Datensatz gefunden"
-              : "Datensätze gefunden"
+              ? "Datensatz gefunden in der Kategorie "
+              : "Datensätze gefunden in der Kategorie "
           }}
           {{ filterStore.filterCategory ? filterStore.filterCategory : "" }}
         </p>

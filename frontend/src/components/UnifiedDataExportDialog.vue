@@ -196,7 +196,7 @@
             <span>
               In unserem
               <a
-                href="https://github.com/technologiestiftung/post-covid-datenmodell"
+                href="https://github.com/technologiestiftung/post-covid-datenmodell/tree/main/src/use_cases"
                 target="_blank"
                 >GitHub Repository</a
               >

@@ -1,21 +1,18 @@
 <template>
-  <div class="banner-section d-flex flex-column pa-15">
-    <v-row class="d-flex flex-column align-center">
-      <v-col cols="12" md="11" lg="11" xl="12">
-        <v-container>
-          <h1 class="banner-title mt-15 text-h4">
-            Finden Sie genau die Datensätze, die Ihre Forschung mit MII-Daten
-            voranbringen.
-          </h1>
-          <p class="banner-subtitle mt-10">
-            Dieser Metadatentkatalog hilft Ihnen, offene Datensätze zu finden,
-            die perfekt mit MII-Daten kompatibel sind. Mit flexiblen Filtern und
-            Downloads im richtigen Format sparen Sie wertvolle Zeit bei der
-            Datenvorbereitung.
-          </p>
-        </v-container>
-      </v-col>
-    </v-row>
+  <div class="banner-section d-flex flex-column pa-12">
+    <v-spacer></v-spacer>
+    <div>
+      <h1 class="banner-title mt-16 text-h4 text-md-h2">
+        Finden Sie genau die Datensätze, die Ihre Forschung mit MII-Daten
+        voranbringen.
+      </h1>
+      <p class="banner-subtitle mt-12 text-h7 text-md-h5">
+        Dieser Metadatenkatalog hilft Ihnen, offene Datensätze zu finden, die
+        perfekt mit MII-Daten kompatibel sind. Mit flexiblen Filtern und
+        Downloads im richtigen Format sparen Sie wertvolle Zeit bei der
+        Datenvorbereitung.
+      </p>
+    </div>
   </div>
   <v-row class="d-flex flex-column align-center">
     <v-col cols="11" md="8" xl="6">
@@ -30,13 +27,15 @@
             placeholder="Welche Datensätze suchen Sie?"
             hide-details
             clearable
-            width="80%"
+            width="85%"
             density="comfortable"
             prepend-inner-icon="mdi-magnify"
           >
             <template #append-inner>
               <v-btn icon variant="text" @click="search">
-                <v-icon size="large" color="#ACACDA"
+                <v-icon
+                  size="large"
+                  :color="searchString?.length > 0 ? 'secondary' : '#ACACDA'"
                   >mdi-arrow-right-circle</v-icon
                 >
               </v-btn>
@@ -45,52 +44,46 @@
 
           <div class="d-flex mt-2 flex-wrap justify-center">
             <v-btn
-              class="ma-1 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2"
               variant="outlined"
               rounded="xl"
-              density="compact"
               @click="searchString = 'Rehabilitation'"
             >
               Rehabilitation
             </v-btn>
 
             <v-btn
-              class="ma-1 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2"
               variant="outlined"
               rounded="xl"
-              density="compact"
               @click="searchString = 'Wetter'"
             >
               Wetter
             </v-btn>
 
             <v-btn
-              class="ma-1 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2"
               variant="outlined"
               rounded="xl"
-              density="compact"
               @click="searchString = 'Emissionen'"
             >
               Emissionen
             </v-btn>
 
             <v-btn
-              class="ma-1 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2"
               variant="outlined"
               rounded="xl"
-              density="compact"
               @click="searchString = 'Sozialstruktur'"
             >
               Sozialstruktur
             </v-btn>
 
             <v-btn
-              class="ma-1 text-capitalize"
+              class="ma-2 text-capitalize"
               color="secondary"
               flat
               rounded="xl"
-              density="compact"
-              prepend-icon="mdi-chevron-right"
               @click="
                 searchString = '';
                 search();
@@ -100,8 +93,10 @@
             </v-btn>
           </div>
         </div>
-        <p class="text-h4 mt-10">Daten sortieren und für MII-Daten anpassen</p>
-        <p class="text-body-1 mt-5">
+        <p class="text-h4 mt-10 text-secondary" style="font-weight: 600">
+          Daten sortieren und für MII-Daten anpassen
+        </p>
+        <p class="text-body-1 mt-5 text-secondary">
           Mit unserer Webanwendung können Sie sofort passende offene Datensätze
           finden, die sich mit dem Kerndatensatz der Medizinformatikinitative
           verschneiden lassen, zum Beispiel über räumlichen oder zeitlichen
@@ -111,7 +106,7 @@
           Integration mit Ihren MII-Daten.
         </p>
         <p class="mt-12 font-weight-bold">
-          Filtern nach MII-Schlüsselattribute
+          Filtern nach MII-Schlüsselattributen
         </p>
         <AttributeCategories />
       </v-container>
@@ -121,8 +116,10 @@
     <v-row class="d-flex flex-column align-center">
       <v-col cols="11" md="8" xl="6">
         <v-container>
-          <p class="text-h4 mt-10">Vier Datenwelten für umfassende Analysen</p>
-          <p class="text-body-1 mt-5">
+          <p class="text-h4 mt-10 text-secondary" style="font-weight: 600">
+            Vier Datenwelten für umfassende Analysen
+          </p>
+          <p class="text-body-1 mt-5 text-secondary">
             Erkunden Sie, wie Umweltbedingungen, lokale Gesundheitsressourcen,
             sozioökonomische Faktoren und demografische Merkmale das Leben und
             die Erholung von Long-COVID-Betroffenen beeinflussen. Filtern und
@@ -135,7 +132,7 @@
   </div>
   <div class="bg-home-white mb-10">
     <v-row class="d-flex flex-column align-center">
-      <v-col cols="11" md="8" xl="6">
+      <v-col cols="12" md="10" xl="10">
         <v-container>
           <v-row justify="center" class="mt-0">
             <v-col cols="12" md="6" height="100%">
@@ -215,15 +212,22 @@ const search = () => {
   background-repeat: no-repeat;
   color: white;
   text-align: left;
+  min-height: 700px;
 }
 
 .banner-title {
-  font-weight: normal;
-  max-width: 650px;
+  color: var(--white, #fff);
+  font-style: normal;
+  font-weight: 400;
+  line-height: 125%; /* 75px */
+  max-width: 1000px;
 }
 
 .banner-subtitle {
-  max-width: 650px;
+  max-width: 1000px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 150%;
 }
 
 .bg-home-surface {

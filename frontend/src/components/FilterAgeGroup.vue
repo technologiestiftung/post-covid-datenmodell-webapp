@@ -10,7 +10,13 @@
       >
         Alter
         <v-chip density="compact" color="primary" class="ml-2 mr-0">
-          <span v-html="formattedFilterLabel"></span>
+          <span
+            v-html="
+              $vuetify.display.mdAndUp
+                ? formattedFilterLabel
+                : formattedFilterLabelShort
+            "
+          ></span>
         </v-chip>
       </v-chip>
     </template>
@@ -76,6 +82,12 @@ const formattedFilterLabel = computed(() => {
       ? "<i> und " + (ageGroupsSelected.value.length - 2) + " weitere... </i>"
       : "")
   );
+});
+
+const formattedFilterLabelShort = computed(() => {
+  if (ageGroupsSelected.value[0] === "00+") return "Alle";
+
+  return ageGroupsSelected.value.length + " Altersgruppen";
 });
 
 watch(ageGroupsSelected, (newValue) => {

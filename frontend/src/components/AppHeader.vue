@@ -42,34 +42,40 @@
       </router-link>
     </template>
     <template v-if="$vuetify.display.mdAndUp">
-      <v-btn
-        :to="{
-          name: 'DataList',
-        }"
-        variant="flat"
-        size="small"
-        class="text-primary text-capitalize mr-1"
-      >
-        Metadatenbank
-      </v-btn>
-      <v-btn
-        variant="flat"
-        size="small"
-        class="text-primary text-capitalize mr-1"
-        :to="{
-          name: 'DataSuggestion',
-        }"
-      >
-        Daten vorschlagen
-      </v-btn>
+      <v-tabs>
+        <v-tab
+          :to="{
+            name: 'DataList',
+          }"
+          class="text-primary text-capitalize"
+        >
+          Metadatenbank
+        </v-tab>
+        <v-tab
+          :to="{
+            name: 'DataSuggestion',
+          }"
+          class="text-primary text-capitalize"
+        >
+          Beitragen
+        </v-tab>
+        <v-tab
+          :to="{
+            name: 'FAQ',
+          }"
+          class="text-primary text-capitalize"
+        >
+          FAQ
+        </v-tab>
+      </v-tabs>
       <v-btn
         :to="{
           name: 'DataExport',
         }"
         variant="outlined"
         rounded="xl"
-        size="small"
-        class="text-primary text-capitalize"
+        density="comfortable"
+        class="text-primary text-capitalize ml-4"
       >
         Datensatz-Export
         <v-badge
@@ -91,3 +97,11 @@ const exportCount = computed(() => exportStore.exportDatasets.length);
 
 const drawer = ref(false);
 </script>
+
+<style>
+.v-tab__slider {
+  left: auto !important;
+  top: 0;
+  height: 4px !important;
+}
+</style>

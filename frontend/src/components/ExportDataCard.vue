@@ -1,29 +1,46 @@
 <template>
   <v-card flat rounded="xl" class="mb-4">
-    <v-card-title> Datensatzauswahl </v-card-title>
-
-    <v-list>
-      <v-list-item v-for="item in exportStore.exportDatasets" :key="item.id">
-        <v-list-item-title class="d-flex">
-          {{ item.id }} <v-spacer></v-spacer>
-          <v-icon @click="exportStore.removeFromExport(item.id)">
-            mdi-trash-can-outline
-          </v-icon>
-        </v-list-item-title>
-        <v-list-item-subtitle
-          ><v-chip color="#70acc0" variant="flat">{{ item.format }}</v-chip>
-        </v-list-item-subtitle>
-      </v-list-item>
-    </v-list>
+    <v-card-title class="mt-4 ml-2" style="font-weight: 600">
+      Datensatzauswahl
+    </v-card-title>
+    <div class="px-2 pb-4">
+      <v-list>
+        <v-list-item v-for="item in exportStore.exportDatasets" :key="item.id">
+          <v-list-item-title style="font-weight: 600">
+            <v-icon size="20" class="mr-1">mdi-checkbox-outline</v-icon
+            >{{ item.id }}
+          </v-list-item-title>
+          <template #append>
+            <v-icon
+              @click="exportStore.removeFromExport(item.id)"
+              color="#c2c7d1"
+            >
+              mdi-trash-can
+            </v-icon>
+          </template>
+          <v-list-item-subtitle
+            ><v-chip
+              color="#70acc0"
+              variant="flat"
+              density="compact"
+              class="mt-2 ml-6 text-secondary"
+              >{{ item.format }}-Datei</v-chip
+            >
+          </v-list-item-subtitle>
+        </v-list-item>
+      </v-list>
+    </div>
 
     <v-btn
       color="primary"
       block
-      class="text-white py-3"
+      class="text-white py-3 text-none"
       append-icon="mdi-download"
       @click="exportStore.downloadData"
+      tile
+      size="large"
     >
-      Daten Download
+      Auswahl exportieren
     </v-btn>
   </v-card>
 </template>
