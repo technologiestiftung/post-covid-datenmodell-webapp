@@ -128,18 +128,30 @@ export const useExportStore = defineStore(
             dataset.export_fields.length > 0
               ? dataset.export_fields
               : Object.keys(data.rows[0]);
-
-          let csvContent = "data:text/csv;charset=utf-8,";
-          csvContent += headers.join(",") + "\n";
-          data.rows.forEach((row) => {
-            csvContent += headers.map((header) => row[header]).join(",") + "\n";
-          });
-
-          const url = encodeURI(csvContent);
-
+        
+          const rows = [
+            headers.join(','), // header row
+            ...data.rows.map(row => 
+              headers.map(header => {
+                const value = row[header];
+                // Convert to string and handle null/undefined
+                const stringValue = value === null || value === undefined ? '' : String(value);
+                // If value contains quotes, commas, or newlines, wrap it in quotes and escape existing quotes
+                if (stringValue.includes('"') || stringValue.includes(',') || stringValue.includes('\n')) {
+                  return `"${stringValue.replace(/"/g, '""')}"`;
+                }
+                return stringValue;
+              }).join(',')
+            )
+          ].join('\n');
+        
+          const blob = new Blob(["\ufeff", rows], { type: 'text/csv;charset=utf-8;' });
+          const url = window.URL.createObjectURL(blob);
+          
           const link = document.createElement("a");
-          link.href = url;
-          link.download = `${timestamp}-${dataset.id}-export.csv`;
+          link.setAttribute('href', url);
+          link.setAttribute('download', `${timestamp}-${dataset.id}-export.csv`);
+          link.style.visibility = 'hidden';
           document.body.appendChild(link);
           link.click();
           document.body.removeChild(link);
