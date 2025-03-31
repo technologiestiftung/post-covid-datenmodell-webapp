@@ -28,6 +28,7 @@ import { findNearestStation } from "@/utils/geoTransformation";
 import { useFilterStore } from "@/stores/filters";
 import { useNotificationStore } from "@/stores/notifications";
 import { type ParsedMiiData } from "@/types/mii";
+import { LocationLevel } from "../types/metadata";
 
 const matchedDataStore = useMatchedDataStore();
 const exportStore = useExportStore();
@@ -75,16 +76,16 @@ const matchData = () => {
 
     // todo: we cant make sure that the filters in the end are the filters applied to the exported data?
     // todo: solve with re-fetch?
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterStore.filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterStore.filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
     // apply filters to patients
     // filter for state
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       if (
         !filterStore.filterParams.locationStates.includes(
           patientLocation.bundesland
@@ -96,7 +97,7 @@ const matchData = () => {
           stationLongitude: undefined,
         };
       }
-    } else if (locationLevel === "districts") {
+    } else if (locationLevel === LocationLevel.districts) {
       // filter for district
       if (
         !filterStore.filterParams.locationDistricts.includes(

@@ -29,6 +29,7 @@ import { useFilterStore } from "@/stores/filters";
 import { useNotificationStore } from "@/stores/notifications";
 import { type ParsedMiiData } from "@/types/mii";
 import abwasserStandorte from "../data/2024_11_26_abwasser_standorte.json";
+import { LocationLevel } from "../types/metadata";
 
 const matchedDataStore = useMatchedDataStore();
 const exportStore = useExportStore();
@@ -75,18 +76,18 @@ const matchData = () => {
 
     // todo: we cant make sure that the filters in the end are the filters applied to the exported data?
     // todo: solve with re-fetch?
-    const locationLevel =
+    const locationLevel: LocationLevel =
       filterStore.filterParams.locationStates?.length > 0
-        ? "states"
+        ? LocationLevel.states
         : filterStore.filterParams.locationDistricts?.length > 0
-        ? "districts"
-        : "germany";
+        ? LocationLevel.districts
+        : LocationLevel.germany;
 
     // default (for germany or missings)
     let relevantStandorte = undefined;
 
     // apply filters to patients
-    if (locationLevel === "germany") {
+    if (locationLevel === LocationLevel.germany) {
       // all are relevant
       relevantStandorte = abwasserStandorte;
 
@@ -105,7 +106,7 @@ const matchData = () => {
       };
     }
     // filter for state
-    if (locationLevel === "states") {
+    if (locationLevel === LocationLevel.states) {
       // case: patient is not in the selected states
       if (
         !filterStore.filterParams.locationStates.includes(
@@ -141,7 +142,7 @@ const matchData = () => {
         patientId: patient.id,
         stationName: nearestStation.Kläranlage,
       };
-    } else if (locationLevel === "districts") {
+    } else if (locationLevel === LocationLevel.districts) {
       // filter for district -> find the relevant Bundesland?
       // todo: If a patients district is not included should he still be here if his bundesland ist included?
 
