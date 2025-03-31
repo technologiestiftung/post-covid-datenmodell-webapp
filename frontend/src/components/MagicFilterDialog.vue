@@ -10,7 +10,11 @@
         class="mr-2 my-1"
         v-bind="activatorProps"
       >
-        Filter aus MII-Daten übernehmen
+        {{
+          $vuetify.display.mdAndUp
+            ? "Filter aus MII-Daten übernehmen"
+            : "Filter aus MII-Daten"
+        }}
       </v-chip>
     </template>
     <template v-slot:default="{ isActive }">

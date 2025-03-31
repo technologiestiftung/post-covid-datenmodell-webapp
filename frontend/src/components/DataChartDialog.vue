@@ -3,6 +3,7 @@
     <template v-slot:activator="{ props: activatorProps }">
       <v-btn
         v-if="isInExportList"
+        class="text-none"
         prepend-icon="mdi-chart-bar"
         rounded="xl"
         color="primary"

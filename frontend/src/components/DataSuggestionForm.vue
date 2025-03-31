@@ -46,12 +46,7 @@
           ></v-text-field
         >
       </v-col>
-      <v-col cols="12" md="3">
-        <h3 class="text-secondary">
-          Personenbezogene <br />
-          Daten
-        </h3></v-col
-      >
+      <v-col cols="12" md="3"> <h3 class="text-secondary">Kontakt</h3></v-col>
       <v-col cols="12" md="9">
         <v-row>
           <v-col cols="12" md="6" class="py-0 my-0">
@@ -105,6 +100,7 @@
                 rounded="xl"
                 :disabled="!data.url || !data.title"
                 append-icon="mdi-arrow-right"
+                class="text-none"
                 >Vorschlag absenden</v-btn
               >
             </div>

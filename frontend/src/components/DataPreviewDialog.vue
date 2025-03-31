@@ -1,8 +1,9 @@
 <template>
-  <v-dialog :fullscreen="isExtended">
+  <v-dialog :fullscreen="isExtended" max-height="1000px" max-width="1000px">
     <template v-slot:activator="{ props: activatorProps }">
       <v-btn
         v-if="isInExportList"
+        class="text-none"
         prepend-icon="mdi-folder-eye"
         rounded="xl"
         color="primary"
@@ -41,6 +42,8 @@
               :headers="filteredHeaders"
               :items-per-page="5"
               itemsPerPageText="pro Seite"
+              :items-per-page-options="[5, 10]"
+              page-text="{0}-{1} von {2}"
             ></v-data-table>
           </v-card>
         </v-card-text>

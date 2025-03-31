@@ -1,33 +1,37 @@
 <template>
-  <v-card rounded="xl" elevation="0" class="custom-card fill-height">
+  <v-card
+    rounded="xl"
+    elevation="0"
+    class="custom-card fill-height py-2 text-secondary"
+  >
     <v-card-text class="d-flex flex-column fill-height">
       <v-row class="fill-height">
-        <v-col cols="3">
-          <div class="ma-2 pa-2">
+        <v-col cols="12" md="3" class="text-center">
+          <div>
             <img width="100%" style="max-width: 60px" :src="iconStr" />
           </div>
         </v-col>
-        <v-col cols="9" class="d-flex flex-column fill-height">
+        <v-col cols="12" md="9" class="d-flex flex-column fill-height">
           <div>
-            <h3 class="text-h5 font-weight-bold">
+            <h3 class="text-h4 font-weight-bold">
               {{ title }}
             </h3>
-            <p class="text-subtitle-1">
+            <p class="text-h6 font-weight-light">
               {{ subtitle }}
             </p>
             <p class="text-body-2 mt-5">
               {{ description }}
             </p>
           </div>
-          <v-spacer></v-spacer>
+          <v-spacer v-if="$vuetify.display.mdAndUp"></v-spacer>
           <div>
             <v-btn
-              class="text-capitalize bg-secondary mt-10"
+              class="text-none bg-secondary mt-10"
               rounded="xl"
               variant="flat"
               :class="{
-                'text-button': $vuetify.display.smAndUp,
-                'text-caption': $vuetify.display.xs,
+                'text-button': $vuetify.display.mdAndUp,
+                'text-caption': $vuetify.display.smAndDown,
               }"
               @click="goToDataList"
             >

@@ -27,15 +27,16 @@
               class="mb-4"
               style="background-color: #fbfbfd"
             >
-              <v-card-title>
-                Keine Daten für den Export ausgwählt.
-              </v-card-title>
+              <v-card-text class="text-">
+                Noch keine Daten für den Export ausgewählt...
+              </v-card-text>
 
               <v-btn
                 color="primary"
                 block
-                class="text-white py-3"
+                class="text-white py-3 px-4 text-none"
                 :to="{ name: 'DataList' }"
+                tile
               >
                 Zurück zum Metadatenkatalog
               </v-btn>

@@ -23,29 +23,6 @@
           <h2 class="text-secondary">
             Ihre Anfrage wurden empfangen! Wir melden uns zweitnah bei Ihnen.
           </h2>
-          <div class="d-flex my-4">
-            <v-spacer />
-            <v-btn
-              color="primary"
-              variant="outlined"
-              :to="{ name: 'DataSuggestion' }"
-              rounded="xl"
-              class="mx-1"
-            >
-              Daten vorschlagen
-            </v-btn>
-
-            <v-btn
-              color="primary"
-              variant="flat"
-              :to="{ name: 'DataList' }"
-              rounded="xl"
-              class="mx-1"
-            >
-              Zum Metadatenkatalog
-            </v-btn>
-            <v-spacer />
-          </div>
         </div>
       </v-col>
     </v-row>

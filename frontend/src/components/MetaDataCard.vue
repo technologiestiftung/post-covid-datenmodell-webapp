@@ -3,7 +3,7 @@
     <v-card-title>
       <v-row>
         <v-col cols="12" md="7" sm="12">
-          <p style="white-space: normal">
+          <p style="white-space: normal; font-weight: 600">
             {{ dataEntry.title }}
           </p>
         </v-col>
@@ -13,15 +13,15 @@
             icon
             :variant="isSelected ? 'flat' : 'outlined'"
             color="primary"
-            size="x-small"
+            size="38"
             @click="toggleSelected"
           >
-            <v-icon>
+            <v-icon size="24">
               {{ isSelected ? "mdi-star" : "mdi-star-outline" }}
             </v-icon>
           </v-btn>
           <v-btn
-            class="ml-2"
+            class="ml-2 pb-0 text-none"
             :prepend-icon="isExtended ? 'mdi-minus' : 'mdi-plus'"
             variant="flat"
             color="primary"
@@ -40,7 +40,7 @@
 
       <!-- Schlüsselattribute -->
       <div class="d-flex align-center">
-        <b class="pr-4">Schlüsselattribute </b>
+        <b class="pr-4 text-secondary">Schlüsselattribute </b>
         <v-chip-group column>
           <v-chip
             v-for="chip in dataEntry.filter_attributes"
@@ -51,29 +51,27 @@
           </v-chip>
         </v-chip-group>
       </div>
-      <br />
 
       <!-- Available Attributes -->
       <v-row>
         <v-col cols="12" sm="6" v-if="dataEntry.availability_temporal">
-          <b class="mr-4">Zeitspanne </b>
+          <b class="mr-4 text-secondary">Zeitspanne </b>
           <v-chip variant="tonal" color="primary">
             {{ dataEntry.availability_temporal.start_date }} -
             {{ dataEntry.availability_temporal.end_date }}
           </v-chip>
         </v-col>
         <v-col cols="12" sm="6" v-if="dataEntry.availability_spatial">
-          <b class="mr-4">Ort </b>
+          <b class="mr-4 text-secondary">Ort </b>
           <v-chip variant="tonal" color="primary">
             {{ dataEntry.availability_spatial.country }}
           </v-chip>
         </v-col>
       </v-row>
-      <br />
 
       <!-- Quelle -->
-      <p>
-        <b class="pr-4">Quelle </b> {{ dataEntry.source }}
+      <p class="pt-3">
+        <b class="pr-4 text-secondary">Quelle </b> {{ dataEntry.source }}
         <v-icon @click="showSource = !showSource">{{
           showSource ? "mdi-chevron-up" : "mdi-chevron-down"
         }}</v-icon>
@@ -102,10 +100,12 @@
     </v-card-text>
     <!-- More Information -->
     <div v-if="isExtended">
-      <v-card-title>Attribute im Datensatz</v-card-title>
+      <v-card-title class="text-secondary">Attribute im Datensatz</v-card-title>
       <v-card-text>
-        Konfigurieren Sie den Datensatz nach den für Sie relevanten Attribute
-        vor dem Export, indem Sie per Klick an- oder abwählen.
+        <p style="color: #a1a1aa" class="pb-2">
+          Konfigurieren Sie den Datensatz nach den für Sie relevanten Attribute
+          vor dem Export, indem Sie per Klick an- oder abwählen.
+        </p>
         <v-chip-group
           v-model="selectedAttributeFields"
           column
@@ -127,10 +127,12 @@
           </v-chip>
         </v-chip-group>
       </v-card-text>
-      <v-card-title>Dateiformate</v-card-title>
+      <v-card-title class="text-secondary">Dateiformate</v-card-title>
       <v-card-text>
-        Wählen Sie ein passendes Dateigormat vor dem Download aus per Klick
-        an-oder abwählen.
+        <p style="color: #a1a1aa" class="pb-2">
+          Wählen Sie ein passendes Dateiformat vor dem Download aus per Klick
+          an- oder abwählen.
+        </p>
         <v-chip-group
           v-model="selectedDataFormat"
           column
@@ -148,7 +150,7 @@
             color="#70acc0"
             variant="tonal"
           >
-            {{ chip }}
+            {{ chip }}-Datei
           </v-chip>
         </v-chip-group>
       </v-card-text>
@@ -172,6 +174,7 @@
         <!-- two buttons to make the destinction clearer -->
         <v-btn
           v-if="isInExportList"
+          class="text-none"
           rounded="xl"
           color="primary"
           variant="flat"
@@ -183,6 +186,7 @@
         </v-btn>
         <v-btn
           v-else
+          class="text-none"
           rounded="xl"
           color="primary"
           variant="flat"
