@@ -43,6 +43,7 @@
             multiple
             filter
             mandatory
+            @update:model-value="(newValue) => checkAgeGroups(newValue)"
           >
             <v-chip
               v-for="ageGroup in ageGroups"
@@ -86,13 +87,27 @@ const formattedFilterLabel = computed(() => {
 
 const formattedFilterLabelShort = computed(() => {
   if (ageGroupsSelected.value[0] === "00+") return "Alle";
+  const groupText =
+    ageGroupsSelected.value.length > 1 ? " Altersgruppen" : " Altersgruppe";
 
-  return ageGroupsSelected.value.length + " Altersgruppen";
+  return ageGroupsSelected.value.length + groupText;
 });
 
-watch(ageGroupsSelected, (newValue) => {
-  filterStore.age = newValue;
-});
+// function with @update:model-value instead of watcher to avoid infinite loop
+const checkAgeGroups = (newValue: string[]) => {
+  // case: "alle" was selected last
+  if (newValue[newValue.length - 1] === "00+") {
+    // remove all other items
+    ageGroupsSelected.value = ["00+"];
+  }
+  // case: "alle" was selected before, now other items are selected
+  else if (newValue.includes("00+")) {
+    // remove entry "alle"
+    ageGroupsSelected.value = newValue.filter((item: string) => item !== "00+");
+  }
+
+  filterStore.age = ageGroupsSelected.value;
+};
 
 watch(
   () => filterStore.age,
