@@ -1,5 +1,5 @@
 <template>
-  <v-card variant="tonal" color="primary" rounded="xl" flat>
+  <v-card variant="tonal" color="primary" rounded="xl" flat class="mb-8">
     <v-card-title style="white-space: nowrap"
       ><v-icon class="mr-2">mdi-creation</v-icon
       ><span style="word-break: normal; white-space: normal"
