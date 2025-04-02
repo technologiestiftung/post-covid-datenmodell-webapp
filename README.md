@@ -2,7 +2,7 @@
 
 ## Über das Projekt
 
-todo
+Das Post-COVID-Datenmodell ist eine Webanwendung, die es Forschenden ermöglicht, offene und medizinische Daten einfach zu verknüpfen und auszuwerten. Ziel ist es, mit Hilfe von offenen Daten und Daten der Medizininformatik-Initiative (MII-Daten) innovative Fragestellungen zur Post-COVID-Forschung zu beantworten.
 
 ## Benutze Datenquellen und MII-Daten Matching
 
@@ -45,3 +45,64 @@ Um das Frontend zu bauen:
 ```bash
 npm run build
 ```
+
+### Contributors ✨
+
+Thanks goes to these wonderful people (![emoji key](https://allcontributors.org/docs/en/emoji-key)):
+
+<!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
+<!-- prettier-ignore-start -->
+<!-- markdownlint-disable -->
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/bauerfriederike"><img src="https://avatars.githubusercontent.com/u/141726622?v=4?s=100" width="100px;" alt="bauerfriederike"/><br /><sub><b>bauerfriederike</b></sub></a><br /><a href="https://github.com/technologiestiftung/post-covid-datenmodell-webapp/commits?author=bauerfriederike" title="Code">💻</a> <a href="https://github.com/technologiestiftung/post-covid-datenmodell-webapp/commits?author=bauerfriederike" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/ckeuss"><img src="https://avatars.githubusercontent.com/u/147528104?v=4?s=100" width="100px;" alt="ckeuss"/><br /><sub><b>ckeuss</b></sub></a><br /><a href="https://github.com/technologiestiftung/post-covid-datenmodell/commits?author=ckeuss" title="Documentation">📖</a> <a href="https://github.com/technologiestiftung/post-covid-datenmodell-webapp/pulls?q=is%3Apr+reviewed-by%3Ackeuss" title="Reviewed Pull Requests">👀</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/m-b-e"><img src="https://avatars.githubusercontent.com/u/36029603?v=4?s=100" width="100px;" alt="Max B. Eckert"/><br /><sub><b>Max B. Eckert</b></sub></a><br /><a href="#projectManagement-m-b-e" title="Project Management">📆</a> <a href="https://github.com/technologiestiftung/post-covid-datenmodell/commits?author=m-b-e" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/Lisa-Stubert"><img src="https://avatars.githubusercontent.com/u/61182572?v=4?s=100" width="100px;" alt="Lisa Stubert"/><br /><sub><b>Max B. Eckert</b></sub></a><br /><a href="#projectManagement-Lisa-Stubert" title="Project Management">📆</a> <a href="https://github.com/technologiestiftung/post-covid-datenmodell-webapp/commits?author=Lisa-Stubert" title="Documentation">📖</a></td>
+      <td align="center" valign="top" width="14.28%"><a href="https://github.com/jjmllr"><img src="https://avatars.githubusercontent.com/u/68501961?v=4?s=100" width="100px;" alt="jjmllr"/><br /><sub><b>jjmllr</b></sub></a><br /><a href="https://github.com/technologiestiftung/post-covid-datenmodell-webapp/commits?author=jjmllr" title="Code">💻</a> <a href="https://github.com/technologiestiftung/post-covid-datenmodell-webapp/commits?author=jjmllr" title="Documentation">📖</a> <a href="#projectManagement-jjmllr" title="Project Management">📆</a></td>
+    </tr>
+  </tbody>
+</table>
+
+<!-- markdownlint-restore -->
+<!-- prettier-ignore-end -->
+
+<!-- ALL-CONTRIBUTORS-LIST:END -->
+
+This project follows the [all-contributors](https://github.com/all-contributors/all-contributors) specification. Contributions of any kind welcome!
+
+### Credits
+
+<table>
+  <tr>
+    <td>
+      <a href="https://www.technologiestiftung-berlin.de/">
+        <br />
+        <br />
+        <img width="200" src="https://logos.citylab-berlin.org/logo-technologiestiftung-berlin-de.svg" />
+      </a>
+    </td>
+    <td>
+      In Zusammenarbeit mit: <a href="https://www.bihealth.org/en/">
+        <br />
+        <br />
+        <img width="200" src="https://www.bihealth.org/_assets/6cb4206c3a065969362f190803612019/Frontend/Build/assets/images/bih-logo.svg" />
+      </a>
+    </td>
+    <td>
+      und: <a href="https://www.and-effect.com/de/">
+        <br />
+        <br />
+        <img width="200" src="https://www.it-ausschreibung.de/storage/logos/logo_effect_14925.png" />
+      </a>
+    </td>
+    <td>
+      Im Auftrag des: <a href="https://www.bmi.bund.de/DE/startseite/startseite-node.html">
+        <br />
+        <br />
+        <img width="150" src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/BMI_Logo.svg/320px-BMI_Logo.svg.png" />
+      </a>
+    </td>
+  </tr>
+</table>
