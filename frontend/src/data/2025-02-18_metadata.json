@@ -6,14 +6,11 @@
     "source": "https://api.brightsky.dev/weather",
     "license": "Öffentlich zugänglich",
     "category": "Umwelt",
-    "data_formats": [
-      "json",
-      "csv"
-    ],
-    "last_updated": "todo",
+    "data_formats": ["json", "csv"],
+    "last_updated": "Kontinuierlich aktualisiert",
     "availability_temporal": {
       "start_date": "2010-01-01",
-      "end_date": "todo",
+      "end_date": "heute",
       "resolution": "hourly"
     },
     "availability_spatial": {
@@ -43,10 +40,7 @@
       "solar",
       "icon"
     ],
-    "filter_attributes": [
-      "Ort",
-      "Zeitspanne"
-    ],
+    "filter_attributes": ["Ort", "Zeitspanne"],
     "attributes_meta": [
       {
         "id": "day",
@@ -210,10 +204,10 @@
       "API"
     ],
     "contact": {
-      "name": "todo",
-      "address": "Muster Strasse 9 <br/> Musterstadt",
+      "name": "Bright Sky API Team",
+      "address": "https://github.com/jdemaeyer/brightsky",
       "email": "info@brightsky.dev",
-      "phone_number": "todo"
+      "phone_number": "-"
     }
   },
   {
@@ -223,15 +217,12 @@
     "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_reha.json",
     "license": "Daten öffentlich zugänglich",
     "category": "Gesundheit",
-    "data_formats": [
-      "json",
-      "csv"
-    ],
+    "data_formats": ["json", "csv"],
     "last_updated": "2024-12-02",
     "availability_temporal": {
-      "start_date": "2024-12",
-      "end_date": "todo",
-      "resolution": "todo"
+      "start_date": "2024-12-02",
+      "end_date": "2024-12-02",
+      "resolution": "bei Änderung"
     },
     "availability_spatial": {
       "country": "DE",
@@ -247,9 +238,7 @@
       "longitude",
       "isPositionAddedManually"
     ],
-    "filter_attributes": [
-      "Ort"
-    ],
+    "filter_attributes": ["Ort"],
     "attributes_meta": [
       {
         "id": "uuid",
@@ -308,10 +297,10 @@
       "Post-COVID"
     ],
     "contact": {
-      "name": "todo",
-      "address": "Muster Strasse 9 <br/> Musterstadt",
+      "name": "Bundesarbeitsgemeinschaft für Rehabilitation (BAR)",
+      "address": "-",
       "email": "einrichtungsverzeichnis@bar-frankfurt.",
-      "phone_number": "todo"
+      "phone_number": "Kontakt per E-Mail"
     }
   },
   {
@@ -321,15 +310,12 @@
     "source": "https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_post_covid_ambulanzen_kliniken.json",
     "license": "Daten öffentlich zugänglich",
     "category": "Gesundheit",
-    "data_formats": [
-      "json",
-      "csv"
-    ],
+    "data_formats": ["json", "csv"],
     "last_updated": "2024-12-02",
     "availability_temporal": {
       "start_date": "2024-12-02",
-      "end_date": "todo",
-      "resolution": "todo"
+      "end_date": "2024-12-02",
+      "resolution": "bei Änderung"
     },
     "availability_spatial": {
       "country": "DE",
@@ -349,9 +335,7 @@
       "focusarea1",
       "focusarea2"
     ],
-    "filter_attributes": [
-      "Ort"
-    ],
+    "filter_attributes": ["Ort"],
     "attributes_meta": [
       {
         "id": "id",
@@ -443,10 +427,10 @@
       "COVID-19"
     ],
     "contact": {
-      "name": "todo",
-      "address": "Referat L 8 <br/> „Öffentlichkeitsarbeit, Publikatione",
-      "email": "longcovid@bmg.bund.d",
-      "phone_number": "todo"
+      "name": "BMG Long COVID Team",
+      "address": "Referat L 8 <br/> „Öffentlichkeitsarbeit, Publikationen",
+      "email": "longcovid@bmg.bund.de",
+      "phone_number": "-"
     }
   },
   {
@@ -456,14 +440,11 @@
     "source": "https://www.umweltbundesamt.de/daten/luft/luftdaten",
     "license": "CC-BY 4.0",
     "category": "Umwelt",
-    "data_formats": [
-      "json",
-      "csv"
-    ],
-    "last_updated": "todo",
+    "data_formats": ["json", "csv"],
+    "last_updated": "Kontinuierlich aktualisiert",
     "availability_temporal": {
       "start_date": "2016-01-01",
-      "end_date": "todo",
+      "end_date": "heute",
       "resolution": "daily"
     },
     "availability_spatial": {
@@ -531,16 +512,13 @@
         "type": "string"
       }
     ],
-    "filter_attributes": [
-      "Ort",
-      "Zeitspanne"
-    ],
+    "filter_attributes": ["Ort", "Zeitspanne"],
     "keywords": [],
     "contact": {
       "name": "Umweltbundesamt",
-      "address": "todo",
+      "address": "Wörlitzer Platz 1 <br/> 06844 Dessau-Roßlau",
       "email": "immission@uba.de",
-      "phone_number": "todo"
+      "phone_number": "Kontakt per E-Mail"
     }
   },
   {
@@ -550,14 +528,11 @@
     "source": "https://github.com/robert-koch-institut/SARS-CoV-2-Infektionen_in_Deutschland",
     "license": "CC-BY 4.0",
     "category": "Gesundheit",
-    "data_formats": [
-      "json",
-      "csv"
-    ],
-    "last_updated": "todo",
+    "data_formats": ["json", "csv"],
+    "last_updated": "Kontinuierlich aktualisiert",
     "availability_temporal": {
       "start_date": "2020-01-01",
-      "end_date": "todo",
+      "end_date": "heute",
       "resolution": "daily"
     },
     "availability_spatial": {
@@ -576,12 +551,7 @@
       "Faelle_7-Tage",
       "Inzidenz_7-Tage"
     ],
-    "filter_attributes": [
-      "Ort",
-      "Zeitspanne",
-      "Geschlecht",
-      "Alter"
-    ],
+    "filter_attributes": ["Ort", "Zeitspanne", "Geschlecht", "Alter"],
     "attributes_meta": [
       {
         "id": "Meldedatum",
@@ -648,18 +618,12 @@
         "type": "float"
       }
     ],
-    "keywords": [
-      "COVID-19",
-      "SARS-CoV-2",
-      "Infektionen",
-      "Fallzahlen",
-      "RKI"
-    ],
+    "keywords": ["COVID-19", "SARS-CoV-2", "Infektionen", "Fallzahlen", "RKI"],
     "contact": {
       "name": "Robert Koch-Institut, Open Data Team, Fachgebiet MF4",
       "address": "Nordufer 20 <br/> 13353 Berlin",
       "email": "OpenData@rki.de",
-      "phone_number": "todo"
+      "phone_number": "-"
     }
   },
   {
@@ -669,11 +633,8 @@
     "source": "https://github.com/robert-koch-institut/Abwassersurveillance_AMELAG",
     "license": "CC-BY 4.0",
     "category": "Umwelt",
-    "data_formats": [
-      "json",
-      "csv"
-    ],
-    "last_updated": "todo",
+    "data_formats": ["json", "csv"],
+    "last_updated": "Kontinuierlich aktualisiert",
     "availability_temporal": {
       "start_date": "22.11.2022",
       "end_date": "31.12.2025",
@@ -699,10 +660,7 @@
       "typ",
       "unter_bg"
     ],
-    "filter_attributes": [
-      "Ort",
-      "Zeitspanne"
-    ],
+    "filter_attributes": ["Ort", "Zeitspanne"],
     "attributes_meta": [
       {
         "id": "standort",
@@ -814,10 +772,10 @@
       "Offene Daten"
     ],
     "contact": {
-      "name": "Robert Koch-Institut | Open Data Pr",
+      "name": "Robert Koch-Institut | Open Data Team",
       "address": "Nordufer 20 <br/> 13353 Berlin",
       "email": "opendata@rki.de",
-      "phone_number": "todo"
+      "phone_number": "-"
     }
   }
 ]
