@@ -473,7 +473,63 @@
     "availability_age": false,
     "availability_gender": false,
     "attributes": [
-      "todo"
+      "Date",
+      "Feinstaub (PM10)",
+      "Stickstoffdioxid",
+      "Feinstaub (PM2.5)",
+      "Ozon",
+      "standort",
+      "bundesland"
+    ],
+    "attributes_meta": [
+      {
+        "id": "Date",
+        "time_attribute": true,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Datum",
+        "type": "datetime"
+      },
+      {
+        "id": "Feinstaub (PM10)",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Feinstaub (PM10)",
+        "type": "integer"
+      },
+      {
+        "id": "Stickstoffdioxid",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Stickstoffdioxid",
+        "type": "integer"
+      },
+      {
+        "id": "Feinstaub (PM2.5)",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Feinstaub (PM2.5)",
+        "type": "integer"
+      },
+      {
+        "id": "Ozon",
+        "time_attribute": false,
+        "location_attribute": false,
+        "age_attribute": false,
+        "description": "Ozon",
+        "type": "integer"
+      },
+      {
+        "id": "bundesland",
+        "time_attribute": false,
+        "location_attribute": true,
+        "age_attribute": false,
+        "description": "Bundesland",
+        "type": "string"
+      }
     ],
     "filter_attributes": [
       "Ort",
