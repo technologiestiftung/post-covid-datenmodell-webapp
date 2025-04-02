@@ -5,11 +5,12 @@
         prepend-icon="mdi-calendar-blank-outline"
         variant="outlined"
         color="secondary"
-        class="pr-1 mr-2 my-1"
+        class="pr-1 mr-2 my-1 px-4 py-2"
+        size="large"
         v-bind="activatorProps"
       >
         {{ $vuetify.display.mdAndUp ? "Zeitspanne" : "Zeit" }}
-        <v-chip density="compact" color="primary" class="ml-2 mr-0">
+        <v-chip color="primary" class="ml-2 mr-0">
           {{
             $vuetify.display.mdAndUp
               ? dateStartFormatted

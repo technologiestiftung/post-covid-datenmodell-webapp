@@ -16,7 +16,7 @@
       </v-col>
     </v-row>
     <!-- Schlüsselattribute -->
-    <v-row class="justify-center flex-grow-0">
+    <v-row class="justify-center flex-grow-0 mt-0 mb-4">
       <v-col cols="11" md="9" xl="6">
         MII-Schlüsselattribute
         <AttributeCategories />

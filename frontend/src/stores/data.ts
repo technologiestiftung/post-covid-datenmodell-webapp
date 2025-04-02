@@ -55,6 +55,7 @@ async function loadKreisData(): Promise<KreisData[]> {
 export const useDataStore = defineStore("data", () => {
   const metaData = dataEntries as MetaDataEntry[];
   const kreisData = ref<KreisData[]>([]);
+  const isWelcomeDialogOpen = ref(true);
 
   loadKreisData()
     .then((data) => {
@@ -64,5 +65,9 @@ export const useDataStore = defineStore("data", () => {
       console.error("Failed to load kreis data:", error);
     });
 
-  return { metaData, kreisData };
-});
+  return { metaData, kreisData, isWelcomeDialogOpen };
+},
+{
+  persist: true,
+}
+);

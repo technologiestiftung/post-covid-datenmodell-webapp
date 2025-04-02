@@ -179,6 +179,7 @@
               verloren.
             </span>
           </v-alert>
+          <!--
           <v-alert
             v-model="showHint"
             color="#70ACC0"
@@ -203,6 +204,7 @@
               finden Sie Python-Skripte um weitere Analysen durchzuführen.
             </span>
           </v-alert>
+          -->
         </v-card-text>
       </v-card>
     </template>
