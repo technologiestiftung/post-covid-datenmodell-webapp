@@ -7,7 +7,8 @@
         color="primary"
         border
         variant="tonal"
-        class="mr-2 my-1"
+        class="mr-2 my-1 px-4 py-2"
+        size="large"
         v-bind="activatorProps"
       >
         {{

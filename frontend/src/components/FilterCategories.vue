@@ -14,14 +14,16 @@
         ]"
         :key="category"
         :value="category"
+        class="px-4 py-2"
         :variant="filterStore.filterCategory === category ? 'flat' : 'outlined'"
         color="secondary"
+        size="large"
       >
         {{ category }}
       </v-chip>
     </v-chip-group>
     <v-chip
-      class="font-italic mt-2"
+      class="font-italic mt-2 px-4 py-2"
       v-if="filterStore.search"
       closable
       @click:close="filterStore.search = ''"

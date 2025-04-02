@@ -44,7 +44,7 @@
 
           <div class="d-flex mt-2 flex-wrap justify-center">
             <v-btn
-              class="ma-2 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2 px-4 py-2"
               variant="outlined"
               rounded="xl"
               @click="searchString = 'Rehabilitation'"
@@ -53,7 +53,7 @@
             </v-btn>
 
             <v-btn
-              class="ma-2 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2 px-4 py-2"
               variant="outlined"
               rounded="xl"
               @click="searchString = 'Wetter'"
@@ -62,7 +62,7 @@
             </v-btn>
 
             <v-btn
-              class="ma-2 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2 px-4 py-2"
               variant="outlined"
               rounded="xl"
               @click="searchString = 'Emissionen'"
@@ -71,7 +71,7 @@
             </v-btn>
 
             <v-btn
-              class="ma-2 text-capitalize text-primary text-body-2"
+              class="ma-2 text-capitalize text-primary text-body-2 px-4 py-2"
               variant="outlined"
               rounded="xl"
               @click="searchString = 'Sozialstruktur'"
@@ -80,7 +80,7 @@
             </v-btn>
 
             <v-btn
-              class="ma-2 text-capitalize"
+              class="ma-2 text-capitalize px-4 py-2"
               color="secondary"
               flat
               rounded="xl"

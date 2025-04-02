@@ -74,8 +74,7 @@
         }"
         variant="outlined"
         rounded="xl"
-        density="comfortable"
-        class="text-primary text-capitalize ml-4"
+        class="text-primary text-capitalize ml-4 py-2 px-4"
       >
         Datensatz-Export
         <v-badge

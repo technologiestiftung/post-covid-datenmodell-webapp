@@ -3,5 +3,4 @@ $body-font-family: "Sora";
 @use "vuetify" with (
     $body-font-family: $body-font-family,
     $heading-font-family: $body-font-family
-
 );

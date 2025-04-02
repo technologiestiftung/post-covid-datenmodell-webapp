@@ -5,11 +5,12 @@
         prepend-icon="mdi-shape-circle-plus"
         variant="outlined"
         color="secondary"
-        class="pr-1 my-1 mr-2"
+        class="pr-1 my-1 mr-2 px-4 py-2"
+        size="large"
         v-bind="activatorProps"
       >
         Alter
-        <v-chip density="compact" color="primary" class="ml-2 mr-0">
+        <v-chip color="primary" class="ml-2 mr-0">
           <span
             v-html="
               $vuetify.display.mdAndUp
