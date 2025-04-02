@@ -121,8 +121,11 @@
             v-for="chip in dataEntry.attributes"
             :key="chip"
             :value="chip"
-            color="#70acc0"
-            variant="tonal"
+            variant="flat"
+            base-color="#E2EEF2"
+            class="text-primary"
+            selected-class="text-secondary"
+            color="#70ACC0"
             >{{ chip }}
           </v-chip>
         </v-chip-group>
@@ -147,8 +150,11 @@
             v-for="chip in dataEntry.data_formats"
             :key="chip"
             :value="chip"
-            color="#70acc0"
-            variant="tonal"
+            variant="flat"
+            base-color="#E2EEF2"
+            class="text-primary"
+            selected-class="text-secondary"
+            color="#70ACC0"
           >
             {{ chip }}-Datei
           </v-chip>

@@ -18,12 +18,12 @@
               mdi-trash-can
             </v-icon>
           </template>
-          <v-list-item-subtitle
+          <v-list-item-subtitle style="opacity: 1"
             ><v-chip
-              color="#70acc0"
-              variant="flat"
               density="compact"
               class="mt-2 ml-6 text-secondary"
+              variant="flat"
+              color="#70ACC0"
               >{{ item.format }}-Datei</v-chip
             >
           </v-list-item-subtitle>
