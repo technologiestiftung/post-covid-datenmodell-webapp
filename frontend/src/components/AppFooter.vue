@@ -1,104 +1,74 @@
 <template>
   <v-footer class="bg-secondary">
-    <v-container>
-      <v-row justify="center">
-        <v-col cols="12" lg="12" xl="8" xxl="8" class="bg-secondary">
-          <div class="d-flex flex-column">
-            <span class="text-h5">Sie möchten Datensätze für unseren</span>
-            <span class="text-h5">Metadatenkatalog vorschlagen?</span>
+    <div style="width: 100vw" class="pa-4">
+      <div class="d-flex flex-column">
+        <span class="text-h5 text-md-h4"
+          >Haben Sie Fragen zum Metadatenkatalog?
+        </span>
 
-            <div class="d-flex align-center justify-space-between mt-5">
-              <div>
-                <span class="text-h5">Füllen Sie unser Formular aus!</span>
-              </div>
-              <div class="mr-10">
-                <v-btn
-                  variant="flat"
-                  rounded="xl"
-                  size="small"
-                  class="text-primary text-capitalize"
-                  :to="{ name: 'DataSuggestion' }"
-                >
-                  Daten vorschlagen
-                </v-btn>
-              </div>
-            </div>
-            <v-divider class="mt-5 mb-5" />
+        <div class="d-flex align-center justify-space-between mt-5 mb-5">
+          <div class="mr-10">
+            <v-btn
+              variant="flat"
+              rounded="xl"
+              class="text-primary text-capitalize"
+              :to="{ name: 'ContactPage' }"
+            >
+              Schreiben Sie uns
+            </v-btn>
           </div>
-        </v-col>
-      </v-row>
+        </div>
+        <v-divider class="mt-5 mb-5" />
+      </div>
 
-      <v-row justify="center">
-        <v-col cols="12" lg="12" xl="8" xxl="8" class="bg-secondary">
-          <v-row>
-            <v-col cols="12" sm="6" lg="3" xl="3" xxl="3">
-              <div>
-                <v-list density="compact" class="bg-transparent pa-0">
-                  <v-list-item
-                    v-for="(item, index) in footerLinksProject"
-                    :key="index"
-                    :href="item.link"
-                    class="px-1"
-                  >
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </div>
-            </v-col>
+      <div>
+        <v-list density="compact" class="bg-transparent pa-0">
+          <v-list-item
+            v-for="(item, index) in footerLinksProject"
+            :key="index"
+            v-bind="
+              item.link
+                ? { href: item.link }
+                : { to: { name: item.componentName } }
+            "
+            class="px-1"
+          >
+            <v-list-item-title>{{ item.title }}</v-list-item-title>
+          </v-list-item>
+        </v-list>
+      </div>
 
-            <v-col cols="12" sm="6" lg="6" xl="6" xxl="6">
-              <div>
-                <v-list density="compact" class="bg-transparent pa-0">
-                  <v-list-item
-                    v-for="(item, index) in footerLinksKontakt"
-                    :key="index"
-                    :to="{ name: item.componentName }"
-                    class="px-1"
-                  >
-                    <v-list-item-title>{{ item.title }}</v-list-item-title>
-                  </v-list-item>
-                </v-list>
-              </div>
-            </v-col>
-          </v-row>
-        </v-col>
-      </v-row>
+      <v-divider class="mt-5 mb-5" />
 
-      <v-row justify="center">
-        <v-col cols="12" lg="12" xl="8" xxl="8" class="bg-secondary">
-          <v-divider class="mt-5 mb-5" />
+      <div class="d-flex align-center justify-space-between">
+        <div>
+          <v-btn
+            variant="text"
+            size="small"
+            href="https://www.technologiestiftung-berlin.de/impressum"
+            target="_blank"
+            class="text-capitalize text-body-2 pl-0"
+          >
+            Impressum
+          </v-btn>
+          <v-btn
+            variant="text"
+            size="small"
+            href="https://www.technologiestiftung-berlin.de/datenschutz"
+            target="_blank"
+            class="text-capitalize text-body-2 pl-0"
+          >
+            Datenschutz
+          </v-btn>
+        </div>
 
-          <div class="d-flex align-center justify-space-between">
-            <div>
-              <v-btn
-                variant="text"
-                size="small"
-                href="https://www.technologiestiftung-berlin.de/impressum"
-                target="_blank"
-                class="text-capitalize"
-              >
-                Impressum
-              </v-btn>
-              <v-btn
-                variant="text"
-                size="small"
-                href="https://www.technologiestiftung-berlin.de/datenschutz"
-                target="_blank"
-                class="text-capitalize"
-              >
-                Datenschutz
-              </v-btn>
-            </div>
-
-            <div class="mr-10">
-              <span class="text-body-2"
-                >© {{ new Date().getFullYear() }} Technologiestiftung</span
-              >
-            </div>
-          </div>
-        </v-col>
-      </v-row>
-    </v-container>
+        <div>
+          <span class="text-body-2"
+            >© {{ new Date().getFullYear() }} Technologiestiftung</span
+          >
+        </div>
+      </div>
+    </div>
   </v-footer>
 </template>
 
@@ -109,19 +79,12 @@ const footerLinksProject = [
     link: "https://www.technologiestiftung-berlin.de/",
   },
   {
-    title: "Für Medizinforschende",
-    link: "https://www.technologiestiftung-berlin.de/",
-  },
-  {
-    title: "Für datenhaltende Stellen",
-    link: "https://www.technologiestiftung-berlin.de/",
-  },
-];
-
-const footerLinksKontakt = [
-  {
     title: "Kontakt",
     componentName: "ContactPage",
+  },
+  {
+    title: "Daten beitragen",
+    componentName: "DataSuggestion",
   },
   {
     title: "FAQ",
