@@ -87,9 +87,9 @@
           <v-col cols="12" sm="4">
             <b>Erreichbarkeit</b>
             <br />
-            <v-icon>mdi-email</v-icon>{{ dataEntry.contact.phone_number }}
+            <v-icon>mdi-phone</v-icon>{{ dataEntry.contact.phone_number }}
             <br />
-            <v-icon>mdi-phone</v-icon>{{ dataEntry.contact.email }}
+            <v-icon>mdi-email</v-icon>{{ dataEntry.contact.email }}
           </v-col>
           <v-col cols="12" sm="4">
             <b>Aktualisiert</b> <br />
