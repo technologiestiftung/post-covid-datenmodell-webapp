@@ -4,7 +4,7 @@
 
 Das Post-COVID-Datenmodell ist eine Webanwendung, die es Forschenden ermöglicht, offene und medizinische Daten einfach zu verknüpfen und auszuwerten. Ziel ist es, mit Hilfe von offenen Daten und Daten der Medizininformatik-Initiative (MII-Daten) innovative Fragestellungen zur Post-COVID-Forschung zu beantworten.
 
-## Benutze Datenquellen und MII-Daten Matching
+## Benutzte Datenquellen und MII-Daten Matching
 
 Für das Projekt wurden mehrere (öffentliche) Datensätze benutzt. Weitere Informationen zu den Datensätzen finden Sie unter unter [Metadata](../data/2025-02-18_metadata.json).
 
