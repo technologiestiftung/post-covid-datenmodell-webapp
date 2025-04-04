@@ -4,7 +4,7 @@
     @close="data.isWelcomeDialogOpen = false"
     v-model="data.isWelcomeDialogOpen"
   >
-    <v-card rounded="lg">
+    <v-card rounded="xl" class="pa-4">
       <v-toolbar color="transparent">
         <v-toolbar-title class="ml-4 mt-1">
           <v-img src="../assets/header-logo.svg" height="60px" width="60px" />
@@ -20,7 +20,7 @@
         </v-toolbar-items>
       </v-toolbar>
       <v-card-text>
-        <h1 class="text-h5 text-md-h4 text-secondary" style="font-weight: 600">
+        <h1 class="text-secondary font-weight-bold text-h5 text-md-h4">
           Post-COVID-Datenmodell
         </h1>
         <p class="mt-4">
@@ -28,7 +28,7 @@
           Berlin und dem Berlin Institute of Health at Charité Berlin, das mit
           Unterstützung von &effect data solutions GmbH umgesetzt wurde.
         </p>
-        <p class="mt-2">
+        <p class="mt-6">
           <b class="text-secondary">Hinweis: Prototyp in der Entwicklung</b>
           <br />
           Diese Anwendung wurde im Rahmen einer Ausschreibung des
@@ -38,9 +38,9 @@
           daher können einzelne Funktionen eingeschränkt sein oder nicht immer
           fehlerfrei funktionieren.
         </p>
-        <p class="mt-2">Vielen Dank fürs Ausprobieren!</p>
+        <p class="mt-6">Vielen Dank fürs Ausprobieren!</p>
       </v-card-text>
-      <div class="d-flex pa-4 mb-8 flex-column flex-md-row">
+      <div class="d-flex pa-4 mb-8 flex-column flex-md-row border mx-4">
         <v-img src="../assets/tsb.svg" height="40px" class="my-4 my-md-2" />
         <v-img src="../assets/BIH.svg" height="40px" class="my-4 my-md-2" />
         <v-img
