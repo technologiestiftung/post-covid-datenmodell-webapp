@@ -1,0 +1,1016 @@
+[
+    {
+        "Kl\u00e4ranlage": "Aachen",
+        "long": 6.1041692533,
+        "lat": 50.8085349583,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Aalen",
+        "long": 10.0976962721,
+        "lat": 48.8537947283,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Alt\u00f6tting",
+        "long": 12.7032851741,
+        "lat": 48.2566285618,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Andernach",
+        "long": 7.4225156312,
+        "lat": 50.4407136492,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Arnstadt",
+        "long": 10.9714738733,
+        "lat": 50.8904321131,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Aschaffenburg",
+        "long": 9.1091859271,
+        "lat": 49.9755683649,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Augsburg",
+        "long": 10.8883679994,
+        "lat": 48.4136595517,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Bad Kreuznach",
+        "long": 7.8803183945,
+        "lat": 49.8597758552,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Bad Mergentheim",
+        "long": 9.749,
+        "lat": 49.5,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Bad Reichenhall",
+        "long": 12.9244492742,
+        "lat": 47.765403401,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Bautzen",
+        "long": 14.4656573201,
+        "lat": 51.176577785,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Bayreuth",
+        "long": 11.548,
+        "lat": 49.96,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Berchtesgaden",
+        "long": 13.0336327971,
+        "lat": 47.6466223049,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Berg",
+        "long": 9.6126614631,
+        "lat": 47.8235379394,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Berlin Ruhleben",
+        "long": 13.2316804064,
+        "lat": 52.5315796743,
+        "Bundesland": "Berlin"
+    },
+    {
+        "Kl\u00e4ranlage": "Berlin Sch\u00f6nerlinde",
+        "long": 13.4166377643,
+        "lat": 52.6650260098,
+        "Bundesland": "Berlin"
+    },
+    {
+        "Kl\u00e4ranlage": "Berlin Wa\u00dfmannsdorf",
+        "long": 13.4668654809,
+        "lat": 52.3879909417,
+        "Bundesland": "Berlin"
+    },
+    {
+        "Kl\u00e4ranlage": "Bernburg",
+        "long": 11.7691568945,
+        "lat": 51.7997870589,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Bielefeld",
+        "long": 8.599,
+        "lat": 52.043,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Bonn",
+        "long": 7.0929204179,
+        "lat": 50.7572972075,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Borken",
+        "long": 6.8313272498,
+        "lat": 51.8518840413,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Bottrop",
+        "long": 6.9809174448,
+        "lat": 51.5109352696,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Bramsche",
+        "long": 7.9810407528,
+        "lat": 52.4165761371,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Brandenburg an der Havel",
+        "long": 12.4365223006,
+        "lat": 52.4178614431,
+        "Bundesland": "Brandenburg"
+    },
+    {
+        "Kl\u00e4ranlage": "Braunschweig",
+        "long": 10.4443887201,
+        "lat": 52.321738245,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Bremen",
+        "long": 8.7150691023,
+        "lat": 53.1158938431,
+        "Bundesland": "Bremen"
+    },
+    {
+        "Kl\u00e4ranlage": "B\u00fcdingen",
+        "long": 9.084158256,
+        "lat": 50.2901400713,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Celle",
+        "long": 10.056,
+        "lat": 52.623,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Chemnitz",
+        "long": 12.8920510217,
+        "lat": 50.8835767761,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Cottbus",
+        "long": 14.3511970497,
+        "lat": 51.7733935912,
+        "Bundesland": "Brandenburg"
+    },
+    {
+        "Kl\u00e4ranlage": "Darmstadt",
+        "long": 8.626,
+        "lat": 49.886,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Dessau",
+        "long": 12.2093192665,
+        "lat": 51.8599520395,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Dinslaken",
+        "long": 6.7176900235,
+        "lat": 51.5717579529,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Donaueschingen",
+        "long": 8.522,
+        "lat": 47.949,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Dortmund-Deusen",
+        "long": 7.4262927388,
+        "lat": 51.5377387147,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Dortmund-Scharnhorst",
+        "long": 7.5224223482,
+        "lat": 51.536147337,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Dresden",
+        "long": 13.673602498,
+        "lat": 51.0709617901,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Duisburg",
+        "long": 6.7221359354,
+        "lat": 51.4914624201,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "D\u00f6beln",
+        "long": 13.0636288799,
+        "lat": 51.1299605947,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "D\u00fcsseldorf (Nord)",
+        "long": 6.6905771659,
+        "lat": 51.2781482894,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "D\u00fcsseldorf (S\u00fcd)",
+        "long": 6.7389401715,
+        "lat": 51.1941027601,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Ebersbach",
+        "long": 14.57,
+        "lat": 51.017,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Ebersberg",
+        "long": 11.9899764441,
+        "lat": 48.0783787086,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Emscherm\u00fcndung",
+        "long": 6.7761386609,
+        "lat": 51.5356847692,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Erfurt",
+        "long": 10.9847612763,
+        "lat": 51.0401472331,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Eriskirch",
+        "long": 9.5323778019,
+        "lat": 47.61902485,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Erlangen",
+        "long": 11.0,
+        "lat": 49.617,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Eschweiler",
+        "long": 6.3352838344,
+        "lat": 50.832215881,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Flensburg",
+        "long": 9.4129290603,
+        "lat": 54.8055164963,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Frankfurt (Oder)",
+        "long": 14.5475396715,
+        "lat": 52.3683161417,
+        "Bundesland": "Brandenburg"
+    },
+    {
+        "Kl\u00e4ranlage": "Frankfurt-Griesheim",
+        "long": 8.65,
+        "lat": 50.09,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Frankfurt-Niederrad",
+        "long": 8.6185939036,
+        "lat": 50.0885245587,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Frankfurt-Sindlingen",
+        "long": 8.5237580252,
+        "lat": 50.0646639849,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Freilassing",
+        "long": 12.9896415474,
+        "lat": 47.8423759696,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Freising",
+        "long": 11.7610855114,
+        "lat": 48.402513696,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Fulda",
+        "long": 9.6400122159,
+        "lat": 50.574212793,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Gera",
+        "long": 12.0303573123,
+        "lat": 50.9207693633,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Germersheim",
+        "long": 8.37980494,
+        "lat": 49.224911494,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Gerwisch",
+        "long": 11.732,
+        "lat": 52.183,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Gleisdreieck",
+        "long": 10.5651833579,
+        "lat": 50.9368668918,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Glonn",
+        "long": 11.873592233,
+        "lat": 47.9816042405,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Grafing",
+        "long": 11.9746862747,
+        "lat": 48.0367804588,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Greifswald",
+        "long": 13.4390124838,
+        "lat": 54.1157551474,
+        "Bundesland": "Mecklenburg-Vorpommern"
+    },
+    {
+        "Kl\u00e4ranlage": "Grimma",
+        "long": 12.7513723112,
+        "lat": 51.2494645021,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Gr\u00f6mitz",
+        "long": 10.9974456172,
+        "lat": 54.1842933483,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "G\u00f6ppingen",
+        "long": 9.6035876529,
+        "lat": 48.7040306763,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "G\u00f6rlitz",
+        "long": 15.0009011036,
+        "lat": 51.1690755333,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "G\u00f6ttingen",
+        "long": 9.9161989101,
+        "lat": 51.5540585699,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "G\u00fctersloh",
+        "long": 8.3362022042,
+        "lat": 51.9003037278,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Hagen",
+        "long": 7.416,
+        "lat": 51.399,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Halberstadt",
+        "long": 11.0642863694,
+        "lat": 51.9008248753,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Halle (Saale)",
+        "long": 11.9206826893,
+        "lat": 51.5245085172,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Hamburg 01",
+        "long": 9.9156220172,
+        "lat": 53.5205165117,
+        "Bundesland": "Hamburg"
+    },
+    {
+        "Kl\u00e4ranlage": "Hamburg 02",
+        "long": 9.943949,
+        "lat": 53.533309,
+        "Bundesland": null
+    },
+    {
+        "Kl\u00e4ranlage": "Hanau",
+        "long": 8.8732438704,
+        "lat": 50.1285200485,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Hannover-G\u00fcmmerwald",
+        "long": 9.5103712457,
+        "lat": 52.4152891028,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Hannover-Herrenhausen",
+        "long": 9.6614786145,
+        "lat": 52.3968110585,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Heidelberg",
+        "long": 8.6514087527,
+        "lat": 49.435079023,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Hetlingen",
+        "long": 9.6076474022,
+        "lat": 53.597955814,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Hildesheim",
+        "long": 9.924,
+        "lat": 52.179,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Hof",
+        "long": 11.8990304022,
+        "lat": 50.3367375011,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Husum",
+        "long": 9.032770425,
+        "lat": 54.4705191561,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Ilmenau",
+        "long": 10.9418692973,
+        "lat": 50.6779424818,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Ingolstadt",
+        "long": 11.4929893897,
+        "lat": 48.7593186785,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Jena",
+        "long": 11.6341499379,
+        "lat": 50.9575064066,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Kaiserslautern",
+        "long": 7.7426045902,
+        "lat": 49.4593107802,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Karlsruhe",
+        "long": 8.3593931584,
+        "lat": 49.0444775788,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Kassel",
+        "long": 9.5237167339,
+        "lat": 51.3244395155,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Kellinghusen",
+        "long": 9.713918536,
+        "lat": 53.9429093816,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Kiel",
+        "long": 10.18869,
+        "lat": 54.456,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Koblenz",
+        "long": 7.6041646189,
+        "lat": 50.3882015976,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "K\u00f6ln",
+        "long": 6.9747670895,
+        "lat": 50.99366818,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "K\u00f6nigsbach",
+        "long": 8.5902218148,
+        "lat": 48.9595998477,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "K\u00f6nigsbrunn",
+        "long": 10.8939993578,
+        "lat": 48.293853693,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "K\u00f6then",
+        "long": 11.957208105,
+        "lat": 51.7593805416,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Landau in der Pfalz",
+        "long": 8.1754361884,
+        "lat": 49.2077843915,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Leinetal",
+        "long": 10.0329309212,
+        "lat": 51.3723736524,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Leipzig",
+        "long": 12.3363044479,
+        "lat": 51.3581867932,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Leonberg",
+        "long": 9.0424094287,
+        "lat": 48.8145920559,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Linsenstein",
+        "long": 11.1943624518,
+        "lat": 51.3189935431,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Ludwigshafen (BASF)",
+        "long": 8.4124437448,
+        "lat": 49.5544351047,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "L\u00fcbeck",
+        "long": 10.8638461745,
+        "lat": 53.9503884518,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Mainz",
+        "long": 8.2169891228,
+        "lat": 50.0308325247,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Marburg",
+        "long": 8.7571900833,
+        "lat": 50.7671525961,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Markkleeberg",
+        "long": 12.3554092092,
+        "lat": 51.2936106,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Meuselwitz",
+        "long": 12.3142387504,
+        "lat": 51.0508689742,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Montabaur",
+        "long": 7.844079459,
+        "lat": 50.4294660221,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "M\u00f6nchengladbach",
+        "long": 6.4643019062,
+        "lat": 51.2431180738,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "M\u00fchlacker-Lomersheim",
+        "long": 8.8742174189,
+        "lat": 48.9371216016,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "M\u00fcnchen",
+        "long": 11.7051863379,
+        "lat": 48.2095248764,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "M\u00fcnster",
+        "long": 7.651,
+        "lat": 52.008,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Naumburg",
+        "long": 11.8317398949,
+        "lat": 51.1619150148,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Neu-Ulm",
+        "long": 10.03,
+        "lat": 48.425,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Neubrandenburg",
+        "long": 13.2420470356,
+        "lat": 53.5681439596,
+        "Bundesland": "Mecklenburg-Vorpommern"
+    },
+    {
+        "Kl\u00e4ranlage": "Neustadt an der Weinstra\u00dfe",
+        "long": 8.2285175127,
+        "lat": 49.3314004458,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Nordhausen",
+        "long": 10.8217488939,
+        "lat": 51.4846478143,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "N\u00fcrnberg",
+        "long": 11.02,
+        "lat": 49.465,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Offenburg",
+        "long": 7.9151969551,
+        "lat": 48.5192442047,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Oldenburg",
+        "long": 8.2457314249,
+        "lat": 53.1433684867,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Osnabr\u00fcck",
+        "long": 8.0136486939,
+        "lat": 52.3027331435,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Paderborn",
+        "long": 8.641431053,
+        "lat": 51.7496410533,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Passau",
+        "long": 13.496,
+        "lat": 48.579,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Pforzheim",
+        "long": 8.735140712,
+        "lat": 48.9016551178,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Piding",
+        "long": 12.9183966235,
+        "lat": 47.7655025212,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Pirmasens-Bl\u00fcmelstal",
+        "long": 7.5875025692,
+        "lat": 49.2131665503,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Pirmasens-Felsalbe",
+        "long": 7.5721796266,
+        "lat": 49.169736589,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Plauen",
+        "long": 12.169133033,
+        "lat": 50.5251186716,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Potsdam",
+        "long": 13.0262081987,
+        "lat": 52.4372278759,
+        "Bundesland": "Brandenburg"
+    },
+    {
+        "Kl\u00e4ranlage": "Ratzeburg",
+        "long": 10.7430415599,
+        "lat": 53.723616687,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Regensburg",
+        "long": 12.187,
+        "lat": 49.006,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Rollsdorf",
+        "long": 11.7402207348,
+        "lat": 51.4856000265,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Rostock",
+        "long": 12.0962860631,
+        "lat": 54.1042239327,
+        "Bundesland": "Mecklenburg-Vorpommern"
+    },
+    {
+        "Kl\u00e4ranlage": "Saalfeld",
+        "long": 11.3606306692,
+        "lat": 50.6639091076,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Saarbr\u00fccken",
+        "long": 6.9227904236,
+        "lat": 49.2424759662,
+        "Bundesland": "Saarland"
+    },
+    {
+        "Kl\u00e4ranlage": "Saarlouis",
+        "long": 6.737455571,
+        "lat": 49.3280967337,
+        "Bundesland": "Saarland"
+    },
+    {
+        "Kl\u00e4ranlage": "Schleswig",
+        "long": 9.5924970388,
+        "lat": 54.5256723464,
+        "Bundesland": "Schleswig-Holstein"
+    },
+    {
+        "Kl\u00e4ranlage": "Schmalkalden",
+        "long": 10.3578166857,
+        "lat": 50.7153514635,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Schwabm\u00fcnchen",
+        "long": 10.7269272324,
+        "lat": 48.2008672799,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Schweinfurt",
+        "long": 10.2128066684,
+        "lat": 50.0222841121,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Schwerin",
+        "long": 11.3579520711,
+        "lat": 53.5234890611,
+        "Bundesland": "Mecklenburg-Vorpommern"
+    },
+    {
+        "Kl\u00e4ranlage": "Schw\u00e4bisch Hall",
+        "long": 9.7332073377,
+        "lat": 49.1266510736,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Sch\u00f6nebeck",
+        "long": 11.6968824524,
+        "lat": 52.028804865,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Silstedt",
+        "long": 10.8609940089,
+        "lat": 51.8674866015,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Speyer",
+        "long": 8.4565713007,
+        "lat": 49.3363794236,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Stadtbergen",
+        "long": 10.854100545,
+        "lat": 48.3686972656,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Starnberg",
+        "long": 11.3615422133,
+        "lat": 48.013876965,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Stendal",
+        "long": 11.9051742592,
+        "lat": 52.6103343834,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Straubing",
+        "long": 12.622,
+        "lat": 48.901,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Stuttgart",
+        "long": 9.2413956061,
+        "lat": 48.8467869303,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Suhl",
+        "long": 10.6080025312,
+        "lat": 50.6025151889,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Teisendorf",
+        "long": 12.8333071334,
+        "lat": 47.8538570533,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Trier",
+        "long": 6.6865886421,
+        "lat": 49.774018764,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "T\u00fcbingen",
+        "long": 9.2413956061,
+        "lat": 48.8467869303,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Waldbr\u00f6l",
+        "long": 7.5999006172,
+        "lat": 50.867964221,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Weiden",
+        "long": 12.162,
+        "lat": 49.661,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Weil am Rhein",
+        "long": 7.582,
+        "lat": 47.615,
+        "Bundesland": "Baden-W\u00fcrttemberg"
+    },
+    {
+        "Kl\u00e4ranlage": "Weimar",
+        "long": 11.3612495061,
+        "lat": 50.9931894599,
+        "Bundesland": "Th\u00fcringen"
+    },
+    {
+        "Kl\u00e4ranlage": "Wei\u00dfenfels",
+        "long": 11.9848967658,
+        "lat": 51.2152466609,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Wellesweiler",
+        "long": 7.2282652032,
+        "lat": 49.3424441268,
+        "Bundesland": "Saarland"
+    },
+    {
+        "Kl\u00e4ranlage": "Wiesbaden-Biebrich",
+        "long": 8.2223336727,
+        "lat": 50.0430420304,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Wiesbaden-Stadt",
+        "long": 8.252933698,
+        "lat": 50.0556189271,
+        "Bundesland": "Hessen"
+    },
+    {
+        "Kl\u00e4ranlage": "Wolfsburg",
+        "long": 10.8015145304,
+        "lat": 52.4701356793,
+        "Bundesland": "Niedersachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Worms",
+        "long": 8.3519519059,
+        "lat": 49.6744609745,
+        "Bundesland": "Rheinland-Pfalz"
+    },
+    {
+        "Kl\u00e4ranlage": "Wuppertal",
+        "long": 7.1064087227,
+        "lat": 51.2234988769,
+        "Bundesland": "Nordrhein-Westfalen"
+    },
+    {
+        "Kl\u00e4ranlage": "Wustweiler",
+        "long": 7.0268806585,
+        "lat": 49.4013270527,
+        "Bundesland": "Saarland"
+    },
+    {
+        "Kl\u00e4ranlage": "Zeitz",
+        "long": 12.1955484473,
+        "lat": 51.0762078776,
+        "Bundesland": "Sachsen-Anhalt"
+    },
+    {
+        "Kl\u00e4ranlage": "Zittau",
+        "long": 14.8316066165,
+        "lat": 50.8939829141,
+        "Bundesland": "Sachsen"
+    },
+    {
+        "Kl\u00e4ranlage": "Zusmarshausen",
+        "long": 10.5941207626,
+        "lat": 48.4247712567,
+        "Bundesland": "Bayern"
+    },
+    {
+        "Kl\u00e4ranlage": "Zweibr\u00fccken",
+        "long": 7.3404050379,
+        "lat": 49.2531118742,
+        "Bundesland": "Rheinland-Pfalz"
+    }
+]
