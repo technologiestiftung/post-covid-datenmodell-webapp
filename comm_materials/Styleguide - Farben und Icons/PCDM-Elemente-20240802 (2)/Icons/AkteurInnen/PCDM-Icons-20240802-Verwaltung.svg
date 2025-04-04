@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Ebene_1" data-name="Ebene 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #c6dee6;
+      }
+
+      .cls-1, .cls-2 {
+        stroke-width: 0px;
+      }
+
+      .cls-3 {
+        fill: none;
+        stroke: #1e3791;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-width: 6.02px;
+      }
+
+      .cls-2 {
+        fill: #fff;
+      }
+    </style>
+  </defs>
+  <rect class="cls-2" x="-145" y="-319" width="1604" height="804"/>
+  <circle class="cls-1" cx="100" cy="100" r="60"/>
+  <g>
+    <path class="cls-3" d="M81.25,69h37.5c3.45,0,6.25,2.78,6.25,6.2v49.6c0,3.42-2.8,6.2-6.25,6.2h-37.5c-3.45,0-6.25-2.78-6.25-6.2v-49.6c0-3.42,2.8-6.2,6.25-6.2Z"/>
+    <path class="cls-3" d="M90.62,131v-12.4h18.75v12.4"/>
+    <path class="cls-3" d="M87.5,81.4h.03"/>
+    <path class="cls-3" d="M112.5,81.4h.03"/>
+    <path class="cls-3" d="M100,81.4h.03"/>
+    <path class="cls-3" d="M100,93.8h.03"/>
+    <path class="cls-3" d="M100,106.2h.03"/>
+    <path class="cls-3" d="M112.5,93.8h.03"/>
+    <path class="cls-3" d="M112.5,106.2h.03"/>
+    <path class="cls-3" d="M87.5,93.8h.03"/>
+    <path class="cls-3" d="M87.5,106.2h.03"/>
+  </g>
+</svg>
