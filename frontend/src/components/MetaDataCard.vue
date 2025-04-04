@@ -39,38 +39,35 @@
       <br />
 
       <!-- Schlüsselattribute -->
-      <div class="d-flex align-center">
+      <div class="d-flex align-center mb-4">
         <b class="pr-4 text-secondary">Schlüsselattribute </b>
-        <v-chip-group column>
+        <div>
           <v-chip
             v-for="chip in dataEntry.filter_attributes"
             :key="chip"
             color="primary"
-            variant="tonal"
+            variant="outlined"
+            class="mr-2"
             >{{ chip }}
           </v-chip>
-        </v-chip-group>
+        </div>
       </div>
 
       <!-- Available Attributes -->
       <v-row>
         <v-col cols="12" sm="6" v-if="dataEntry.availability_temporal">
-          <b class="mr-4 text-secondary">Zeitspanne </b>
-          <v-chip variant="tonal" color="primary">
-            {{ dataEntry.availability_temporal.start_date }} -
-            {{ dataEntry.availability_temporal.end_date }}
-          </v-chip>
+          <b class="mr-4">Verfügbare Zeitspanne </b>
+          {{ dataEntry.availability_temporal.start_date }} -
+          {{ dataEntry.availability_temporal.end_date }}
         </v-col>
         <v-col cols="12" sm="6" v-if="dataEntry.availability_spatial">
-          <b class="mr-4 text-secondary">Ort </b>
-          <v-chip variant="tonal" color="primary">
-            {{ dataEntry.availability_spatial.country }}
-          </v-chip>
+          <b class="mr-4">Ort </b>
+          {{ dataEntry.availability_spatial.country }}
         </v-col>
       </v-row>
 
       <!-- Quelle -->
-      <p class="pt-3">
+      <p class="pt-4">
         <b class="pr-4 text-secondary">Quelle </b> {{ dataEntry.source }}
         <v-icon @click="showSource = !showSource">{{
           showSource ? "mdi-chevron-up" : "mdi-chevron-down"

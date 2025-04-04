@@ -27,7 +27,7 @@
     "id": 5,
     "category": "about",
     "question": "Kann ich das Datenmodell auch ohne MII-Daten nutzen?",
-    "answer": "Sie können das Datenmodell mit einem Dummy-Datensatz testen. Hier[LINK tbd] finden Sie einen synthetischen Datensatz, der zeigt wie der MII-Datensatz aufgebaut ist. Diesen Datensatz können Sie z.B. nutzen, um die Verschneidung von Datensätzen zu simulieren, auch ohne bereits Daten der MII vorliegen zu haben. <br/> <br/> Selbstverständlich können Sie die offenen Datensätze auch downloaden, ohne Sie für eine Verknüpfung mit MII-Daten anzupassen."
+    "answer": "Sie können das Datenmodell mit einem Dummy-Datensatz testen. <a href='https://github.com/technologiestiftung/post-covid-datenmodell/blob/main/data/raw/2024-12-02_mii_testdaten_small.json' target='_blank'>Hier<a/> finden Sie einen synthetischen Datensatz, der zeigt wie der MII-Datensatz aufgebaut ist. Diesen Datensatz können Sie z.B. nutzen, um die Verschneidung von Datensätzen zu simulieren, auch ohne bereits Daten der MII vorliegen zu haben. <br/> <br/> Selbstverständlich können Sie die offenen Datensätze auch downloaden, ohne Sie für eine Verknüpfung mit MII-Daten anzupassen."
   },
   {
     "id": 6,

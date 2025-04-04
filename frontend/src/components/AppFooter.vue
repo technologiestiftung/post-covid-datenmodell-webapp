@@ -76,7 +76,7 @@
 const footerLinksProject = [
   {
     title: "Über dieses Projekt",
-    link: "https://www.technologiestiftung-berlin.de/",
+    link: " https://www.technologiestiftung-berlin.de/projekte/post-covid-datenmodell",
   },
   {
     title: "Kontakt",

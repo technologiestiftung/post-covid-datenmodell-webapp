@@ -39,6 +39,7 @@ const filterStore = useFilterStore();
 
 const updateFilterCategory = (value: Category) => {
   filterStore.filterCategory = value;
+  filterStore.showFavorites = false;
   filterStore.search = "";
 };
 </script>
