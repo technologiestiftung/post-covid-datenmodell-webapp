@@ -1,0 +1,27 @@
+Post-COVID-Datenmodell
+Farben & Kommunikationsmaterial
+
+Farbwerte
+
+Dunkelblau (TSB/ODIS)
+•	Original: #1E3791
+Magenta (CityLAB)
+•	Original (u.U. für Typo): #F64C72
+•	Abton (Flächen): #FBB7C7
+Taubenblau (BIH)
+•	Original (u.U. für Typo): #70ACC0
+•	Abton (Flächen): #C6DEE6
+Hellgrün (TSB)
+•	Original (u.U. für Typo): #41B496
+•	Abton (Flächen): #8DD2C0
+
+
+Visuelles Konzept
+
+Die Zusammenarbeit der diversen Teams der ODIS, des CityLAB Berlin und des BIH spiegelt sich auch in dem visuellen Baukasten des Post-Covid-Datenmodells wider: Alle Beteiligten steuern eine ihrer Hauptfarben bei, die als Abtöne für eine visuelle Kodierung innerhalb des Modells genutzt werden. 
+
+Der verwendete Schrift Sora (Open Font License) hat eine besonders große x-Höhe und großzügige Ziffern und ermöglicht damit Klarheit und Effektivität in jeder Größe bei App- und Web-Oberflächen. Die Formensprache bewegt sich zwischen den Schriften der Projektpartner:innen und grenzt sich gut ab ohne die visuelle Nähe zu verlieren.
+
+Das abstrahierte Papier, auf dem die Wortmarke platziert ist, steht für den Entwurfscharakter des Modells, bedient sich des visuellen Baukastens der Technologiestiftung Berlin und ermöglicht gleichzeitig einen unkomplizierten Einsatz des Logos auf Farbflächen.
+
+Die Icon(bausteine) stammen aus der open-source icon library Lucide.
