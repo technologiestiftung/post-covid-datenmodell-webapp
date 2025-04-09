@@ -140,7 +140,7 @@
                 icon="umwelt"
                 title="Umwelt"
                 subtitle="Wenn Luftqualität zur Gesundheitsfrage wird"
-                description="Untersuche den Einfluss von Umweltfaktoren wie z.B. die Luftqualität auf Post-Covid-Verläufe. Gibt es zeitliche oder regionale Unterschiede? Sind bestimmte Personen- oder Altersgruppen stärker durch Umweltbelastungen gefährdet? Identifizieren Sie potenzielle Risikofaktoren."
+                description="Untersuchen Sie den Einfluss von Umweltfaktoren wie z.B. die Luftqualität auf Post-Covid-Verläufe. Gibt es zeitliche oder regionale Unterschiede? Sind bestimmte Personen- oder Altersgruppen stärker durch Umweltbelastungen gefährdet? Identifizieren Sie potenzielle Risikofaktoren."
               />
             </v-col>
 

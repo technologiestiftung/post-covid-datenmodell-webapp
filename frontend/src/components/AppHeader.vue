@@ -10,7 +10,7 @@
         <v-list-item-title>Startseite</v-list-item-title>
       </v-list-item>
       <v-list-item :to="{ name: 'DataList' }" prepend-icon="mdi-database">
-        <v-list-item-title>Metadatenbank</v-list-item-title>
+        <v-list-item-title>Metadatenkatalog</v-list-item-title>
       </v-list-item>
       <v-list-item :to="{ name: 'DataSuggestion' }" prepend-icon="mdi-plus">
         <v-list-item-title>Daten vorschlagen</v-list-item-title>
@@ -49,7 +49,7 @@
           }"
           class="text-primary text-capitalize"
         >
-          Metadatenbank
+          Metadatenkatalog
         </v-tab>
         <v-tab
           :to="{
