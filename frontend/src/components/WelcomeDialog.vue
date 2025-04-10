@@ -31,11 +31,9 @@
         <p class="mt-6">
           <b class="text-secondary">Hinweis: Prototyp in der Entwicklung</b>
           <br />
-          Diese Anwendung wurde im Rahmen einer Ausschreibung des
-          Bundesministeriums für Inneres und Heimat und dem Bundesministerium
-          für Wirtschaft und Klimaschutz entwickelt und dient als technisches
-          Konzept. Sie ist nicht als vollständig ausgereiftes Produkt gedacht,
-          daher können einzelne Funktionen eingeschränkt sein oder nicht immer
+          Diese Anwendung wurde im Auftrag des Bundesministeriums für Inneres und Heimat 
+          entwickelt und dient als technisches Konzept. Sie ist nicht als vollständig ausgereiftes 
+          Produkt gedacht, daher können einzelne Funktionen eingeschränkt sein oder nicht immer
           fehlerfrei funktionieren.
         </p>
         <p class="mt-6">Vielen Dank fürs Ausprobieren!</p>
